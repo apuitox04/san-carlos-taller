@@ -7,12 +7,15 @@ Las rutas siguientes corresponden a GitHub. En la copia de ChatGPT Sites, el dir
 | Archivo | Responsabilidad |
 | --- | --- |
 | `docs/index.html` | Metadatos, navegación, pie y estructura inicial. |
-| `docs/assets/app.js` | Inicio, atlas, materiales, ponente, fuentes y enrutamiento. |
-| `docs/assets/app.css` | Diseño general, atlas, adaptación móvil e impresión. |
+| `docs/assets/app.js` | Enrutamiento, inicio, preparación, descargas, índice de presentación, búsqueda y navegación. |
+| `docs/assets/app.css` | Estructura general, páginas de acceso, adaptación móvil e impresión. |
+| `docs/assets/shared.js` | Iconos, texto seguro, almacenamiento, copia y descarga. |
+| `docs/assets/reference.js` | Fuentes, agenda, ensayo del ponente y su exportación. |
+| `docs/assets/atlas.js` y `atlas.css` | Mapa, inspector, selección, tablas, CSV, sitios y ampliación de láminas. |
 | `docs/assets/practices.js` | Prácticas, comprobaciones, expediente, fórmulas y exportaciones. |
 | `docs/assets/practices.css` | Presentación de las prácticas. |
-| `docs/assets/presentation.js` | Diapositivas, proyección, notas e impresión. |
-| `docs/content/course.json` | Programa y desarrollo de P01–P06. |
+| `docs/assets/presentation.js` y `presentation.css` | Composiciones de diapositivas, proyección, notas e impresión. |
+| `docs/content/course.json` | Programa, desarrollo original y recorridos `workflow.tasks` de P01–P06. |
 | `docs/content/solutions.json` | Desarrollo de las soluciones. |
 | `docs/content/formulas.json` | Fórmulas originales para QGIS. |
 | `docs/content/slides.json` | Diapositivas, figuras y notas del ponente. |
@@ -26,7 +29,16 @@ Las rutas siguientes corresponden a GitHub. En la copia de ChatGPT Sites, el dir
 
 Editar los archivos correspondientes, ejecutar `npm run check` y revisar en el navegador la sección modificada. Las rutas usan fragmentos como `#/practicas/P01`; esto permite enlazar una sección sin configurar redirecciones de servidor.
 
-Conservar las interfaces de los módulos: `renderPractice` y `bindPractice` para prácticas, `renderPresentation` y `bindPresentation` para diapositivas. El índice interno de presentación comienza en cero; las direcciones visibles comienzan en uno. Al abandonar una sección, ejecutar su función de limpieza para retirar listeners y cerrar el modo de proyección.
+Conservar las interfaces de los módulos:
+
+- Prácticas: `renderPractice`, `bindPractice` y `getWorkshopProgress`.
+- Mi trabajo: `renderPortfolio` y `bindPortfolio`.
+- Atlas: `renderAtlas` y `bindAtlas`.
+- Presentación: `renderPresentation` y `bindPresentation`.
+
+Cada función `bind` devuelve una función de limpieza. El enrutador la ejecuta al abandonar la sección. El índice interno de presentación comienza en cero y las direcciones visibles comienzan en uno. El módulo de prácticas emite `sc-progress-change` al guardar; la navegación actualiza el avance sin volver a dibujar los campos de escritura.
+
+Las tareas referencian bloques originales, fórmulas, controles, soluciones y figuras por identificador. Revisar esas relaciones cuando cambie el recorrido. Los cambios de presentación o navegación pueden tener una versión web propia, sin reemplazar los activos de datos de una publicación anterior. Los recursos de la edición web 1.1.0 usan `?v=1.1.0`; actualizar ese identificador al publicar una revisión para evitar mezclar archivos almacenados en caché.
 
 No modificar los resultados numéricos para ajustar una frase. Una revisión del método o de los datos requiere recalcular el material fuente, comprobar sus salidas y publicar una nueva edición.
 
@@ -53,4 +65,6 @@ El script verifica la huella del GeoPackage de límites de esta edición antes d
 
 ## Datos locales del navegador
 
-La aplicación conserva notas y progreso en `localStorage`. La versión actual no importa expedientes de otras personas ni recibe entregas en un servidor. Los archivos TXT y JSON exportados son copias del trabajo del participante; su conservación depende de quien los descarga. Al añadir campos en el futuro, mantener las claves existentes o implementar una migración para no perder notas anteriores.
+La aplicación conserva notas y progreso en `localStorage`. Las claves de las prácticas mantienen el prefijo `san-carlos-taller:practica:v1:`. El formato interno añade tarea activa, tareas revisadas y notas por tarea; la lectura migra los registros anteriores sin eliminar sus campos originales. La preparación, el atlas y las notas de presentación utilizan claves independientes.
+
+Mi trabajo exporta JSON 2.0 y admite JSON 1.0 y 2.0 del taller. Antes de restaurar valida el archivo y presenta los registros afectados. Solo los reemplaza al pulsar el botón de confirmación; cancelar conserva el estado actual. La importación de un expediente no modifica la preparación del equipo ni los datos geográficos. El sitio no recibe entregas en un servidor. Al añadir campos, mantener las claves existentes o implementar una migración para no perder registros.

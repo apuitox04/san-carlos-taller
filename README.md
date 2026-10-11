@@ -16,9 +16,12 @@ La consulta y las descargas públicas no requieren una cuenta de GitHub. El siti
 
 | Sección | Contenido y uso |
 | --- | --- |
+| Inicio | Acceso al punto de trabajo, preparación pendiente y avance personal de las seis prácticas. |
+| Preparar archivos | Descarga de ambos paquetes, estructura de carpetas, apertura del proyecto y cuatro comprobaciones del equipo. |
 | Presentación | 30 diapositivas; navegación por teclado, proyección, notas del ponente e impresión de la presentación completa. |
-| Prácticas | Seis actividades con fundamento, procedimiento en QGIS, comprobaciones, solución y expediente del participante. |
-| Atlas | Selección de los 13 distritos, cobertura válida, diferencias de NDVI, tabla distrital, pares de fechas y sensibilidad del umbral de MNDWI. |
+| Prácticas | Seis actividades divididas en 28 tareas. Cada tarea reúne objetivo, operación, salida, comprobación y registro; el manual y la resolución siguen disponibles. |
+| Mi trabajo | Resumen de las seis prácticas, notas y respuestas, informe, S06, exportación TXT/JSON y restauración de un JSON con revisión previa. |
+| Atlas | Mapa e inspector de San Carlos y sus 13 distritos, tabla, soporte común, umbrales de MNDWI y fechas. Copia de resultados para el informe y descargas CSV. |
 | Materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
 | Ponente | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y propuesta de costo simbólico. |
 | Fuentes y método | Procedencia de los límites, observaciones satelitales, decisiones de procesamiento y referencias del taller. |
@@ -40,7 +43,7 @@ Las prácticas ocupan 370 minutos. La apertura y la revisión final suman otros 
 
 1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.0.
 2. Extraer ambos en el mismo directorio. Los contenidos forman una sola carpeta `Taller_San_Carlos/`; conservar su estructura para que funcionen las rutas relativas de los proyectos QGIS.
-3. Seguir las instrucciones de instalación y apertura incluidas en **Materiales** y en el cuaderno de trabajo.
+3. Abrir **Preparar archivos** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
 4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Ponente** permite registrar y descargar ese ensayo.
 
 Los dos ZIP suman aproximadamente **658,5 MB** comprimidos. Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
@@ -66,7 +69,9 @@ Fuentes: [servicio WFS del IGN en SNIT](https://geos.snitcr.go.cr/be/IGN_5_CO/wf
 
 ## Notas del participante
 
-Las respuestas, notas y marcas de revisión se guardan en el almacenamiento local del navegador. No se envían al ponente ni se sincronizan entre equipos. El participante puede descargar su expediente en TXT o JSON. Conviene exportarlo al terminar cada sesión, especialmente si utiliza una computadora compartida.
+Las respuestas, notas, tarea activa y marcas de revisión se guardan en el almacenamiento local del navegador. No se envían al ponente ni se sincronizan automáticamente entre equipos. **Mi trabajo** permite exportar el expediente como TXT legible o JSON restaurable. Al cargar un JSON, el sitio muestra las prácticas que contiene y espera una acción explícita antes de reemplazar sus registros. Admite las exportaciones anteriores de la edición web 1.0 y las nuevas de la edición 1.1.
+
+La revisión de una tarea es una marca del participante. Los controles numéricos contrastan cantidades con resultados de referencia; la interpretación del informe requiere revisión técnica. Si el navegador bloquea el almacenamiento, el sitio lo indica y mantiene las notas durante la sesión. Conviene exportar una copia al terminar.
 
 ## Ejecutar y mantener el sitio
 
@@ -92,7 +97,7 @@ Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actual
 
 ## Comprobaciones de esta edición
 
-Se comprobaron las rutas del sitio, la selección de distritos por teclado, los cálculos de las comprobaciones de prácticas, la conservación de notas, las exportaciones, la navegación de diapositivas y las referencias a archivos. Las comprobaciones de interacción se ejecutaron en un entorno DOM automatizado; no equivalen a una revisión visual en todos los navegadores.
+La edición web **1.1.0** reorganiza la navegación, las tareas y la presentación. Conserva los datos y archivos de la publicación **1.0.0**. Se comprobaron las rutas, la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
 
 El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
 

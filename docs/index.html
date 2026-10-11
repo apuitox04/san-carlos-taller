@@ -1,32 +1,36 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#175e56">
-  <meta name="description" content="Taller de análisis territorial de San Carlos con QGIS, Sentinel-2 y datos oficiales IGN/SNIT. Presentación, seis prácticas, atlas y ejercicios resueltos.">
-  <title>San Carlos · Análisis territorial</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/app.css">
-  <link rel="stylesheet" href="assets/practices.css">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#142e43">
+ <meta name="description" content="Taller práctico de análisis territorial de San Carlos. Preparación de QGIS, seis prácticas guiadas, atlas IGN/SNIT, presentación y expediente de trabajo.">
+ <title>Taller San Carlos · Análisis territorial</title>
+ <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+ <link rel="preload" href="assets/fonts/IBMPlexSans-Variable.woff" as="font" type="font/woff" crossorigin>
+ <link rel="stylesheet" href="assets/app.css?v=1.1.0">
+ <link rel="stylesheet" href="assets/practices.css?v=1.1.0">
+ <link rel="stylesheet" href="assets/atlas.css?v=1.1.0">
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <header class="site-header">
-    <a class="wordmark" href="#/inicio" aria-label="San Carlos, inicio"><span class="mark">SC</span><span>San Carlos<small>Taller de análisis territorial</small></span></a>
-    <button class="menu-button" id="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menú <span aria-hidden="true">☰</span></button>
-    <nav id="main-navigation" aria-label="Navegación principal">
-      <a href="#/presentacion/1" data-nav="presentacion">Presentación</a>
-      <a href="#/practicas/P01" data-nav="practicas">Prácticas</a>
-      <a href="#/atlas" data-nav="atlas">Atlas</a>
-      <a href="#/materiales" data-nav="materiales">Materiales</a>
-      <a href="#/docente" data-nav="docente">Ponente</a>
-    </nav>
-  </header>
-  <main id="contenido" tabindex="-1"><div class="loading" role="status">Cargando el taller…</div></main>
-  <footer class="site-footer"><div><strong>Andrés Castillo Leitón</strong><span>Ingeniero Topógrafo · Formación geoespacial</span></div><div><a href="#/fuentes">Fuentes y método</a><a href="https://github.com/apuitox04/san-carlos-taller" target="_blank" rel="noopener">GitHub ↗</a><span>Edición 11.10.2026</span></div></footer>
-  <dialog id="figure-dialog" aria-label="Lámina ampliada"><button id="close-figure" class="button light">Cerrar ×</button><img alt="" id="figure-expanded"><p id="figure-caption"></p></dialog>
-  <div id="notice" role="status" aria-live="polite"></div>
-  <script type="module" src="assets/app.js"></script>
+ <a class="skip-link" id="skip-link" href="#contenido">Saltar al contenido</a>
+ <button class="drawer-scrim" id="drawer-scrim" aria-label="Cerrar navegación" tabindex="-1"></button>
+ <aside class="app-sidebar" id="main-navigation" aria-label="Navegación del taller">
+  <div class="sidebar-brand"><a href="#/inicio" class="wordmark"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="m5 14 15-8 15 8-15 8Z" stroke="currentColor" stroke-width="1.7"/><path d="m5 21 15 8 15-8M5 28l15 8 15-8" stroke="currentColor" stroke-width="1.7"/></svg></span><span>San Carlos<small>Análisis territorial</small></span></a><button class="icon-button close-menu" id="close-menu" aria-label="Cerrar menú"><span data-icon="close"></span></button></div>
+  <div class="sidebar-caption">Taller práctico · 1 jornada</div>
+  <nav class="side-nav" aria-label="Trabajo del participante"><p class="nav-label">Tu recorrido</p><a href="#/inicio" data-nav="inicio"><span data-icon="home"></span>Inicio</a><a href="#/preparacion" data-nav="preparacion"><span data-icon="settings"></span>Preparar archivos<small id="sidebar-prep-count">0/4</small></a><a href="#/practicas" data-nav="practicas"><span data-icon="book"></span>Prácticas<span class="nav-count">6</span></a><a href="#/atlas" data-nav="atlas"><span data-icon="map"></span>Atlas de San Carlos</a><a href="#/expediente" data-nav="expediente"><span data-icon="folder"></span>Mi trabajo</a><a href="#/materiales" data-nav="materiales"><span data-icon="download"></span>Materiales</a></nav>
+  <nav class="side-nav teacher-nav" aria-label="Herramientas del ponente"><p class="nav-label">Para impartir</p><a href="#/presentacion" data-nav="presentacion"><span data-icon="monitor"></span>Presentación</a><a href="#/docente" data-nav="docente"><span data-icon="clock"></span>Agenda y ensayo</a></nav>
+  <div class="sidebar-bottom"><div class="sidebar-progress"><span id="sidebar-progress-label">0 de 6 prácticas revisadas</span><div><i id="sidebar-progress-fill"></i></div><small>Seguimiento personal</small></div><a class="sources-link" href="#/fuentes" data-nav="fuentes"><span data-icon="info"></span>Fuentes y método</a><div class="author-mini"><span class="author-avatar">AC</span><div><strong>Andrés Castillo Leitón</strong><small>Ingeniero Topógrafo</small></div></div></div>
+ </aside>
+ <div class="app-workspace" id="workspace">
+  <header class="app-topbar"><div class="breadcrumb"><span class="topbar-brand">San Carlos</span><span class="breadcrumb-divider">/</span><span id="current-section">Inicio</span></div><div class="topbar-actions"><button class="search-button" data-open-search aria-label="Buscar en el taller"><span data-icon="search"></span><span>Buscar</span><kbd>⌘ K</kbd></button><a class="resume-button" id="resume-work" href="#/practicas/P01"><span data-icon="play"></span><span data-resume-label>Continuar P01</span></a></div></header>
+  <main id="contenido" tabindex="-1"><div class="section-loading" role="status"><span></span>Cargando el taller…</div></main>
+  <footer class="site-footer"><span>San Carlos, Costa Rica · Ejercicio docente</span><div><a href="#/fuentes">IGN/SNIT y fuentes</a><a href="https://github.com/apuitox04/san-carlos-taller" target="_blank" rel="noopener">Proyecto en GitHub ↗</a></div></footer>
+ </div>
+ <nav class="mobile-navigation" id="mobile-navigation" aria-label="Accesos principales"><a href="#/inicio" data-nav="inicio"><span data-icon="home"></span><span>Inicio</span></a><a href="#/practicas" data-nav="practicas"><span data-icon="book"></span><span>Prácticas</span></a><a href="#/atlas" data-nav="atlas"><span data-icon="map"></span><span>Atlas</span></a><a href="#/expediente" data-nav="expediente"><span data-icon="folder"></span><span>Mi trabajo</span></a><button id="menu-toggle" aria-controls="main-navigation" aria-expanded="false"><span data-icon="menu"></span><span>Más</span></button></nav>
+ <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title"><div class="search-dialog-heading"><h2 id="search-title">Buscar en el taller</h2><button id="close-search" class="icon-button" aria-label="Cerrar búsqueda"><span data-icon="close"></span></button></div><div class="search-input-wrap"><span data-icon="search"></span><label class="sr-only" for="search-input">Práctica, concepto u operación</label><input id="search-input" type="search" placeholder="Práctica, concepto u operación…" autocomplete="off"></div><p id="search-count" class="small muted" role="status"></p><div id="search-results"></div></dialog>
+ <div id="notice" role="status" aria-live="polite"></div>
+ <noscript><section class="noscript-help"><h1>Taller San Carlos</h1><p>Activa JavaScript para utilizar las prácticas y el atlas. Puedes descargar los cuadernos y proyectos desde <a href="https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.0">Materiales del taller</a>.</p></section></noscript>
+ <script type="module" src="assets/app.js?v=1.1.0"></script>
 </body>
 </html>

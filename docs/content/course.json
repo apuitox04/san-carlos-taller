@@ -495,7 +495,198 @@
         "DATOS_LOCAL",
         "QGIS_RASTER",
         "QGIS_EJECUTADO"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "capas",
+            "title": "Confirmar las capas oficiales",
+            "goal": "Dejar identificados productor, versión, SRC y los trece distritos.",
+            "sourceRefs": [
+              {
+                "sectionId": "expediente",
+                "blockIndex": 4,
+                "itemIndices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 2,
+                "itemIndices": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/Practica_San_Carlos.qgz"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 1
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r01_territorio"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "area",
+            "title": "Calcular el área de la geometría",
+            "goal": "Conservar el campo virtual AREA_KM2_IGN en el proyecto.",
+            "sourceRefs": [
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 2,
+                "itemIndices": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 3
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/Practica_San_Carlos.qgz"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 4
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r01_territorio"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": [
+              {
+                "sectionId": "p01_territorio",
+                "blockIndex": 6
+              }
+            ]
+          },
+          {
+            "id": "conteo",
+            "title": "Obtener el conteo de celdas",
+            "goal": "Generar la tabla territorial y reconocer la clase exterior 0.",
+            "sourceRefs": [
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  0,
+                  1,
+                  2
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P01_conteo_distritos.gpkg",
+              "mi_trabajo/P01_conteo_distritos.html"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 0
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r01_territorio"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "denominador",
+            "title": "Calcular el denominador",
+            "goal": "Expresar la cuadrícula cantonal en hectáreas y distinguirla del área vectorial.",
+            "sourceRefs": [
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  3,
+                  4
+                ]
+              },
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 3
+              },
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 4
+              }
+            ],
+            "outputPaths": [
+              "Registro de superficie y criterio de inclusión"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 1
+              }
+            ],
+            "checkIds": [
+              "area_cantonal"
+            ],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r01_territorio"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "registro",
+            "title": "Registrar el resultado territorial",
+            "goal": "Dejar anotada la base territorial que utilizarán los porcentajes del informe.",
+            "sourceRefs": [
+              {
+                "sectionId": "p01_celdas",
+                "blockIndex": 6
+              }
+            ],
+            "outputPaths": [
+              "Nota de P01 y tabla de conteos"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r01_territorio"
+            ],
+            "figureKeys": [
+              "01_portada_apaisada"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          }
+        ]
+      }
     },
     {
       "id": "P02",
@@ -799,7 +990,209 @@
         "FECHAS_LOCAL",
         "QGIS_RASTER",
         "SITIOS_LOCAL"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "bandas",
+            "title": "Revisar las bandas entregadas",
+            "goal": "Confirmar que se trabaja con cuatro bandas de reflectancia preparadas.",
+            "sourceRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  0
+                ]
+              },
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 1
+              }
+            ],
+            "outputPaths": [
+              "Registro del orden de bandas"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 2
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r02_observaciones"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "visualizacion",
+            "title": "Preparar la comparación visual",
+            "goal": "Aplicar la misma combinación y límites de visualización a F1 y F2.",
+            "sourceRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  1
+                ]
+              },
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 3
+              }
+            ],
+            "outputPaths": [
+              "Simbología F1 y F2 en el proyecto"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 4
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r02_observaciones"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "muestreo",
+            "title": "Muestrear los cinco sitios",
+            "goal": "Extraer las reflectancias de F1 y F2 a la tabla de puntos.",
+            "sourceRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  2,
+                  3
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P02_muestras_F1.gpkg",
+              "mi_trabajo/P02_muestras_F1_F2.gpkg"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r02_observaciones"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "calidad",
+            "title": "Decidir qué observaciones se aceptan",
+            "goal": "Registrar SCL, margen seguro, fecha y fuente; documentar la exclusión de S02.",
+            "sourceRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  4,
+                  5
+                ]
+              }
+            ],
+            "outputPaths": [
+              "Registro de observación S01–S05"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 1
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r02_observaciones"
+            ],
+            "figureKeys": [
+              "S02_La_Fortuna"
+            ],
+            "widget": null,
+            "verificationRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 6
+              }
+            ]
+          },
+          {
+            "id": "fechas",
+            "title": "Relacionar cada sitio con sus fechas",
+            "goal": "Identificar el intervalo real y conservar la procedencia de la comparación.",
+            "sourceRefs": [
+              {
+                "sectionId": "p02_lecturas",
+                "blockIndex": 2,
+                "itemIndices": [
+                  6
+                ]
+              },
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 4
+              }
+            ],
+            "outputPaths": [
+              "Fechas e intervalos de S01–S05"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 5
+              },
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 6
+              },
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 7
+              }
+            ],
+            "checkIds": [
+              "intervalo_s03"
+            ],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r02_observaciones"
+            ],
+            "figureKeys": [
+              "06_matriz_temporal"
+            ],
+            "widget": null,
+            "verificationRefs": [
+              {
+                "sectionId": "p02_observacion",
+                "blockIndex": 9
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "P03",
@@ -1097,7 +1490,189 @@
         "QGIS_CALC",
         "QGIS_EJECUTADO",
         "DATOS_LOCAL"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "celda",
+            "title": "Calcular los índices de una celda",
+            "goal": "Desarrollar numerador, denominador y cociente en S01.",
+            "sourceRefs": [
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 10
+              }
+            ],
+            "outputPaths": [
+              "Cálculo manual de S01, F1"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 1
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 2
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 3
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 4
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 5
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 7
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 8
+              }
+            ],
+            "checkIds": [
+              "ndvi_s01"
+            ],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r03_s01"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "ndvi_f1",
+            "title": "Calcular NDVI de F1 en QGIS",
+            "goal": "Crear el primer índice con la cuadrícula y la regla de aceptación del taller.",
+            "sourceRefs": [
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 3,
+                "itemIndices": [
+                  0,
+                  1,
+                  2
+                ]
+              },
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 2
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P03_NDVI_F1.tif"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 1
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [
+              "P03_NDVI_F1"
+            ],
+            "solutionSectionIds": [
+              "r03_indices"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "seis_indices",
+            "title": "Completar los seis índices",
+            "goal": "Generar SAVI y MNDWI de F1 y los tres índices de F2.",
+            "sourceRefs": [
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 3,
+                "itemIndices": [
+                  3,
+                  4
+                ]
+              },
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 4
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P03_SAVI_F1.tif",
+              "mi_trabajo/P03_MNDWI_F1.tif",
+              "mi_trabajo/P03_NDVI_F2.tif",
+              "mi_trabajo/P03_SAVI_F2.tif",
+              "mi_trabajo/P03_MNDWI_F2.tif"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [
+              "P03_SAVI_F1",
+              "P03_MNDWI_F1",
+              "P03_NDVI_F2",
+              "P03_SAVI_F2",
+              "P03_MNDWI_F2"
+            ],
+            "solutionSectionIds": [
+              "r03_indices"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "contraste",
+            "title": "Comprobar valores y exclusiones",
+            "goal": "Contrastar S01 y conservar S02 sin índices válidos en F1.",
+            "sourceRefs": [
+              {
+                "sectionId": "p03_calculo",
+                "blockIndex": 3,
+                "itemIndices": [
+                  5,
+                  6
+                ]
+              },
+              {
+                "sectionId": "p03_fundamento",
+                "blockIndex": 11
+              }
+            ],
+            "outputPaths": [
+              "Proyecto guardado y registro de contraste S01/S02"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r03_s01",
+              "r03_indices"
+            ],
+            "figureKeys": [
+              "09_lectura_reflectancias",
+              "S01_Pital"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          }
+        ]
+      }
     },
     {
       "id": "P04",
@@ -1367,7 +1942,213 @@
         "SITIOS_LOCAL",
         "MNDWI_XU",
         "UMBRAL_LOCAL"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "diferencia",
+            "title": "Calcular la diferencia de NDVI",
+            "goal": "Restar F1 de F2 sobre las mismas celdas válidas.",
+            "sourceRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 3,
+                "itemIndices": [
+                  0
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P04_Delta_NDVI.tif"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 1
+              },
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 2
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [
+              "P04_Delta_NDVI"
+            ],
+            "solutionSectionIds": [
+              "r04_comparable"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "soporte",
+            "title": "Medir la superficie comparable",
+            "goal": "Obtener la máscara de comparación, su superficie y su porcentaje cantonal.",
+            "sourceRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 3,
+                "itemIndices": [
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P04_Soporte_NDVI.tif",
+              "mi_trabajo/P04_soporte.gpkg"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 6
+              }
+            ],
+            "checkIds": [
+              "cobertura_cantonal"
+            ],
+            "formulaIds": [
+              "P04_Soporte_NDVI"
+            ],
+            "solutionSectionIds": [
+              "r04_comparable"
+            ],
+            "figureKeys": [
+              "03_soporte_comun"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "sitios",
+            "title": "Leer las diferencias en los sitios",
+            "goal": "Relacionar signo, magnitud e intervalo con la observación de cada sitio.",
+            "sourceRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 3,
+                "itemIndices": [
+                  4,
+                  5
+                ]
+              }
+            ],
+            "outputPaths": [
+              "Registro NDVI F1, F2 y diferencia en S01–S05"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p04_comparacion",
+                "blockIndex": 8
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r04_comparable",
+              "r04_sitios"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "mndwi",
+            "title": "Aplicar la regla de MNDWI",
+            "goal": "Generar las cuatro categorías y contar su superficie.",
+            "sourceRefs": [
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 3,
+                "itemIndices": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 1
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P04_Clases_MNDWI.tif",
+              "mi_trabajo/P04_clases_mndwi.gpkg"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 2
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [
+              "P04_Clases_MNDWI"
+            ],
+            "solutionSectionIds": [
+              "r04_umbral"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "sensibilidad",
+            "title": "Examinar el efecto del umbral",
+            "goal": "Comparar las tres reglas sobre la misma superficie y formular la comprobación de S03.",
+            "sourceRefs": [
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 3,
+                "itemIndices": [
+                  4,
+                  5
+                ]
+              }
+            ],
+            "outputPaths": [
+              "Nota de sensibilidad y comprobación de S03"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 5
+              },
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 6
+              },
+              {
+                "sectionId": "p04_umbral",
+                "blockIndex": 7
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r04_umbral"
+            ],
+            "figureKeys": [
+              "08_sensibilidad_umbral"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          }
+        ]
+      }
     },
     {
       "id": "P05",
@@ -1647,7 +2428,206 @@
         "QGIS_JOIN",
         "QGIS_EJECUTADO",
         "DATOS_LOCAL"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "mascaras",
+            "title": "Aplicar el soporte común",
+            "goal": "Preparar F1 y F2 para que sus medias utilicen las mismas celdas.",
+            "sourceRefs": [
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 2,
+                "itemIndices": [
+                  0
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P05_NDVI_F1_comun.tif",
+              "mi_trabajo/P05_NDVI_F2_comun.tif"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 1
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [
+              "P05_NDVI_F1_comun",
+              "P05_NDVI_F2_comun"
+            ],
+            "solutionSectionIds": [
+              "r05_tabla"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "zonas",
+            "title": "Obtener las estadísticas zonales",
+            "goal": "Crear las tres tablas y comprobar la igualdad de conteos por distrito.",
+            "sourceRefs": [
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 2,
+                "itemIndices": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 5
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P05_zonal_delta.gpkg",
+              "mi_trabajo/P05_zonal_F1.gpkg",
+              "mi_trabajo/P05_zonal_F2.gpkg"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r05_tabla"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "uniones",
+            "title": "Unir las tablas por código",
+            "goal": "Incorporar los resultados y el conteo total a las trece geometrías.",
+            "sourceRefs": [
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 2,
+                "itemIndices": [
+                  4,
+                  5,
+                  6
+                ]
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P05_resumen_distrital.gpkg"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p05_tabla",
+                "blockIndex": 6
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r05_tabla"
+            ],
+            "figureKeys": [],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "coberturas",
+            "title": "Calcular áreas y coberturas",
+            "goal": "Añadir los campos y comprobar cuánto representa cada media distrital.",
+            "sourceRefs": [
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 1,
+                "itemIndices": [
+                  0,
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 2
+              }
+            ],
+            "outputPaths": [
+              "Campos de área, cobertura y control de la diferencia"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 0
+              }
+            ],
+            "checkIds": [
+              "cobertura_la_tigra"
+            ],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r05_tabla",
+              "r05_lectura"
+            ],
+            "figureKeys": [
+              "04_cobertura_distrital"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "ponderacion",
+            "title": "Ponderar y exportar el resumen",
+            "goal": "Distinguir el peso de los distritos y conservar la tabla final.",
+            "sourceRefs": [
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 1,
+                "itemIndices": [
+                  4,
+                  5
+                ]
+              },
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 3
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P05_resumen_distrital.csv"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 4
+              }
+            ],
+            "checkIds": [
+              "media_ponderada"
+            ],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r05_lectura"
+            ],
+            "figureKeys": [
+              "07_ponderacion_distrital"
+            ],
+            "widget": null,
+            "verificationRefs": [
+              {
+                "sectionId": "p05_lectura",
+                "blockIndex": 6
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "P06",
@@ -1827,7 +2807,147 @@
         "QGIS_EJECUTADO",
         "DATOS_LOCAL",
         "SITIOS_LOCAL"
-      ]
+      ],
+      "workflow": {
+        "version": 2,
+        "tasks": [
+          {
+            "id": "mapa",
+            "title": "Preparar el mapa de San Carlos",
+            "goal": "Exportar el mapa con el ámbito completo, las fechas y la superficie comparable.",
+            "sourceRefs": [
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 2
+              }
+            ],
+            "outputPaths": [
+              "mi_trabajo/P06_mapa_San_Carlos.pdf"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 0
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r06_informe_1"
+            ],
+            "figureKeys": [
+              "05_delta_ndvi"
+            ],
+            "widget": null,
+            "verificationRefs": []
+          },
+          {
+            "id": "s06",
+            "title": "Documentar un sitio propio",
+            "goal": "Elegir S06 y conservar el criterio, las observaciones y la decisión por índice.",
+            "sourceRefs": [
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 8
+              },
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 9
+              },
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 10
+              }
+            ],
+            "outputPaths": [
+              "Ficha S06 y CSV del centro de celda"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 11
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r03_indices"
+            ],
+            "figureKeys": [],
+            "widget": "s06",
+            "verificationRefs": []
+          },
+          {
+            "id": "informe",
+            "title": "Redactar el informe técnico",
+            "goal": "Redactar los cuatro apartados y relacionarlos con el mapa y la tabla distrital.",
+            "sourceRefs": [
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 4
+              },
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 5
+              },
+              {
+                "sectionId": "p06_informe",
+                "blockIndex": 6
+              }
+            ],
+            "outputPaths": [
+              "Informe de una a dos páginas"
+            ],
+            "conceptRefs": [],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r06_informe_1",
+              "r06_informe_2"
+            ],
+            "figureKeys": [],
+            "widget": "report",
+            "verificationRefs": []
+          },
+          {
+            "id": "entrega",
+            "title": "Revisar y guardar el expediente",
+            "goal": "Comprobar los productos y exportar el registro completo de la jornada.",
+            "sourceRefs": [
+              {
+                "sectionId": "revision",
+                "blockIndex": 1
+              }
+            ],
+            "outputPaths": [
+              "Proyecto QGIS, mapa, tabla distrital e informe"
+            ],
+            "conceptRefs": [
+              {
+                "sectionId": "revision",
+                "blockIndex": 0
+              },
+              {
+                "sectionId": "revision",
+                "blockIndex": 3
+              },
+              {
+                "sectionId": "revision",
+                "blockIndex": 4
+              }
+            ],
+            "checkIds": [],
+            "formulaIds": [],
+            "solutionSectionIds": [
+              "r06_informe_1",
+              "r06_informe_2"
+            ],
+            "figureKeys": [],
+            "widget": "export",
+            "verificationRefs": []
+          }
+        ]
+      }
     }
   ],
   "s06Districts": [
