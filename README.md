@@ -1,4 +1,6 @@
-# San Carlos · Taller de análisis territorial
+# San Carlos con datos abiertos
+
+**Workshop · QGIS, Sentinel-2 y cartografía oficial IGN/SNIT**
 
 Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Municipalidad de San Carlos** y dirigido a **instituciones y público general**. Se trabaja con QGIS, Sentinel-2 y cartografía oficial del Instituto Geográfico Nacional de Costa Rica, publicada mediante el SNIT. El caso de estudio comprende los trece distritos del cantón de San Carlos.
 
@@ -9,7 +11,7 @@ Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Muni
 ## Acceso
 
 - [Sitio del taller](https://apuitox04.github.io/san-carlos-taller/)
-- [Datos, proyectos QGIS y documentos de la edición institucional 1.0.1](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.1)
+- [Datos, proyectos QGIS y documentos de la edición 1.0.2](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.2)
 
 La participación en el taller y la descarga de sus materiales son gratuitas. La consulta pública no requiere una cuenta de GitHub.
 
@@ -17,13 +19,13 @@ La participación en el taller y la descarga de sus materiales son gratuitas. La
 
 | Sección | Contenido y uso |
 | --- | --- |
-| Inicio | Acceso al punto de trabajo, preparación pendiente y avance personal de las seis prácticas. |
-| Preparar archivos | Descarga de ambos paquetes, estructura de carpetas, apertura del proyecto y cuatro comprobaciones del equipo. |
+| Programa | Identificación municipal, presentación del workshop y seis prácticas con duración, producto y acceso directo. |
+| Preparar el equipo | Descarga de ambos paquetes, estructura de carpetas, apertura del proyecto y cuatro comprobaciones del equipo. |
 | Presentación | 30 diapositivas; navegación por teclado, proyección, notas del ponente e impresión de la presentación completa. |
 | Prácticas | Seis actividades divididas en 28 tareas. Cada tarea reúne objetivo, operación, salida, comprobación y registro; el manual y la resolución siguen disponibles. |
 | Mi trabajo | Resumen de las seis prácticas, notas y respuestas, informe, S06, exportación TXT/JSON y restauración de un JSON con revisión previa. |
 | Atlas | Mapa e inspector de San Carlos y sus 13 distritos, tabla, soporte común, umbrales de MNDWI y fechas. Copia de resultados para el informe y descargas CSV. |
-| Materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
+| Datos y materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
 | Guía de facilitación | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y organización de la actividad municipal gratuita. |
 | Fuentes y método | Procedencia de los límites, observaciones satelitales, decisiones de procesamiento y referencias del taller. |
 
@@ -42,19 +44,19 @@ Las prácticas ocupan 370 minutos. La apertura y la revisión final suman otros 
 
 ## Preparar una computadora
 
-1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.1.
+1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.2.
 2. Extraer ambos en el mismo directorio. Los contenidos forman una sola carpeta `Taller_San_Carlos/`; conservar su estructura para que funcionen las rutas relativas de los proyectos QGIS.
-3. Abrir **Preparar archivos** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
+3. Abrir **Preparar el equipo** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
 4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Guía de facilitación** permite registrar y descargar ese ensayo.
 
-Los dos ZIP suman aproximadamente **659,5 MB** comprimidos. Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
+Los dos ZIP suman **663,7 MB** comprimidos (663 673 622 bytes). Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
 
 ### Integridad de los paquetes
 
 | Archivo | SHA-256 |
 | --- | --- |
 | Taller_San_Carlos_Datos.zip | `0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5` |
-| Taller_San_Carlos_Materiales.zip | `a39e393ed7451d64f3bbb07e8805cd144fca6680a2fd88eeb09caa357cab99cf` |
+| Taller_San_Carlos_Materiales.zip | `58cb0696f62f2b033ecb4a523ce577b2d45c3492807b385b95bf5c28ebc9c393` |
 
 ## Alcance de los resultados
 
@@ -98,12 +100,16 @@ Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actual
 
 ## Comprobaciones de esta edición
 
-La edición web **1.2.0** identifica el taller como una actividad municipal gratuita para instituciones y público general. Los materiales **1.0.1** corrigen portadas, atribuciones, notas editoriales y organización de la jornada; conservan los datos, cálculos y resultados de **1.0.0**. Se verificaron la sintaxis, las rutas, los enlaces locales, las cinco descargas y la estructura de seis prácticas, 28 tareas y 30 diapositivas.
+La edición web **1.3.0** incorpora el título **San Carlos con datos abiertos** y la identidad municipal en la portada, navegación y 30 diapositivas. El programa presenta las seis prácticas con duración, producto y acceso. Los materiales **1.0.2** aplican la misma identidad a los cuadernos, mapas y proyectos QGIS; conservan los datos, cálculos y resultados de **1.0.0**. El ZIP de datos es idéntico al activo de **1.0.1**.
 
-En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión editorial 1.2 conserva esa lógica y los identificadores de las prácticas. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
+Se verificaron la sintaxis, las rutas y la estructura de seis prácticas, 28 tareas y 30 diapositivas. Los dos ZIP contienen 312 archivos, cotejados contra su manifiesto conjunto, sin rutas duplicadas. La revisión de los PDF conserva las 24 páginas del cuaderno y las 26 del solucionario; mantiene el texto técnico de las páginas interiores y el área analítica de los mapas.
+
+En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.3 conserva esa lógica y los identificadores de las prácticas; la importación admite el título anterior y el nuevo. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
 
 El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
 
 ## Créditos
 
-Los datos mantienen su autoría y las condiciones de sus respectivas fuentes. La tipografía IBM Plex Sans se distribuye con su licencia SIL Open Font License en `docs/assets/fonts/OFL.txt`. Los archivos de procedencia, fórmulas y resultados de la edición se conservan en las descargas. La publicación del repositorio no atribuye a terceros un patrocinio o una certificación del taller.
+La identidad sigue el [libro de marca publicado por la Municipalidad de San Carlos](https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf), edición 2015: azul `#14416E`, fondo blanco, texto gris `#5D5D5D` y Museo Sans 300, 500 y 900. El escudo, la marca cantonal y la franja proceden del documento oficial; las fuentes proceden del portal municipal. Su procedencia se documenta en [docs/assets/brand/PROCEDENCIA.md](docs/assets/brand/PROCEDENCIA.md).
+
+Los datos mantienen su autoría y las condiciones de sus respectivas fuentes. La licencia SIL de IBM Plex Sans, conservada en `docs/assets/fonts/OFL.txt` como recurso de la edición anterior, no se aplica a Museo Sans ni a las marcas municipales. Los archivos de procedencia, fórmulas y resultados se conservan en las descargas. La publicación no atribuye a terceros un patrocinio o una certificación del workshop.

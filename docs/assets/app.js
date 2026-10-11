@@ -5,8 +5,8 @@ const main=document.getElementById('contenido');
 const cache=new Map();
 const courses=['P01','P02','P03','P04','P05','P06'];
 const thumbnails={P01:'01_portada_apaisada',P02:'S02_La_Fortuna',P03:'09_lectura_reflectancias',P04:'03_soporte_comun',P05:'04_cobertura_distrital',P06:'05_delta_ndvi'};
-const labels={inicio:'Inicio',preparacion:'Preparación',practicas:'Prácticas',atlas:'Atlas de San Carlos',expediente:'Mi trabajo',materiales:'Materiales',docente:'Guía de facilitación',fuentes:'Fuentes y método',presentacion:'Presentación'};
-const releaseUrl='https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.1';
+const labels={inicio:'Programa',preparacion:'Preparación',practicas:'Prácticas',atlas:'Atlas de San Carlos',expediente:'Mi trabajo',materiales:'Datos y materiales',docente:'Guía de facilitación',fuentes:'Fuentes y método',presentacion:'Presentación'};
+const releaseUrl='https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.2';
 const prepChecks=[
  ['qgis','QGIS de escritorio está instalado','Utiliza el equipo y la versión con los que realizarás las prácticas.'],
  ['archivos','Los dos paquetes están extraídos juntos','Debe existir una sola carpeta Taller_San_Carlos con datos/ y proyectos/.'],
@@ -20,13 +20,13 @@ async function json(name){
  if(cache.has(name))return cache.get(name);
  const pending=(async()=>{
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),15000);
-  try{const response=await fetch(`content/${name}.json?v=1.2.0`,{signal:controller.signal});if(!response.ok)throw new Error(`HTTP ${response.status}`);return await response.json()}
+  try{const response=await fetch(`content/${name}.json?v=1.3.0`,{signal:controller.signal});if(!response.ok)throw new Error(`HTTP ${response.status}`);return await response.json()}
   catch(error){cache.delete(name);throw new Error(`No se pudo cargar ${name}. ${error.name==='AbortError'?'La conexión tardó demasiado.':error.message}`)}
   finally{clearTimeout(timer)}
  })();cache.set(name,pending);pending.catch(()=>{if(cache.get(name)===pending)cache.delete(name)});return pending;
 }
 async function courseAndProgress(){
- const [course,module]=await Promise.all([json('course'),import('./practices.js?v=1.2.0')]);state.course=course;state.practiceModule=module;return {course,progress:module.getWorkshopProgress(course)};
+ const [course,module]=await Promise.all([json('course'),import('./practices.js?v=1.3.0')]);state.course=course;state.practiceModule=module;return {course,progress:module.getWorkshopProgress(course)};
 }
 function prepStatus(){const done=prepChecks.filter(([id])=>readLocal('sc-prep-'+id)==='1').length;return {done,total:prepChecks.length,ready:done===prepChecks.length}}
 function progressState(){return state.course&&state.practiceModule?state.practiceModule.getWorkshopProgress(state.course):{total:6,reviewedCount:0,startedCount:0,nextPracticeId:'P01',items:[]}}
@@ -37,15 +37,42 @@ function practiceCards(course,progress,{compact=false}={}){return `<div class="p
  const record=progress.items.find(i=>i.id===p.id)||{};const started=record.started;const reviewed=record.reviewed;
  return `<a href="#/practicas/${p.id}" class="practice-card"><div class="practice-thumb"><img src="assets/media/${thumbnails[p.id]}.webp" alt="" loading="lazy"><span class="practice-code">${p.id}</span></div><div class="practice-card-body"><div class="practice-card-meta"><span class="status-dot ${reviewed?'complete':started?'active':''}">${reviewed?'Revisada':started?'En curso':'Por comenzar'}</span><span>${p.minutes} min</span></div><h2>${esc(p.title)}</h2><p>${esc(p.deliverable)}</p><div class="practice-card-action"><span>${started?'Continuar':'Abrir práctica'}</span>${icon('arrow')}</div>${record.completedTasks?`<small class="task-count">${record.completedTasks} / ${record.totalTasks} tareas marcadas</small>`:''}</div></a>`
  }).join('')}</div>`}
-function home(course,progress){
- const prep=prepStatus();const next=course.practices.find(x=>x.id===activePractice())||course.practices[0];
- const primary=progress.startedCount?`#/practicas/${next.id}`:'#/preparacion';const cta=progress.startedCount?`Continuar ${next.id}`:'Preparar mi equipo';
- return `<div class="shell"><section class="workshop-hero"><div class="hero-content"><p class="hero-kicker"><span class="live-mark"></span>Taller gratuito · 1 jornada</p><h1>Análisis territorial<br><span>San Carlos</span></h1><p class="hero-institution">Unidad de Catastro<br>Municipalidad de San Carlos</p><p>Dirigido a instituciones y público general. Seis prácticas con QGIS, imágenes Sentinel-2 y límites oficiales IGN/SNIT para elaborar un informe territorial.</p><div class="hero-actions"><a class="button" href="${primary}">${icon(progress.startedCount?'play':'settings')}${esc(cta)}${icon('arrow')}</a><a class="hero-secondary" href="#/presentacion/1">Presentación ${icon('external')}</a></div><div class="hero-specs"><span>${icon('clock')}1 jornada</span><span>${icon('map')}13 distritos</span><span>${icon('layers')}Malla de 20 m</span></div></div><div class="hero-cartography"><img src="assets/media/00_mapa_portada_sin_rotulos.webp" alt="Cartografía de contexto de San Carlos con relieve y observaciones de vegetación" fetchpriority="high"><div class="hero-map-caption"><span>Ámbito de trabajo</span><strong>San Carlos · Cantón 210</strong><small>IGN / Registro Nacional / SNIT</small></div></div></section>
- ${miniProgress(progress)}
- <section class="workbench-row"><a class="workbench-item" href="#/preparacion"><span class="workbench-icon">${icon('download')}</span><div><strong>Preparar archivos</strong><span>${prep.ready?'Preparación marcada como revisada':`${prep.done} de ${prep.total} comprobaciones registradas`}</span></div>${icon('arrow')}</a><a class="workbench-item" href="#/atlas"><span class="workbench-icon">${icon('map')}</span><div><strong>Consultar el atlas</strong><span>Resultados por distrito y cobertura comparable</span></div>${icon('arrow')}</a><a class="workbench-item" href="#/expediente"><span class="workbench-icon">${icon('folder')}</span><div><strong>Revisar mi trabajo</strong><span>Notas, respuestas y expediente descargable</span></div>${icon('arrow')}</a></section>
- <section class="section-space"><div class="section-heading"><div><p class="eyebrow">Recorrido de la jornada</p><h2>Las seis prácticas</h2></div><span class="small muted">370 minutos de práctica</span></div>${practiceCards(course,progress)}</section>
- <section class="closing-panel"><div><span class="eyebrow">Productos de la jornada</span><h2>Proyecto QGIS, tabla distrital, mapa e informe.</h2><p>Cada práctica aporta una parte del expediente. Conserva las fechas, las superficies comparables y los criterios de exclusión.</p></div><a class="button secondary" href="#/expediente">Abrir mi trabajo ${icon('arrow')}</a></section>
- <p class="source-line">Facilitación: Andrés Castillo Leitón · Ingeniero Topógrafo <span>Datos de 2025 · Ejercicio docente</span></p></div>`;
+function municipalProgram(course, progress) {
+  return `<ol class="municipal-program">${course.practices.map(p => {
+    const record = progress.items.find(i => i.id === p.id) || {};
+    const status = record.reviewed ? 'Revisada' : record.started ? 'En curso' : 'Abrir práctica';
+    return `<li><span class="program-code">${p.id}</span><div class="program-description"><h3><a href="#/practicas/${p.id}">${esc(p.title)}</a></h3><p>${esc(p.deliverable)}</p></div><div class="program-access"><span>${p.minutes} min</span><a href="#/practicas/${p.id}" class="program-link">${status} ${icon('arrow')}</a></div></li>`;
+  }).join('')}</ol>`;
+}
+function home(course, progress) {
+  const next = course.practices.find(x => x.id === activePractice()) || course.practices[0];
+  const primary = progress.startedCount ? `#/practicas/${next.id}` : '#/preparacion';
+  const cta = progress.startedCount ? `Continuar ${next.id}` : 'Preparar el equipo';
+  return `<div class="shell municipal-home">
+    <header class="municipal-identity">
+      <div class="institution-signature"><img src="assets/brand/escudo-municipal-oficial.png" alt="Escudo de la Municipalidad de San Carlos" width="58" height="60"><div><strong>Municipalidad de San Carlos</strong><span>Unidad de Catastro</span></div></div>
+      <img class="canton-signature" src="assets/brand/marca-san-carlos-oficial.png" alt="Marca San Carlos, Costa Rica" width="100" height="85">
+    </header>
+    <section class="municipal-hero" aria-labelledby="workshop-title">
+      <div class="municipal-hero-copy">
+        <p class="workshop-label">Workshop <span>Gratuito</span></p>
+        <h1 id="workshop-title">San Carlos<br><span>con datos abiertos</span></h1>
+        <p class="workshop-subtitle">${esc(course.subtitle)}</p>
+        <p class="workshop-description">Compare dos composiciones satelitales y obtenga resultados para los trece distritos de San Carlos. Revise la calidad de las observaciones, calcule indicadores y prepare un mapa con su informe.</p>
+        <p class="workshop-audience">Dirigido a instituciones y público general.</p>
+        <div class="workshop-actions"><a class="button" href="${primary}">${esc(cta)} ${icon('arrow')}</a><a class="button secondary" href="#/practicas">Abrir las prácticas ${icon('book')}</a></div>
+      </div>
+      <figure class="municipal-map"><img src="assets/media/00_mapa_portada_sin_rotulos.webp" alt="Mapa de San Carlos: límites distritales, relieve y observaciones de vegetación del caso de trabajo" width="640" height="600" fetchpriority="high"><figcaption><strong>Un caso de trabajo: todo San Carlos</strong><span>13 distritos · Límites oficiales IGN / Registro Nacional / SNIT</span></figcaption></figure>
+    </section>
+    <dl class="workshop-facts"><div><dt>Duración</dt><dd>Una jornada · 8 horas</dd></div><div><dt>Trabajo práctico</dt><dd>6 ejercicios en QGIS</dd></div><div><dt>Facilitación</dt><dd>Andrés Castillo Leitón<small>Ingeniero Topógrafo</small></dd></div></dl>
+    ${progress.startedCount ? miniProgress(progress) : ''}
+    <section class="workshop-resources" aria-label="Accesos del workshop">
+      <a href="#/presentacion/1"><span class="resource-symbol">${icon('monitor')}</span><div><strong>Presentación</strong><span>30 diapositivas con notas y acceso a los ejercicios</span></div>${icon('arrow')}</a>
+      <a href="#/materiales"><span class="resource-symbol">${icon('download')}</span><div><strong>Datos y práctica resuelta</strong><span>Proyectos QGIS, cuaderno y solucionario</span></div>${icon('arrow')}</a>
+    </section>
+    <section class="workshop-program-section"><div class="section-heading"><div><p class="eyebrow">Programa de trabajo</p><h2>De los datos al informe</h2></div><a class="text-link" href="#/docente">Agenda de la jornada ${icon('arrow')}</a></div><p class="program-intro">Cada ejercicio incluye las operaciones, el producto esperado y la resolución para comprobar el resultado.</p>${municipalProgram(course, progress)}</section>
+    <section class="workshop-outcomes"><div><p class="eyebrow">Entrega de la jornada</p><h2>Un proyecto, una tabla distrital y un mapa documentado.</h2><p>El informe identifica las fechas de observación, la superficie comparable y las decisiones de cálculo. Las notas y respuestas se conservan en su expediente.</p><a class="text-link" href="#/expediente">Abrir mi trabajo ${icon('arrow')}</a></div><div class="workshop-source-note"><h3>Cartografía oficial y resultados verificables</h3><p>Los límites cantonales y distritales proceden del IGN, publicados mediante el SNIT. Las observaciones satelitales corresponden a Sentinel-2 de 2025.</p><a class="text-link" href="#/atlas">Consultar el atlas ${icon('arrow')}</a><a class="text-link" href="#/fuentes">Fuentes y método ${icon('arrow')}</a></div></section>
+  </div>`;
 }
 function practiceOverview(course,progress){return `<div class="shell">${pageHeader('Ruta de trabajo','Prácticas guiadas','Abre una práctica, avanza por sus tareas y contrasta tus resultados. Puedes regresar a cualquier paso.',`<a class="button" href="#/practicas/${activePractice()}">${icon('play')}Continuar ${activePractice()}</a>`)}${miniProgress(progress)}<div class="inline-guidance">${icon('info')}<p>Los cálculos se realizan en QGIS de escritorio. Aquí tienes las instrucciones, las fórmulas, las comprobaciones y el registro de trabajo. <a href="#/preparacion">Preparar archivos</a></p></div>${practiceCards(course,progress)}</div>`}
 function downloadTotal(settings){return num(settings.downloads.filter(f=>f.type==='ZIP').reduce((sum,f)=>sum+(Number(f.bytes)||0),0)/1000000,1)+' MB'}
@@ -63,7 +90,7 @@ function bindPreparation(){
  return ()=>listeners.forEach(fn=>fn());
 }
 function materials(settings){return `<div class="shell">${pageHeader('Descargas','Materiales de trabajo','Materiales gratuitos de la Unidad de Catastro. El cuaderno y el solucionario también pueden consultarse sin conexión.',`<a class="button" href="#/preparacion">${icon('settings')}Preparar archivos</a>`)}<section><div class="section-heading"><div><h2>Para trabajar en QGIS</h2><p class="muted">Descarga los dos paquetes y extráelos juntos.</p></div><span class="pill">${downloadTotal(settings)} en total</span></div><div class="downloads-grid two">${settings.downloads.filter(f=>f.type==='ZIP').map((f,i)=>downloadCard(f,{required:true,index:i})).join('')}</div></section><section class="section-space"><div class="section-heading"><div><h2>Cuadernos y resolución</h2><p class="muted">Documentación para estudiar, consultar o imprimir.</p></div></div><div class="downloads-grid">${settings.downloads.filter(f=>f.type!=='ZIP').map(f=>downloadCard(f)).join('')}</div></section><div class="material-end"><div><strong>Los resultados resueltos están incluidos.</strong><p>Abre <code>proyectos/02_Practica_resuelta.qgz</code> para contrastar los cálculos, las tablas y el mapa. La web conserva las mismas cifras de referencia.</p></div><a class="text-link" href="${esc(settings.releaseUrl)}" target="_blank" rel="noopener">Publicación y huellas ${icon('external')}</a></div></div>`}
-function presentationLobby(slides){return `<div class="shell">${pageHeader('Unidad de Catastro · Municipalidad de San Carlos','Presentación del taller','Taller gratuito dirigido a instituciones y público general. Treinta diapositivas con cartografía, operaciones y prácticas.',`<a class="button" href="#/presentacion/1">${icon('play')}Abrir presentación</a>`)}<section class="present-intro"><div><span class="eyebrow">Taller gratuito · San Carlos</span><h2>QGIS, Sentinel-2<br>y cartografía oficial.</h2><p>Proyecta las diapositivas, consulta las notas del ponente y abre la práctica correspondiente desde cada bloque.</p><div class="actions"><a class="button" href="#/presentacion/1">Comenzar en la diapositiva 1 ${icon('arrow')}</a><a class="text-link" href="#/docente">Agenda y ensayo</a></div></div><img src="assets/media/00_mapa_portada_sin_rotulos.webp" alt="San Carlos, ámbito completo del taller"></section><div class="section-heading section-space"><h2>Elegir un punto de inicio</h2><span class="small muted">30 diapositivas</span></div><div class="slide-index-grid">${slides.map((s,i)=>`<a href="#/presentacion/${i+1}" class="slide-index-card"><span>${String(i+1).padStart(2,'0')}</span><div><small>${esc(s.kicker||s.section||'Taller San Carlos')}</small><strong>${esc(s.title)}</strong></div>${icon('arrow')}</a>`).join('')}</div></div>`}
+function presentationLobby(slides){return `<div class="shell">${pageHeader('Unidad de Catastro · Municipalidad de San Carlos','Presentación del workshop','San Carlos con datos abiertos. Treinta diapositivas con cartografía, operaciones y prácticas para la jornada municipal.',`<a class="button" href="#/presentacion/1">${icon('play')}Abrir presentación</a>`)}<section class="present-intro"><div><span class="eyebrow">Workshop gratuito</span><h2>San Carlos<br>con datos abiertos.</h2><p>Proyecta las diapositivas, consulta las notas del ponente y abre la práctica correspondiente desde cada bloque.</p><div class="actions"><a class="button" href="#/presentacion/1">Comenzar en la diapositiva 1 ${icon('arrow')}</a><a class="text-link" href="#/docente">Agenda y ensayo</a></div></div><img src="assets/media/00_mapa_portada_sin_rotulos.webp" alt="San Carlos, ámbito completo del taller"></section><div class="section-heading section-space"><h2>Elegir un punto de inicio</h2><span class="small muted">30 diapositivas</span></div><div class="slide-index-grid">${slides.map((s,i)=>`<a href="#/presentacion/${i+1}" class="slide-index-card"><span>${String(i+1).padStart(2,'0')}</span><div><small>${esc(s.kicker||s.section||'Taller San Carlos')}</small><strong>${esc(s.title)}</strong></div>${icon('arrow')}</a>`).join('')}</div></div>`}
 
 function updateShell(){
  const progress=progressState(),prep=prepStatus();
@@ -93,11 +120,11 @@ async function route(){
    if(page==='expediente'){html=`<div class="shell wide">${module.renderPortfolio(course,solutions,formulas)}</div>`;bind=()=>module.bindPortfolio(main,course,solutions,formulas)}
    else{const id=courses.includes(part)?part:'P01';state.part=id;setLocal('sc-last-practice',id);html=`<div class="shell wide practice-shell">${module.renderPractice(course,solutions,formulas,id)}</div>`;bind=()=>module.bindPractice(main,course,solutions,formulas,id)}
   }else if(page==='atlas'){
-   const [territory,stats,sites,module]=await Promise.all([json('territorio'),json('estadisticas'),json('sitios'),import('./atlas.js?v=1.2.0')]);html=`<div class="shell wide atlas-shell">${module.renderAtlas(territory,stats,sites)}</div>`;bind=()=>module.bindAtlas(main,territory,stats,sites)
+   const [territory,stats,sites,module]=await Promise.all([json('territorio'),json('estadisticas'),json('sitios'),import('./atlas.js?v=1.3.0')]);html=`<div class="shell wide atlas-shell">${module.renderAtlas(territory,stats,sites)}</div>`;bind=()=>module.bindAtlas(main,territory,stats,sites)
   }else if(page==='presentacion'){
-   const slides=await json('slides');if(!part)html=presentationLobby(slides);else{const module=await import('./presentation.js?v=1.2.0');const index=Math.max(0,Math.min(slides.length-1,(parseInt(part,10)||1)-1));html=module.renderPresentation(slides,index);bind=()=>module.bindPresentation(main,slides,index)}
+   const slides=await json('slides');if(!part)html=presentationLobby(slides);else{const module=await import('./presentation.js?v=1.3.0');const index=Math.max(0,Math.min(slides.length-1,(parseInt(part,10)||1)-1));html=module.renderPresentation(slides,index);bind=()=>module.bindPresentation(main,slides,index)}
   }else if(page==='docente'||page==='fuentes'){
-   const module=await import('./reference.js?v=1.2.0');if(page==='docente'){html=module.renderTeacher({});bind=()=>module.bindTeacher(main)}else html=module.renderSources({territory:await json('territorio')})
+   const module=await import('./reference.js?v=1.3.0');if(page==='docente'){html=module.renderTeacher({});bind=()=>module.bindTeacher(main)}else html=module.renderSources({territory:await json('territorio')})
   }else html=`<div class="shell"><div class="error-box">${icon('map')}<h1>Esta sección no existe</h1><p>Abre el índice para elegir una práctica o consultar los materiales.</p><a class="button" href="#/inicio">Volver al inicio ${icon('arrow')}</a></div></div>`;
   if(serial!==state.serial)return;main.innerHTML=html;state.cleanup=bind?.()||null;bindMainUtilities();updateShell();document.title=`${labels[page]||'Taller'}${state.part&&page==='practicas'?' '+state.part:''} · San Carlos`;window.scrollTo({top:0,behavior:'instant'});main.removeAttribute('aria-busy');if(!projecting)main.focus({preventScroll:true});
  }catch(error){if(serial!==state.serial)return;document.body.classList.remove('presenting');main.removeAttribute('aria-busy');main.innerHTML=`<div class="shell"><section class="error-box">${icon('info')}<h1>No se pudo cargar esta sección</h1><p>Vuelve a intentarlo. Puedes seguir utilizando las otras secciones o descargar los archivos desde GitHub.</p><p class="small muted">${esc(error.message)}</p><div class="actions"><button id="retry-section" class="button">Volver a intentar</button><a class="button secondary" href="${releaseUrl}">Descargar materiales</a></div></section></div>`;main.querySelector('#retry-section').addEventListener('click',route);console.error(error)}

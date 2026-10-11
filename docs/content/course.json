@@ -1,6 +1,6 @@
 {
-  "title": "San Carlos: revisión territorial con imágenes Sentinel-2",
-  "subtitle": "Taller gratuito · Unidad de Catastro · Municipalidad de San Carlos",
+  "title": "San Carlos con datos abiertos",
+  "subtitle": "QGIS, Sentinel-2 y cartografía oficial IGN/SNIT",
   "audience": "Instituciones y público general interesados en interpretar información territorial. Para realizar las prácticas, se recomienda manejo básico de capas y tablas en QGIS.",
   "duration": "Una jornada: 390 minutos de trabajo y 90 minutos de pausas.",
   "scope": "Práctica formativa municipal sobre los trece distritos del cantón San Carlos. Las seis prácticas producen un informe, una tabla distrital y un mapa de diferencia espectral.",
@@ -2979,11 +2979,15 @@
   "participation": {
     "cost": 0,
     "currency": "CRC",
-    "label": "Taller gratuito",
+    "label": "Workshop gratuito",
     "audience": "Instituciones y público general"
   },
   "facilitator": {
     "name": "Andrés Castillo Leitón",
     "profession": "Ingeniero Topógrafo"
-  }
+  },
+  "format": "Workshop",
+  "legacyTitles": [
+    "San Carlos: revisión territorial con imágenes Sentinel-2"
+  ]
 }

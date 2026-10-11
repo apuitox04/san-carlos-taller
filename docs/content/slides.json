@@ -1,9 +1,9 @@
 [
   {
     "id": "D01",
-    "title": "San Carlos: revisión territorial",
-    "kicker": "Taller gratuito · Instituciones y público general",
-    "body": "¿Qué podemos afirmar sobre el territorio que realmente logramos observar?",
+    "title": "San Carlos con datos abiertos",
+    "kicker": "Workshop gratuito",
+    "body": "Compare imágenes, calcule indicadores y prepare un mapa para los trece distritos.",
     "notes": "Presente el taller gratuito que imparte la Unidad de Catastro de la Municipalidad de San Carlos para instituciones y público general, con Andrés Castillo Leitón, Ingeniero Topógrafo, como facilitador. Abra con el encargo: preparar una revisión territorial de los trece distritos de San Carlos a partir de dos composiciones Sentinel-2 de 2025. La práctica tiene alcance formativo y las cifras describen los archivos entregados. La delimitación oficial, la fecha, la calidad y el cálculo formarán parte de cada afirmación. Evite presentar la media de NDVI como diagnóstico de vegetación o el umbral de MNDWI como superficie de inundación confirmada. Pregunte qué evidencia pedirían antes de firmar un informe.",
     "minutes": 2,
     "figure": "assets/media/01_portada_apaisada.webp",
@@ -36,13 +36,14 @@
     "participation": {
       "cost": 0,
       "currency": "CRC",
-      "label": "Taller gratuito",
+      "label": "Workshop gratuito",
       "audience": "Instituciones y público general"
     },
     "facilitator": {
       "name": "Andrés Castillo Leitón",
       "profession": "Ingeniero Topógrafo"
-    }
+    },
+    "subtitle": "QGIS, Sentinel-2 y cartografía oficial IGN/SNIT"
   },
   {
     "id": "D02",
@@ -1785,9 +1786,9 @@
   },
   {
     "id": "D30",
-    "title": "El resultado: una revisión con alcance definido",
-    "kicker": "Cierre · 15:57–16:00",
-    "body": "El expediente identifica lo calculado, lo excluido y lo que requiere comprobación.",
+    "title": "San Carlos con datos abiertos",
+    "kicker": "Cierre del workshop",
+    "body": "Informe, tabla distrital, mapa y proyecto QGIS con fuentes y resultados identificados.",
     "notes": "Indique que los materiales corresponden al taller gratuito impartido por la Unidad de Catastro de la Municipalidad de San Carlos y pueden consultarse para continuar la práctica. Pida tres respuestas breves: qué parte de San Carlos admite comparación; qué decisión cambia al consultar calidad o fecha; qué observación adicional solicitarían para continuar. Cierre recordando que una exclusión documentada y una hipótesis bien delimitada son resultados técnicos útiles. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La continuación conserva la procedencia y los denominadores, en lugar de ampliar el alcance de las conclusiones sin datos. Indique dónde encontrar los proyectos resueltos y el informe de ejemplo para el ensayo personal.",
     "minutes": 3,
     "bullets": [
@@ -1822,7 +1823,7 @@
     "participation": {
       "cost": 0,
       "currency": "CRC",
-      "label": "Taller gratuito",
+      "label": "Workshop gratuito",
       "audience": "Instituciones y público general"
     },
     "facilitator": {

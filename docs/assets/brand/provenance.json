@@ -1,0 +1,103 @@
+{
+  "verified_at": "2026-10-11",
+  "manual": {
+    "url": "https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf",
+    "edition": "2015",
+    "sha256": "ea19b52b7616d3d076414616f515fd718a977e83e2da9f5f52c776f9dcca128c"
+  },
+  "palette": {
+    "declared_on_page": 10,
+    "not_sampled": true,
+    "navy": "#14416E",
+    "cyan": "#05CADF",
+    "green": "#00B550",
+    "yellow": "#FFE900",
+    "orange": "#FF9E16",
+    "red": "#E84B37",
+    "body_gray_page18": "#5D5D5D"
+  },
+  "assets": [
+    {
+      "file": "escudo-municipal-oficial.png",
+      "source": "https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf",
+      "page": 24,
+      "clip_pdf_points": [
+        101,
+        446,
+        127,
+        473
+      ],
+      "method": "Exact PDF region rendered without redrawing or recoloring",
+      "dimensions": [
+        624,
+        648
+      ],
+      "bytes": 143680,
+      "sha256": "e2845a9f89d958d539fd5af5b267ca81304717085bf73d4a83fb6a68d19ae028"
+    },
+    {
+      "file": "marca-san-carlos-oficial.png",
+      "source": "https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf",
+      "page": 6,
+      "clip_pdf_points": [
+        300,
+        325,
+        625,
+        602
+      ],
+      "method": "Exact PDF region rendered without redrawing or recoloring",
+      "dimensions": [
+        650,
+        554
+      ],
+      "bytes": 48359,
+      "sha256": "5947e0b59b1e719997b27aac83b1f1e8e4f20f12ab0d6c45b19ac4a70070e450"
+    },
+    {
+      "file": "franja-marca-oficial.png",
+      "source": "https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf",
+      "page": 6,
+      "clip_pdf_points": [
+        21,
+        636.5,
+        913,
+        641.5
+      ],
+      "method": "Exact PDF region rendered without redrawing or recoloring",
+      "dimensions": [
+        3568,
+        20
+      ],
+      "bytes": 5707,
+      "sha256": "d2909c5d4a99c65567f04cc0267c71c403dd8d62549f536ee5b8d05ab1dcd6d6"
+    },
+    {
+      "file": "fonts/museosans_300.woff2",
+      "source": "https://www.munisc.go.cr/Content/Fonts/museosans_300/museosans_300.woff2",
+      "method": "Unmodified download linked by the current municipal CSS",
+      "bytes": 17948,
+      "sha256": "0dd31e3df732fa37acc3286b9ad50a88e8494f57ee9777749b4dfed4f0e64a60"
+    },
+    {
+      "file": "fonts/museosans_500.woff2",
+      "source": "https://www.munisc.go.cr/Content/Fonts/museosans_500/museosans_500.woff2",
+      "method": "Unmodified download linked by the current municipal CSS",
+      "bytes": 18088,
+      "sha256": "715bddd89d03a414223c6072ee3116406d1e752281f2813e0a09ef3f304f6767"
+    },
+    {
+      "file": "fonts/museosans_900.woff2",
+      "source": "https://www.munisc.go.cr/Content/Fonts/museosans_900/museosans_900.woff2",
+      "method": "Unmodified download linked by the current municipal CSS",
+      "bytes": 17792,
+      "sha256": "44f8e60339779dfca81585c0b1767757ff7d8fb283e384af173936baed7d2c8b"
+    },
+    {
+      "file": "logoIcon.png",
+      "source": "https://www.munisc.go.cr/Content/Images/logoIcon.png",
+      "method": "Unmodified download from the municipal portal",
+      "bytes": 1799,
+      "sha256": "340d9b90a7fcd04c4fb53345d64b49d1cb92566289fdc11d2f2f6d3374f959ed"
+    }
+  ]
+}
