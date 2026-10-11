@@ -38,7 +38,7 @@ Conservar las interfaces de los módulos:
 
 Cada función `bind` devuelve una función de limpieza. El enrutador la ejecuta al abandonar la sección. El índice interno de presentación comienza en cero y las direcciones visibles comienzan en uno. El módulo de prácticas emite `sc-progress-change` al guardar; la navegación actualiza el avance sin volver a dibujar los campos de escritura.
 
-Las tareas referencian bloques originales, fórmulas, controles, soluciones y figuras por identificador. Revisar esas relaciones cuando cambie el recorrido. Los cambios de presentación o navegación pueden tener una versión web propia, sin reemplazar los activos de datos de una publicación anterior. Los recursos de la edición web 1.1.0 usan `?v=1.1.0`; actualizar ese identificador al publicar una revisión para evitar mezclar archivos almacenados en caché.
+Las tareas referencian bloques originales, fórmulas, controles, soluciones y figuras por identificador. Revisar esas relaciones cuando cambie el recorrido. Los cambios de presentación o navegación pueden tener una versión web propia, sin reemplazar los activos de datos de una publicación anterior. Los recursos de la edición web 1.2.0 usan `?v=1.2.0`; actualizar ese identificador al publicar una revisión para evitar mezclar archivos almacenados en caché.
 
 No modificar los resultados numéricos para ajustar una frase. Una revisión del método o de los datos requiere recalcular el material fuente, comprobar sus salidas y publicar una nueva edición.
 
@@ -68,3 +68,9 @@ El script verifica la huella del GeoPackage de límites de esta edición antes d
 La aplicación conserva notas y progreso en `localStorage`. Las claves de las prácticas mantienen el prefijo `san-carlos-taller:practica:v1:`. El formato interno añade tarea activa, tareas revisadas y notas por tarea; la lectura migra los registros anteriores sin eliminar sus campos originales. La preparación, el atlas y las notas de presentación utilizan claves independientes.
 
 Mi trabajo exporta JSON 2.0 y admite JSON 1.0 y 2.0 del taller. Antes de restaurar valida el archivo y presenta los registros afectados. Solo los reemplaza al pulsar el botón de confirmación; cancelar conserva el estado actual. La importación de un expediente no modifica la preparación del equipo ni los datos geográficos. El sitio no recibe entregas en un servidor. Al añadir campos, mantener las claves existentes o implementar una migración para no perder registros.
+
+## Identificación institucional
+
+El taller es gratuito, impartido por la Unidad de Catastro de la Municipalidad de San Carlos y dirigido a instituciones y público general. Andrés Castillo Leitón figura como facilitador. Conservar esta identificación en portada, presentación, cuadernos, proyectos QGIS y publicaciones de materiales. Las fechas de convocatoria, la sede y el procedimiento de inscripción solo se incorporan cuando se hayan definido.
+
+Los paquetes de la edición 1.0.1 contienen una revisión editorial de gratuidad e identificación institucional. Sus SHA-256 cambian porque se corrigieron documentos y notas; los archivos geográficos, las observaciones satelitales, los cálculos y los resultados conservan la edición analítica 1.0.0. Una revisión editorial no representa un nuevo ensayo de los cálculos o de QGIS.

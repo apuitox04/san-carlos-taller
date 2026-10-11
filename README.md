@@ -1,16 +1,17 @@
 # San Carlos · Taller de análisis territorial
 
-Taller de una jornada con QGIS, Sentinel-2 y cartografía oficial del Instituto Geográfico Nacional de Costa Rica, publicada mediante el SNIT. El caso de estudio comprende los trece distritos del cantón de San Carlos.
+Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Municipalidad de San Carlos** y dirigido a **instituciones y público general**. Se trabaja con QGIS, Sentinel-2 y cartografía oficial del Instituto Geográfico Nacional de Costa Rica, publicada mediante el SNIT. El caso de estudio comprende los trece distritos del cantón de San Carlos.
 
-**Ponente:** Andrés Castillo Leitón · Ingeniero Topógrafo.  
+**Facilitador:** Andrés Castillo Leitón · Ingeniero Topógrafo.  
+**Participación y materiales:** gratuitos.  
 **Edición del material:** 11 de octubre de 2026. La fecha de edición no es una fecha de convocatoria.
 
 ## Acceso
 
 - [Sitio del taller](https://apuitox04.github.io/san-carlos-taller/)
-- [Datos, proyectos QGIS y documentos de la edición 1.0.0](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.0)
+- [Datos, proyectos QGIS y documentos de la edición institucional 1.0.1](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.1)
 
-La consulta y las descargas públicas no requieren una cuenta de GitHub. El sitio no recibe inscripciones ni pagos.
+La participación en el taller y la descarga de sus materiales son gratuitas. La consulta pública no requiere una cuenta de GitHub.
 
 ## Contenido
 
@@ -23,7 +24,7 @@ La consulta y las descargas públicas no requieren una cuenta de GitHub. El siti
 | Mi trabajo | Resumen de las seis prácticas, notas y respuestas, informe, S06, exportación TXT/JSON y restauración de un JSON con revisión previa. |
 | Atlas | Mapa e inspector de San Carlos y sus 13 distritos, tabla, soporte común, umbrales de MNDWI y fechas. Copia de resultados para el informe y descargas CSV. |
 | Materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
-| Ponente | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y propuesta de costo simbólico. |
+| Guía de facilitación | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y organización de la actividad municipal gratuita. |
 | Fuentes y método | Procedencia de los límites, observaciones satelitales, decisiones de procesamiento y referencias del taller. |
 
 ### Secuencia de prácticas
@@ -41,19 +42,19 @@ Las prácticas ocupan 370 minutos. La apertura y la revisión final suman otros 
 
 ## Preparar una computadora
 
-1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.0.
+1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.1.
 2. Extraer ambos en el mismo directorio. Los contenidos forman una sola carpeta `Taller_San_Carlos/`; conservar su estructura para que funcionen las rutas relativas de los proyectos QGIS.
 3. Abrir **Preparar archivos** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
-4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Ponente** permite registrar y descargar ese ensayo.
+4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Guía de facilitación** permite registrar y descargar ese ensayo.
 
-Los dos ZIP suman aproximadamente **658,5 MB** comprimidos. Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
+Los dos ZIP suman aproximadamente **659,5 MB** comprimidos. Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
 
 ### Integridad de los paquetes
 
 | Archivo | SHA-256 |
 | --- | --- |
-| Taller_San_Carlos_Datos.zip | `c9e0735bd7fbe3b57791f5707e5293f3720792f94d97117de01ad96b99ff62bf` |
-| Taller_San_Carlos_Materiales.zip | `2ca4134b815cc6895a4df55ba0199a35fe266171bacf4b502f4166266305c60e` |
+| Taller_San_Carlos_Datos.zip | `0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5` |
+| Taller_San_Carlos_Materiales.zip | `a39e393ed7451d64f3bbb07e8805cd144fca6680a2fd88eeb09caa357cab99cf` |
 
 ## Alcance de los resultados
 
@@ -97,7 +98,9 @@ Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actual
 
 ## Comprobaciones de esta edición
 
-La edición web **1.1.0** reorganiza la navegación, las tareas y la presentación. Conserva los datos y archivos de la publicación **1.0.0**. Se comprobaron las rutas, la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
+La edición web **1.2.0** identifica el taller como una actividad municipal gratuita para instituciones y público general. Los materiales **1.0.1** corrigen portadas, atribuciones, notas editoriales y organización de la jornada; conservan los datos, cálculos y resultados de **1.0.0**. Se verificaron la sintaxis, las rutas, los enlaces locales, las cinco descargas y la estructura de seis prácticas, 28 tareas y 30 diapositivas.
+
+En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión editorial 1.2 conserva esa lógica y los identificadores de las prácticas. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
 
 El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
 

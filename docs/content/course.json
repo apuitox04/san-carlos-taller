@@ -1,10 +1,10 @@
 {
   "title": "San Carlos: revisión territorial con imágenes Sentinel-2",
-  "subtitle": "Cuaderno de trabajo · datos oficiales IGN/SNIT · QGIS",
-  "audience": "Participantes con manejo básico de capas y tablas en QGIS.",
+  "subtitle": "Taller gratuito · Unidad de Catastro · Municipalidad de San Carlos",
+  "audience": "Instituciones y público general interesados en interpretar información territorial. Para realizar las prácticas, se recomienda manejo básico de capas y tablas en QGIS.",
   "duration": "Una jornada: 390 minutos de trabajo y 90 minutos de pausas.",
-  "scope": "Ejercicio docente sobre los trece distritos del cantón San Carlos. Las seis prácticas producen un informe, una tabla distrital y un mapa de diferencia espectral.",
-  "scenario": "Encargo docente; no representa una solicitud ni un dictamen municipal.",
+  "scope": "Práctica formativa municipal sobre los trece distritos del cantón San Carlos. Las seis prácticas producen un informe, una tabla distrital y un mapa de diferencia espectral.",
+  "scenario": "Práctica formativa de la Unidad de Catastro de la Municipalidad de San Carlos. Los resultados describen los archivos entregados y no constituyen un dictamen sobre afectaciones.",
   "student_project": "mi_trabajo/Practica_San_Carlos.qgz",
   "schedule": [
     {
@@ -145,7 +145,7 @@
         },
         {
           "type": "p",
-          "text": "Se trabajará como un equipo técnico en un escenario docente. El material no constituye un encargo municipal ni una evaluación de afectaciones. La evidencia disponible comprende límites oficiales, reflectancias, calidad y fecha por celda. El trabajo termina cuando cada afirmación del informe puede relacionarse con una operación, una superficie y una observación identificada."
+          "text": "El taller es gratuito y lo imparte la Unidad de Catastro de la Municipalidad de San Carlos para instituciones y público general. Andrés Castillo Leitón, Ingeniero Topógrafo, facilita las prácticas. Los resultados tienen alcance didáctico y no constituyen una evaluación de afectaciones. La evidencia disponible comprende límites oficiales, reflectancias, calidad y fecha por celda. El trabajo termina cuando cada afirmación del informe puede relacionarse con una operación, una superficie y una observación identificada."
         },
         {
           "type": "h3",
@@ -2971,5 +2971,19 @@
       "name": "Venado",
       "coveragePct": 30.519835162107146
     }
-  ]
+  ],
+  "organizer": {
+    "institution": "Municipalidad de San Carlos",
+    "unit": "Unidad de Catastro"
+  },
+  "participation": {
+    "cost": 0,
+    "currency": "CRC",
+    "label": "Taller gratuito",
+    "audience": "Instituciones y público general"
+  },
+  "facilitator": {
+    "name": "Andrés Castillo Leitón",
+    "profession": "Ingeniero Topógrafo"
+  }
 }

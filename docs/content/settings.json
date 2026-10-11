@@ -1,44 +1,50 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "editionDate": "2026-10-11",
   "githubRepository": "https://github.com/apuitox04/san-carlos-taller",
-  "releaseUrl": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.0",
+  "releaseUrl": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.1",
   "downloads": [
     {
       "type": "ZIP",
       "title": "Datos de San Carlos",
       "description": "Límites oficiales y observaciones preparadas para las prácticas. Descarga también el paquete de materiales.",
       "file": "Taller_San_Carlos_Datos.zip",
-      "size": "291,5 MB",
-      "sha256": "c9e0735bd7fbe3b57791f5707e5293f3720792f94d97117de01ad96b99ff62bf",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.0/Taller_San_Carlos_Datos.zip"
+      "size": "291,4 MB",
+      "sha256": "0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5",
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.1/Taller_San_Carlos_Datos.zip",
+      "bytes": 291443339
     },
     {
       "type": "ZIP",
       "title": "Proyectos, prácticas y resultados",
       "description": "Los dos proyectos QGIS, fórmulas, resultados resueltos, tablas, mapas y cuadernos.",
       "file": "Taller_San_Carlos_Materiales.zip",
-      "size": "367,1 MB",
-      "sha256": "2ca4134b815cc6895a4df55ba0199a35fe266171bacf4b502f4166266305c60e",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.0/Taller_San_Carlos_Materiales.zip"
+      "size": "368,1 MB",
+      "sha256": "a39e393ed7451d64f3bbb07e8805cd144fca6680a2fd88eeb09caa357cab99cf",
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.1/Taller_San_Carlos_Materiales.zip",
+      "bytes": 368064887
     },
     {
       "type": "PDF",
       "title": "Cuaderno de trabajo",
       "description": "Procedimientos P01–P06, conceptos, interpretación y productos de la jornada.",
       "file": "Taller_QGIS_GDAL_Costa_Rica.pdf",
-      "size": "6,2 MB",
+      "size": "6,5 MB",
       "pages": 24,
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.0/Taller_QGIS_GDAL_Costa_Rica.pdf"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.1/Taller_QGIS_GDAL_Costa_Rica.pdf",
+      "bytes": 6546387,
+      "sha256": "3d27b2bc498bcd6451eb772a2018f8e9180feb279f6a46dd9624649bb8946e60"
     },
     {
       "type": "PDF",
       "title": "Solucionario e informe técnico",
       "description": "Cálculos desarrollados, sitios de control, resumen distrital y un informe de ejemplo.",
       "file": "Solucionario_San_Carlos.pdf",
-      "size": "8,4 MB",
+      "size": "8,7 MB",
       "pages": 26,
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.0/Solucionario_San_Carlos.pdf"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.1/Solucionario_San_Carlos.pdf",
+      "bytes": 8722324,
+      "sha256": "2c3878e0274541cc2b52246e372d2cfb75ab4414ab6bfe73618e4524db7b3ebd"
     },
     {
       "type": "HTML",
@@ -46,10 +52,21 @@
       "description": "Contenido completo, figuras y notas. Descárgalo y ábrelo desde el navegador de tu computadora.",
       "file": "Taller_QGIS_GDAL_Costa_Rica_editable.html",
       "size": "15,4 MB",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.0/Taller_QGIS_GDAL_Costa_Rica_editable.html"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.1/Taller_QGIS_GDAL_Costa_Rica_editable.html",
+      "bytes": 15405616,
+      "sha256": "39c37f67b489546a5533f601ebcd23c239b7f50a85d07d3e2f946651ddec509d"
     }
   ],
   "author": "Andrés Castillo Leitón",
-  "scenario": "Ejercicio docente",
-  "access": "El sitio y las descargas públicas de GitHub no requieren cuenta para consultar; notas guardadas en el navegador."
+  "scenario": "Práctica formativa de la Unidad de Catastro",
+  "access": "El sitio y las descargas públicas de GitHub no requieren cuenta para consultar; notas guardadas en el navegador.",
+  "webVersion": "1.2.0",
+  "dataEdition": "1.0.0",
+  "organizer": {
+    "institution": "Municipalidad de San Carlos",
+    "unit": "Unidad de Catastro"
+  },
+  "audience": "Instituciones y público general",
+  "participation": "Gratuita",
+  "facilitator": "Andrés Castillo Leitón · Ingeniero Topógrafo"
 }
