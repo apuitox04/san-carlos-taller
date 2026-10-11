@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#175e56">
+  <meta name="description" content="Taller de análisis territorial de San Carlos con QGIS, Sentinel-2 y datos oficiales IGN/SNIT. Presentación, seis prácticas, atlas y ejercicios resueltos.">
+  <title>San Carlos · Análisis territorial</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/app.css">
+  <link rel="stylesheet" href="assets/practices.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="wordmark" href="#/inicio" aria-label="San Carlos, inicio"><span class="mark">SC</span><span>San Carlos<small>Taller de análisis territorial</small></span></a>
+    <button class="menu-button" id="menu-toggle" aria-expanded="false" aria-controls="main-navigation">Menú <span aria-hidden="true">☰</span></button>
+    <nav id="main-navigation" aria-label="Navegación principal">
+      <a href="#/presentacion/1" data-nav="presentacion">Presentación</a>
+      <a href="#/practicas/P01" data-nav="practicas">Prácticas</a>
+      <a href="#/atlas" data-nav="atlas">Atlas</a>
+      <a href="#/materiales" data-nav="materiales">Materiales</a>
+      <a href="#/docente" data-nav="docente">Ponente</a>
+    </nav>
+  </header>
+  <main id="contenido" tabindex="-1"><div class="loading" role="status">Cargando el taller…</div></main>
+  <footer class="site-footer"><div><strong>Andrés Castillo Leitón</strong><span>Ingeniero Topógrafo · Formación geoespacial</span></div><div><a href="#/fuentes">Fuentes y método</a><a href="https://github.com/apuitox04/san-carlos-taller" target="_blank" rel="noopener">GitHub ↗</a><span>Edición 11.10.2026</span></div></footer>
+  <dialog id="figure-dialog" aria-label="Lámina ampliada"><button id="close-figure" class="button light">Cerrar ×</button><img alt="" id="figure-expanded"><p id="figure-caption"></p></dialog>
+  <div id="notice" role="status" aria-live="polite"></div>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

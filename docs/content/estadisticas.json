@@ -1,0 +1,159 @@
+{
+  "title": "Resultados de referencia del taller San Carlos",
+  "source": "Instituto Geográfico Nacional / Registro Nacional, publicado mediante SNIT; índices derivados de Sentinel-2 L2A según la preparación documentada del taller.",
+  "areaUnit": "ha",
+  "cellAreaHa": 0.04,
+  "cellResolutionMeters": 20,
+  "coverage": {
+    "gridCells": 8380093,
+    "gridHa": 335203.72000000003,
+    "commonCells": 4979989,
+    "commonHa": 199199.56,
+    "coveragePct": 59.42641686673406,
+    "excludedCells": 3400104,
+    "excludedHa": 136004.16,
+    "excludedPct": 40.57358313326594,
+    "criterion": "Celdas con NDVI válido en ambas composiciones. NoData queda fuera de la media."
+  },
+  "datePairs": [
+    {
+      "f1": "2025-02-23",
+      "f2": "2025-07-08",
+      "days": 135,
+      "cells": 113043,
+      "areaHa": 4521.72,
+      "sharePct": 2.269944772970382,
+      "cantonSharePct": 1.3489468434300191,
+      "delta": -0.06590831376647843
+    },
+    {
+      "f1": "2025-02-23",
+      "f2": "2025-08-07",
+      "days": 165,
+      "cells": 451851,
+      "areaHa": 18074.04,
+      "sharePct": 9.073333294511293,
+      "cantonSharePct": 5.391956867304456,
+      "delta": 0.016411495642012344
+    },
+    {
+      "f1": "2025-02-23",
+      "f2": "2025-08-12",
+      "days": 170,
+      "cells": 69239,
+      "areaHa": 2769.56,
+      "sharePct": 1.3903444365037754,
+      "cantonSharePct": 0.8262318807201782,
+      "delta": 0.0031870402176059614
+    },
+    {
+      "f1": "2025-03-20",
+      "f2": "2025-07-08",
+      "days": 110,
+      "cells": 427476,
+      "areaHa": 17099.04,
+      "sharePct": 8.583874382051848,
+      "cantonSharePct": 5.101088973594923,
+      "delta": 0.0060468959844806785
+    },
+    {
+      "f1": "2025-03-20",
+      "f2": "2025-08-07",
+      "days": 140,
+      "cells": 3521701,
+      "areaHa": 140868.04,
+      "sharePct": 70.71704375250629,
+      "cantonSharePct": 42.02460521619509,
+      "delta": 0.07539947407406192
+    },
+    {
+      "f1": "2025-03-20",
+      "f2": "2025-08-12",
+      "days": 145,
+      "cells": 396679,
+      "areaHa": 15867.16,
+      "sharePct": 7.965459361456421,
+      "cantonSharePct": 4.733587085489385,
+      "delta": 0.0490808415894512
+    }
+  ],
+  "datePairsNote": "Cada fila reúne celdas con una pareja de adquisiciones. Las filas cubren territorios distintos; sus diferencias no aíslan un efecto de la duración del intervalo.",
+  "aggregation": {
+    "simpleMean": 0.04434210257776369,
+    "weightedMean": 0.05778614972777719,
+    "difference": 0.013444047150013495,
+    "cutrisPocosolPct": 45.444819255624864,
+    "simpleQuestion": "¿Cuál es el promedio de las trece medias distritales, dando igual peso a cada distrito?",
+    "weightedQuestion": "¿Cuál es la media de delta NDVI de todas las celdas comparables del cantón?",
+    "interpretation": "Son agregaciones de unidades diferentes. La media simple describe trece resúmenes distritales; la ponderada reproduce la media de la superficie comparable. Para informar delta NDVI cantonal de esa superficie corresponde la ponderada. Ninguna estima el área excluida."
+  },
+  "thresholds": [
+    {
+      "threshold": 0.0,
+      "commonCells": 4983183,
+      "commonHa": 199327.32,
+      "neitherHa": 198200.08000000002,
+      "bothHa": 601.6800000000001,
+      "onlyF2Ha": 376.84000000000003,
+      "onlyF1Ha": 148.72,
+      "f1SelectedHa": 750.4,
+      "f2SelectedHa": 978.52
+    },
+    {
+      "threshold": 0.1,
+      "commonCells": 4983183,
+      "commonHa": 199327.32,
+      "neitherHa": 198515.48,
+      "bothHa": 505.08,
+      "onlyF2Ha": 210.12,
+      "onlyF1Ha": 96.64,
+      "f1SelectedHa": 601.72,
+      "f2SelectedHa": 715.2
+    },
+    {
+      "threshold": 0.2,
+      "commonCells": 4983183,
+      "commonHa": 199327.32,
+      "neitherHa": 198638.56,
+      "bothHa": 410.44,
+      "onlyF2Ha": 165.0,
+      "onlyF1Ha": 113.32000000000001,
+      "f1SelectedHa": 523.76,
+      "f2SelectedHa": 575.44
+    }
+  ],
+  "thresholdOperator": ">",
+  "thresholdNote": "Se mide dependencia del resultado respecto a una decisión de umbral. No se estima exactitud temática ni superficie confirmada de inundación.",
+  "canton": {
+    "f1_ndvi_common": {
+      "pixels": 4979989,
+      "area_ha": 199199.56,
+      "mean": 0.7071399475153097,
+      "std_population": 0.17943854967666445,
+      "min": -0.9998457431793213,
+      "max": 0.9629748463630676
+    },
+    "f2_ndvi_common": {
+      "pixels": 4979989,
+      "area_ha": 199199.56,
+      "mean": 0.7649260972436399,
+      "std_population": 0.1532788584207976,
+      "min": -0.9998752474784851,
+      "max": 0.9967705011367798
+    },
+    "delta_ndvi": {
+      "pixels": 4979989,
+      "area_ha": 199199.56,
+      "mean": 0.05778614972777719,
+      "std_population": 0.150567063250077,
+      "min": -1.2187576293945312,
+      "max": 1.214375615119934
+    }
+  },
+  "sourceFiles": [
+    "analisis/agregacion_cantonal_distrital.json",
+    "analisis/matriz_pares_fechas_ndvi.json",
+    "analisis/sensibilidad_mndwi_soporte_comun.json",
+    "analisis/cuadro_distrital_ndvi.json"
+  ]
+}

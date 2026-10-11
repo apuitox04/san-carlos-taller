@@ -1,0 +1,344 @@
+{
+  "title": "Activos derivados para la web del taller San Carlos",
+  "operation": "Optimización de láminas, serialización de valores existentes y simplificación geométrica para visualización. No se recalculan rásteres.",
+  "assets": [
+    {
+      "name": "00_mapa_portada_sin_rotulos",
+      "url": "assets/media/00_mapa_portada_sin_rotulos.webp",
+      "source": "cartografia/00_mapa_portada_sin_rotulos.png",
+      "sourceSha256": "7de086c4df721ef84779be96a332b482a5fd43d83bc9a578abb26135e1db8b63",
+      "sourceSize": [
+        1570,
+        1925
+      ],
+      "displaySize": [
+        1570,
+        1925
+      ],
+      "bytes": 442700,
+      "sha256": "f9d758be398f17e959887715e3de4c14c4a4847ed55c634f85c06d7a20617232"
+    },
+    {
+      "name": "01_portada_apaisada",
+      "url": "assets/media/01_portada_apaisada.webp",
+      "source": "cartografia/01_portada_apaisada.png",
+      "sourceSha256": "b03c45fbaa31619e777c5cbabe09fc5b036959287395ad62dc0e5cbef7e97831",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 204336,
+      "sha256": "c9ac61077b8fae8589a2be1c04a3dddc599380524341e00dd67d91fc42b37d21"
+    },
+    {
+      "name": "01_portada_cartografica",
+      "url": "assets/media/01_portada_cartografica.webp",
+      "source": "cartografia/01_portada_cartografica.png",
+      "sourceSha256": "7467de871a462e2e842a1ff2746b8fafd7b3d97b093b15c3aad2a57565a930a6",
+      "sourceSize": [
+        2055,
+        2787
+      ],
+      "displaySize": [
+        1600,
+        2170
+      ],
+      "bytes": 385264,
+      "sha256": "bf2f3a2285a5123709332870904213425a95fe6a455a131e345c5ec3206f214c"
+    },
+    {
+      "name": "02_comparacion_ndvi_compacta",
+      "url": "assets/media/02_comparacion_ndvi_compacta.webp",
+      "source": "cartografia/02_comparacion_ndvi_compacta.png",
+      "sourceSha256": "17a0ad52f192f86d6ec52b1ccf5fab7cd31babc0f5a1cec7cf3ceb3604413ad2",
+      "sourceSize": [
+        2055,
+        1594
+      ],
+      "displaySize": [
+        1600,
+        1241
+      ],
+      "bytes": 272188,
+      "sha256": "963d8625e64f48a56dadec787e482a124d8a9b228d6a05328673027da8cadf57"
+    },
+    {
+      "name": "02_comparacion_ndvi_doble_pagina",
+      "url": "assets/media/02_comparacion_ndvi_doble_pagina.webp",
+      "source": "cartografia/02_comparacion_ndvi_doble_pagina.png",
+      "sourceSha256": "6ebeff41f1761d98a8abc644ca5fcb8494619cf2254b9f99fdb96be007afee11",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 217614,
+      "sha256": "a6c5424e165523354f12285c1a5c94845bf7665c8ad39b2b68fbf73f4e86e819"
+    },
+    {
+      "name": "03_soporte_comun",
+      "url": "assets/media/03_soporte_comun.webp",
+      "source": "cartografia/03_soporte_comun.png",
+      "sourceSha256": "cefaa76414735c7c6f2297b4259b7a4388385a3885ed7009e943a3d796791aec",
+      "sourceSize": [
+        2055,
+        1594
+      ],
+      "displaySize": [
+        1600,
+        1241
+      ],
+      "bytes": 230208,
+      "sha256": "c97e9a37be8e99efa0f1efa4652d66d37fe518aef8ab94afc1c38bef775dbbff"
+    },
+    {
+      "name": "04_cobertura_distrital",
+      "url": "assets/media/04_cobertura_distrital.webp",
+      "source": "cartografia/04_cobertura_distrital.png",
+      "sourceSha256": "f6c2952c2836dc6e322c21ab049c632b99adea1fa17af98ca93690495e2e6e64",
+      "sourceSize": [
+        2055,
+        1594
+      ],
+      "displaySize": [
+        1600,
+        1241
+      ],
+      "bytes": 98538,
+      "sha256": "2b3748fe3f5ae72b550c3f50ac9667be201adc421542a17f7cc21a50faeb143f"
+    },
+    {
+      "name": "05_delta_ndvi",
+      "url": "assets/media/05_delta_ndvi.webp",
+      "source": "cartografia/05_delta_ndvi.png",
+      "sourceSha256": "dfebb0a1656ff61c58d3c05ef58014ca1f0db4b80233cea278963ebc226d5f65",
+      "sourceSize": [
+        2055,
+        1594
+      ],
+      "displaySize": [
+        1600,
+        1241
+      ],
+      "bytes": 263430,
+      "sha256": "eb6a7b521c971f822447d8c84d7973f5ed6a06d9b88f72977ddff25e3723a5ae"
+    },
+    {
+      "name": "S01_Pital",
+      "url": "assets/media/S01_Pital.webp",
+      "source": "cartografia/S01_Pital.png",
+      "sourceSha256": "c9ca71e2b316358c934957901ec8e032a465cf9d6e3ab4bca84b73c83a0f9568",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 193288,
+      "sha256": "8e23e1897fefcfb7b587fc246a74d41d1926b13ce7649c6eb66a6542c8051d3e"
+    },
+    {
+      "name": "S02_La_Fortuna",
+      "url": "assets/media/S02_La_Fortuna.webp",
+      "source": "cartografia/S02_La_Fortuna.png",
+      "sourceSha256": "78a13eddc410b7733f4303a4320a06a394267debaeb059dbca43ca1f06ec8ecb",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 186062,
+      "sha256": "5819c8f1799723e0330d59d5e13a136b19045a6e3a45d3cc520b6ab8928f676f"
+    },
+    {
+      "name": "S03_Pocosol",
+      "url": "assets/media/S03_Pocosol.webp",
+      "source": "cartografia/S03_Pocosol.png",
+      "sourceSha256": "e60fbe55345dc107108f7a5aa74d848685f67d09969bb723ddc449ee77fff2ab",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 168844,
+      "sha256": "e30514749b3f4e1d8f84695937de74c44b573ef40c6e331d04d56f0aefd3747c"
+    },
+    {
+      "name": "S04_Cutris",
+      "url": "assets/media/S04_Cutris.webp",
+      "source": "cartografia/S04_Cutris.png",
+      "sourceSha256": "b5cbe447abd3d92d2d74cc5e9a0957598acaec161f834024cae9989e9604e688",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 190476,
+      "sha256": "45928d4fae9ba002985cc6456b166b8233cefc7f710991fe33db7f2f99312ded"
+    },
+    {
+      "name": "S05_Quesada",
+      "url": "assets/media/S05_Quesada.webp",
+      "source": "cartografia/S05_Quesada.png",
+      "sourceSha256": "0d11634286ebef94ecbf220c83ff2881b4a2986d68569726bcae744feb39b2a7",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 210024,
+      "sha256": "cb55e31ca35efcbeb81bcb0fc37614b20065ebb14138e8fa6a56f57c74dc8b79"
+    },
+    {
+      "name": "06_matriz_temporal",
+      "url": "assets/media/06_matriz_temporal.webp",
+      "source": "figuras/06_matriz_temporal.png",
+      "sourceSha256": "27781bf1796bc31a141d9bc9a24eb6be574eb3512c633ef1ad11e4eb1a352cb4",
+      "sourceSize": [
+        3094,
+        1653
+      ],
+      "displaySize": [
+        1800,
+        962
+      ],
+      "bytes": 76554,
+      "sha256": "cdbdd3066859eef21d41796535e562907884cde0edb6594bd404402ca98fbf3d"
+    },
+    {
+      "name": "07_ponderacion_distrital",
+      "url": "assets/media/07_ponderacion_distrital.webp",
+      "source": "figuras/07_ponderacion_distrital.png",
+      "sourceSha256": "d754d2ec8d0559f1c7ca036702c27f268556081e87c32f6b4770491fcf01059f",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 84540,
+      "sha256": "0e593d9f1e0422af19121caef607018e732e804d0a7620052a33ec5028cbf1e8"
+    },
+    {
+      "name": "08_sensibilidad_umbral",
+      "url": "assets/media/08_sensibilidad_umbral.webp",
+      "source": "figuras/08_sensibilidad_umbral.png",
+      "sourceSha256": "cd82f4f65443f2eef01c882206ad4ee7360b407b82b8575fff9c215e7520b6fe",
+      "sourceSize": [
+        2055,
+        1594
+      ],
+      "displaySize": [
+        1600,
+        1241
+      ],
+      "bytes": 53786,
+      "sha256": "1a292abfec724935bd158b2800b71b449201c2b0ea0074f3912c48a400aa22ee"
+    },
+    {
+      "name": "09_lectura_reflectancias",
+      "url": "assets/media/09_lectura_reflectancias.webp",
+      "source": "figuras/09_lectura_reflectancias.png",
+      "sourceSha256": "3f6ca974082481d1105965efe7f1ec60503ce8767b8de61ba7ae9564f7f2e9db",
+      "sourceSize": [
+        3094,
+        1700
+      ],
+      "displaySize": [
+        1800,
+        989
+      ],
+      "bytes": 63658,
+      "sha256": "466d5cf55cb20c0645f9d621dff1cd226115eb1ec7702857cbea4d29cb1018c6"
+    },
+    {
+      "name": "10_superficie_comparable",
+      "url": "assets/media/10_superficie_comparable.webp",
+      "source": "figuras/10_superficie_comparable.png",
+      "sourceSha256": "de7f3a46de04ef7579048dae6cec3ee8ad4a1530a0ac321b892898d960d617e9",
+      "sourceSize": [
+        2055,
+        1027
+      ],
+      "displaySize": [
+        1800,
+        900
+      ],
+      "bytes": 64076,
+      "sha256": "727e3d6741738d15f48e7a1ed24f3c7fef299a8cae084163f7053a4b9d1d42a0"
+    }
+  ],
+  "font": {
+    "family": "IBM Plex Sans",
+    "axes": {
+      "wght": [
+        100.0,
+        400.0,
+        700.0
+      ],
+      "wdth": [
+        75.0,
+        100.0,
+        100.0
+      ]
+    },
+    "url": "assets/fonts/IBMPlexSans-Variable.woff",
+    "license": "SIL Open Font License 1.1",
+    "licenseUrl": "assets/fonts/OFL.txt",
+    "originalBytes": 537244,
+    "webBytes": 291164,
+    "originalSha256": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
+    "webSha256": "55e82114568152efa90c999c4f0e08090bac2b0a9e7c260685c7b6b9825e0087"
+  },
+  "geometryVerification": {
+    "officialSha256Matches": true,
+    "districts": 13,
+    "originalVertices": 91870,
+    "displayVertices": 11644,
+    "inputCoverageValid": true,
+    "displayCoverageValid": true,
+    "northUp": true,
+    "simplificationMeters": 25.0
+  },
+  "numericVerification": {
+    "districtCount": 13,
+    "datePairCount": 6,
+    "thresholdCount": 3,
+    "commonNdviCells": 4979989,
+    "commonNdviHa": 199199.56,
+    "districtAreaAndCommonSumsMatch": true,
+    "datePairsClose": true,
+    "simpleAndWeightedMeansMatch": true,
+    "thresholdFourStatesClose": true,
+    "numericToleranceMean": 1e-12,
+    "numericToleranceAreaHa": 1e-07
+  },
+  "totalImageBytes": 3405586,
+  "software": {
+    "shapely": "2.2.0",
+    "fiona": "1.10.1"
+  }
+}

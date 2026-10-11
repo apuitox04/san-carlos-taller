@@ -1,0 +1,362 @@
+[
+  {
+    "id": "D01",
+    "title": "San Carlos: revisión territorial",
+    "kicker": "Taller · Sentinel-2 y QGIS",
+    "body": "¿Qué podemos afirmar sobre el territorio que realmente logramos observar?",
+    "notes": "Abra con el encargo: preparar una revisión territorial de los trece distritos de San Carlos a partir de dos composiciones Sentinel-2 de 2025. El escenario es docente y las cifras describen los archivos entregados. La delimitación oficial, la fecha, la calidad y el cálculo formarán parte de cada afirmación. Evite presentar la media de NDVI como diagnóstico de vegetación o el umbral de MNDWI como superficie de inundación confirmada. Pregunte qué evidencia pedirían antes de firmar un informe.",
+    "minutes": 2,
+    "figure": "assets/media/01_portada_apaisada.webp",
+    "figureAlt": "Mapa del cantón San Carlos y sus trece distritos, con la cuadrícula del taller y referencia territorial IGN/SNIT."
+  },
+  {
+    "id": "D02",
+    "title": "Un expediente que pueda revisarse",
+    "kicker": "El encargo",
+    "body": "Cada afirmación debe indicar cantidad, unidad, ámbito y procedencia.",
+    "notes": "La entrega combina cuatro productos que deben concordar: informe de una o dos páginas, tabla de trece distritos, mapa cantonal y proyecto QGIS. Los sitios S01–S05 permiten examinar decisiones del método; no son una muestra estadística. Pida conservar tres niveles en las notas: dato medido, interpretación y comprobación propuesta. Esta distinción se aplicará especialmente a S03 y S05. El cierre exige explicar una decisión propia en S06.",
+    "minutes": 3,
+    "bullets": [
+      "Informe de una o dos páginas con resultados y comprobaciones.",
+      "Tabla de los trece distritos y mapa de diferencia espectral.",
+      "Proyecto QGIS con las operaciones y fuentes identificadas."
+    ]
+  },
+  {
+    "id": "D03",
+    "title": "Una jornada, seis prácticas",
+    "kicker": "08:00–16:00",
+    "body": "Abrir proyectos/01_Practica.qgz y guardar una copia en mi_trabajo/.",
+    "notes": "Organización: inicio 08:00–08:10; P01 08:10–08:50; P02 08:50–09:45; pausa 09:45–10:00; P03 10:00–11:10; P04 11:10–12:00 y 13:00–13:20; almuerzo 12:00–13:00; P05 13:20–14:25; pausa 14:25–14:40; P06 14:40–15:50; revisión 15:50–16:00. Son 390 minutos de trabajo y 90 de pausas. Los minutos de estas diapositivas incluyen explicación, demostración y trabajo del participante. Extraer los dos ZIP en la misma carpeta conserva las rutas relativas. El archivo de trabajo será mi_trabajo/Practica_San_Carlos.qgz. Confirme que todos abren el proyecto y ven los cinco sitios antes de continuar.",
+    "minutes": 5,
+    "bullets": [
+      "P01–P02 · territorio, bandas, fechas y calidad.",
+      "P03–P04 · índices, superficie comparable y umbral.",
+      "P05–P06 · tabla distrital, informe y mapa."
+    ]
+  },
+  {
+    "id": "D04",
+    "title": "La delimitación oficial",
+    "kicker": "P01 · territorio",
+    "body": "IGN / Registro Nacional, publicado mediante el servicio WFS del SNIT.",
+    "notes": "Abra los atributos de Canton_IGN y Distritos_IGN. Productor: IGN del Registro Nacional; publicación: SNIT. Capas del servicio IGN_5_CO: limitecantonal_5k y limitedistrital_5k, filtradas por cantón 210. El GeoPackage contiene canton y distritos en EPSG:8908, CR-SIRGAS / CRTM05. Se conserva 20260410001 como identificador de versión, sin convertirlo en una fecha. La consulta es del 11 de octubre de 2026 UTC. Esta misma división se aplica a ambas composiciones de 2025 como unidad común de presentación. Distinga la fecha de la delimitación de las adquisiciones de las imágenes.",
+    "minutes": 6,
+    "bullets": [
+      "Cantón 210 · distritos 21001–21013.",
+      "EPSG:8908 · CR-SIRGAS / CRTM05.",
+      "Versión 20260410001 · consulta del 11/10/2026 UTC."
+    ]
+  },
+  {
+    "id": "D05",
+    "title": "El denominador se construye con celdas",
+    "kicker": "P01 · superficie",
+    "body": "20 × 20 m = 400 m² = 0,04 ha por celda.",
+    "notes": "La geometría vectorial produce 3.352,135231 km², equivalentes a 335.213,523074 ha. La cuadrícula asigna 8.380.093 celdas al cantón: 335.203,72 ha. La diferencia de 9,803074 ha procede de representar los bordes mediante celdas completas incluidas por su centro. Para los porcentajes de observación se usa la superficie de celdas, de modo que numerador y denominador comparten unidad. En la tabla de valores únicos, 1–13 corresponde a los distritos y 0 al exterior. No se suman las catorce filas para informar el cantón. Demuestre area($geometry) / 1000000 y el conteo antes de abrir la práctica.",
+    "minutes": 8,
+    "bullets": [
+      "Vector: 3.352,135231 km².",
+      "Cuadrícula cantonal: 8.380.093 celdas · 335.203,72 ha.",
+      "Los porcentajes de cobertura usarán la cuadrícula cantonal."
+    ]
+  },
+  {
+    "id": "D06",
+    "title": "P01 · declarar territorio y superficie",
+    "kicker": "Trabajo en QGIS",
+    "body": "Entregable: registro de procedencia y tabla de conteos por distrito.",
+    "notes": "Asigne 26 minutos a la ejecución y comprobación. 1) Confirmar las capas oficiales, códigos y SRC. 2) Calcular área vectorial mediante campo virtual. 3) Ejecutar Informe de valores únicos de capa ráster sobre Distritos_20m. 4) Excluir la clase 0 al sumar count y convertir a hectáreas. 5) Registrar la diferencia entre las representaciones. Controle trece distritos y 8.380.093 celdas cantonales. Si el área se aproxima a 639.039 ha, se ha sumado el rectángulo completo. La tabla P01_conteo_distritos.gpkg se utilizará en P05. Cierre solicitando una frase que declare productor, versión y denominador.",
+    "minutes": 26,
+    "bullets": [
+      "Verificar 13 distritos y EPSG:8908.",
+      "Contar las clases 1–13; convertir el total a hectáreas.",
+      "Explicar por qué el área vectorial y la de celdas difieren."
+    ],
+    "practice": "P01"
+  },
+  {
+    "id": "D07",
+    "title": "Las bandas ya contienen reflectancia",
+    "kicker": "P02 · observación",
+    "body": "Los archivos del taller tienen escala 1 y desplazamiento 0.",
+    "notes": "Presente las reflectancias como valores de superficie del producto L2A. El ajuste desde los valores digitales originales ya se aplicó; repetir el escalado alteraría los índices, particularmente SAVI por su término aditivo. F1_reflectancia y F2_reflectancia son Float32, con NoData −9999, cuatro bandas y la misma cuadrícula de 20 m. Orden interno: 1=B03 verde, 2=B04 rojo, 3=B08 infrarrojo cercano, 4=B11 infrarrojo de onda corta. Las bandas de 10 m se alinearon a 20 m; SCL preserva códigos mediante vecino más próximo. Demuestre falso color 3-2-1 y los mismos límites de visualización en ambas composiciones: 0–0,60 para NIR y 0–0,25 para rojo y verde.",
+    "minutes": 8,
+    "bullets": [
+      "Banda 1: B03 · verde. Banda 2: B04 · rojo.",
+      "Banda 3: B08 · infrarrojo cercano. Banda 4: B11 · infrarrojo de onda corta.",
+      "Cuadrícula común de 20 m; cuatro bandas de una adquisición por celda."
+    ]
+  },
+  {
+    "id": "D08",
+    "title": "Cada celda conserva su fecha",
+    "kicker": "P02 · comparación temporal",
+    "body": "Seis parejas de adquisiciones; intervalos de 110 a 170 días.",
+    "notes": "La composición selecciona una observación por celda. En F1 hay adquisiciones del 23 de febrero y 20 de marzo de 2025; en F2, del 8 de julio, 7 de agosto y 12 de agosto. Los valores de fecha son días del año: 54, 79, 189, 219 y 224. El par 20 de marzo–7 de agosto reúne el 70,72 % del soporte común de NDVI. Cada par ocupa un territorio diferente; sus medias no aislarían el efecto del intervalo. Pregunte qué problema introduce dividir todas las diferencias por 140 días. La respuesta debe reconocer los otros cinco intervalos y la distribución espacial de sus observaciones. En S03 el intervalo es 110 días; en S01, 140.",
+    "minutes": 8,
+    "figure": "assets/media/06_matriz_temporal.webp",
+    "figureAlt": "Matriz de los seis pares de fechas de Sentinel-2 presentes en el soporte común de NDVI y sus superficies; los intervalos oscilan entre 110 y 170 días."
+  },
+  {
+    "id": "D09",
+    "title": "La calidad se evalúa con la observación",
+    "kicker": "P02 · S02, La Fortuna",
+    "body": "En F1: SCL = 4 y margen seguro = 0. La observación queda excluida.",
+    "notes": "La práctica acepta clases SCL 4, 5 y 6 y exige máscara segura igual a 1. El margen de 3 × 3 se evaluó dentro de cada adquisición antes de componer; no debe reconstruirse sobre una SCL compuesta que mezcle fuentes. S02 ilustra que disponer de bandas numéricas y una clase central aceptada es insuficiente. Consulte fecha, SCL y F1_segura en el mismo centro de celda. La imagen de detalle identifica la celda real de 20 m. El valor de F2 puede ser válido, pero la comparación sigue excluida por F1. Pregunte cómo representarán esta ausencia en la tabla y en el mapa.",
+    "minutes": 9,
+    "figure": "assets/media/S02_La_Fortuna.webp",
+    "figureAlt": "Ficha de La Fortuna con falso color, celda de 20 m, calidad e índices. F1 queda sin índice porque su margen seguro vale cero."
+  },
+  {
+    "id": "D10",
+    "title": "P02 · documentar cinco observaciones",
+    "kicker": "Trabajo en QGIS",
+    "body": "Entregable: bandas, calidad, fechas y decisión de aceptación de S01–S05.",
+    "notes": "Asigne 30 minutos. Muestrear F1_reflectancia y F2_reflectancia sobre Sitios_practica; registrar valores completos sin redondear las bandas; identificar SCL, segura, fecha y fuente de cada composición. Mantenga los nombres y orden de bandas. La ficha debe contener una decisión justificada por observación. Compruebe S02 en F1: SCL 4 con segura 0 significa exclusión. Compare S01, 20/03–07/08, con S03, 20/03–08/07. Durante el trabajo verifique que el alumnado lee el centro del punto y que no confunde el código de fuente con el día del año. Al cerrar P02, pausa de 15 minutos hasta las 10:00.",
+    "minutes": 30,
+    "bullets": [
+      "Muestrear las cuatro bandas en F1 y F2.",
+      "Consultar SCL, máscara segura, fecha y fuente.",
+      "Aceptar o excluir cada observación con un criterio escrito."
+    ],
+    "practice": "P02"
+  },
+  {
+    "id": "D11",
+    "title": "Tres índices, dos parejas de bandas",
+    "kicker": "P03 · cálculo",
+    "body": "Cada cociente se calcula después de aplicar la condición de aceptación.",
+    "notes": "Explique el significado de numerador y denominador antes de mostrar la expresión de QGIS. NDVI compara NIR y rojo; MNDWI compara verde y SWIR; SAVI introduce L=0,5 en este ejercicio. NDVI y SAVI usan exactamente la misma condición de validez. Las bandas implicadas deben ser positivas y su suma superar 0,000001, además de territorio, SCL y margen seguro. MNDWI utiliza otra pareja de bandas y por ello puede tener una superficie válida diferente. Las fórmulas completas entregadas incorporan esas condiciones; la expresión breve de la diapositiva sólo muestra el cálculo espectral.",
+    "minutes": 8,
+    "bullets": [
+      "NDVI = (B08 − B04) / (B08 + B04).",
+      "SAVI = 1,5 × (B08 − B04) / (B08 + B04 + 0,5).",
+      "MNDWI = (B03 − B11) / (B03 + B11)."
+    ]
+  },
+  {
+    "id": "D12",
+    "title": "S01: un aumento de NDVI no obliga a aumentar SAVI",
+    "kicker": "P03 · lectura de reflectancias",
+    "body": "Pital: el contraste normalizado cambia poco; la suma de bandas disminuye.",
+    "notes": "En S01, NDVI pasa de 0,880920 a 0,884666 y SAVI de 0,639184 a 0,631624. La suma S=B08+B04 baja de aproximadamente 0,468475314 a 0,454160640. Reescriba SAVI=1,5×NDVI×S/(S+0,5): el factor asociado a la suma disminuye y supera el pequeño incremento de NDVI. Pida explicar el signo de ambas diferencias usando las bandas, sin atribuir una causa biológica. La lámina compara S01 con S05 usando la misma escala de reflectancia; la lectura de S05 se retomará al preparar el informe. Para el cálculo manual, conserve los decimales de origen y redondee sólo el resultado.",
+    "minutes": 8,
+    "figure": "assets/media/09_lectura_reflectancias.webp",
+    "figureAlt": "Comparación de reflectancias de S01 Pital y S05 Quesada en F1 y F2, con resultados de NDVI y SAVI."
+  },
+  {
+    "id": "D13",
+    "title": "NoData conserva una exclusión",
+    "kicker": "P03 · condición de cálculo",
+    "body": "En S02 no existe una diferencia válida, aunque F2 tenga NDVI = 0,721215.",
+    "notes": "F1 de S02 tiene bandas que permiten efectuar una división, pero falla el criterio seguro. Los tres índices F1 deben quedar como NoData. Rellenar con cero produciría artificialmente +0,721215 al restar F2 menos F1. Un cero numérico entra en la media; NoData conserva la exclusión. Destaque dos controles complementarios: S01 verifica la fórmula y S02 verifica la selección de observaciones. Si las celdas locales coinciden pero cambian los conteos cantonales, hay que revisar la cuadrícula y las condiciones territoriales, no sólo el redondeo.",
+    "minutes": 4,
+    "bullets": [
+      "Cero: resultado numérico que participa en las estadísticas.",
+      "NoData: observación excluida por el método.",
+      "El control necesita una celda aceptada y otra excluida."
+    ]
+  },
+  {
+    "id": "D14",
+    "title": "P03 · producir seis índices",
+    "kicker": "Trabajo en QGIS",
+    "body": "Entregable: NDVI, SAVI y MNDWI de F1 y F2 en GeoTIFF.",
+    "notes": "Reserve 50 minutos para aplicar las seis expresiones de practicas/formulas/. Conserve extensión y dimensiones: X 405500–482400, Y 1132820–1215920, 3845 columnas, 4155 filas, EPSG:8908. Salida GeoTIFF de archivo y nombres P03_NDVI_F1, P03_NDVI_F2, P03_SAVI_F1, P03_SAVI_F2, P03_MNDWI_F1 y P03_MNDWI_F2. Cargar los estilos comunes. Contrastar S01 con el cálculo manual y los tres NoData de S02 en F1. Tolerancia de contraste: 0,000001. Si aparecen diferencias, revisar orden de bandas, escalado y condición antes de repetir todas las operaciones. Guardar el proyecto al terminar.",
+    "minutes": 50,
+    "bullets": [
+      "Aplicar las expresiones completas y conservar la cuadrícula.",
+      "Usar un estilo común por índice en las dos composiciones.",
+      "Contrastar S01 y comprobar la exclusión de S02 en F1."
+    ],
+    "practice": "P03"
+  },
+  {
+    "id": "D15",
+    "title": "Comparar exactamente las mismas celdas",
+    "kicker": "P04 · superficie comparable",
+    "body": "La diferencia F2 − F1 exige un índice válido en ambas composiciones.",
+    "notes": "El soporte común es la intersección de observaciones aceptadas. En NDVI contiene 4.979.989 celdas, 199.199,56 ha, equivalentes al 59,43 % de la cuadrícula cantonal. Las 136.004,16 ha restantes carecen de comparación válida con este método. F1 y F2 por separado tienen mayor superficie válida, pero sus medias individuales representarían conjuntos distintos. El emparejamiento permite que la media de las diferencias coincida con la diferencia entre medias calculadas sobre esas mismas celdas. La máscara de la práctica vale 1/NoData; su multiplicación conserva sólo observaciones emparejadas.",
+    "minutes": 10,
+    "figure": "assets/media/03_soporte_comun.webp",
+    "figureAlt": "Mapa de todo San Carlos con la superficie comparable de NDVI y el área excluida, usando límites oficiales de los trece distritos."
+  },
+  {
+    "id": "D16",
+    "title": "El signo describe una diferencia espectral",
+    "kicker": "P04 · lectura del mapa",
+    "body": "ΔNDVI = NDVI(F2) − NDVI(F1). La superficie sin comparación permanece visible.",
+    "notes": "Un valor positivo indica aumento del contraste NIR–rojo; uno negativo, disminución. No identifica por sí solo cambios de uso ni una causa. La diferencia de dos índices entre −1 y 1 puede abarcar −2 a 2: S03 registra aproximadamente −1,015812 y es aritméticamente posible. S04 presenta −0,003315, próximo a cero, pero ese resultado entre dos fechas no demuestra permanencia de la cobertura. La escala de color de la lámina se limita visualmente a ±0,30 con extremos indicados; los datos completos mantienen sus valores originales. Interprete siempre las fechas reales de la celda.",
+    "minutes": 8,
+    "figure": "assets/media/05_delta_ndvi.webp",
+    "figureAlt": "Mapa cantonal de diferencia de NDVI F2 menos F1, con colores divergentes y superficie sin comparación en gris."
+  },
+  {
+    "id": "D17",
+    "title": "El umbral cambia la superficie seleccionada",
+    "kicker": "P04 · MNDWI",
+    "body": "La sensibilidad se evalúa sobre las mismas 199.327,32 ha comparables.",
+    "notes": "Las condiciones de reflectancia dependen de B03 y B11, por lo que el soporte común de MNDWI supera al de NDVI en 127,76 ha. Aplique umbral estricto >t y observe la categoría sólo F2: 376,84 ha con t=0,0; 210,12 ha con t=0,1; 165,00 ha con t=0,2. El cambio relativo frente a 0,1 es +79,35 % y −21,47 %. Estas áreas son selección espectral, no una superficie de inundación validada. Las clases 0,1,2,3 tienen dos observaciones válidas; NoData queda fuera. Una categoría de transición puede aumentar al subir el umbral porque combina dos condiciones.",
+    "minutes": 10,
+    "figure": "assets/media/08_sensibilidad_umbral.webp",
+    "figureAlt": "Sensibilidad de las categorías de transición MNDWI a umbrales 0,0, 0,1 y 0,2, con soporte espacial constante."
+  },
+  {
+    "id": "D18",
+    "title": "S03: documentar un cruce de umbral",
+    "kicker": "P04 · Pocosol",
+    "body": "20 de marzo → 8 de julio de 2025 · 110 días.",
+    "notes": "En S03, MNDWI cambia de −0,608245 a 0,470069. Con umbral >0,1, F1 no lo supera y F2 sí: corresponde clase 2, sólo F2. SCL de F2 vale 5, por lo que la discrepancia entre la clasificación de escena y el cociente se conserva en la revisión. La hipótesis de agua superficial requiere imagen contemporánea de mayor detalle y observaciones anteriores y posteriores al 8 de julio. No se ha validado en campo. Pida una frase que describa el cruce y otra que proponga la comprobación. No acepte la identificación automática de un episodio de inundación a partir de este único registro.",
+    "minutes": 7,
+    "figure": "assets/media/S03_Pocosol.webp",
+    "figureAlt": "Ficha de Pocosol con falso color, índices, fechas y clase MNDWI sólo F2 en una celda de 20 m."
+  },
+  {
+    "id": "D19",
+    "title": "P04 · calcular, contar y explicar",
+    "kicker": "Trabajo en QGIS",
+    "body": "Entregable: diferencia de NDVI, superficie comparable y transición de MNDWI.",
+    "notes": "Esta práctica ocupa 35 minutos de ejecución: 15 antes del almuerzo y 20 al regresar. Calcular P04_Delta_NDVI y la máscara P04_Soporte_NDVI mediante 0*Delta+1, conservando NoData. Contar la clase 1 y convertir a hectáreas y porcentaje. Ejecutar P04_Clases_MNDWI, con umbral estricto >0,1, y contar las cuatro clases. Controles: 199.199,56 ha de NDVI; en MNDWI, ninguna 198.515,48 ha, ambas 505,08 ha, sólo F2 210,12 ha y sólo F1 96,64 ha. La clase 0 no es ausencia de dato. Sólo F2 y sólo F1 producen un saldo de +113,48 ha, que no sustituye la información de las dos direcciones. Revisar los cinco sitios y contrastar la tabla de sensibilidad.",
+    "minutes": 35,
+    "bullets": [
+      "Contar superficie comparable y superficie excluida.",
+      "Conservar el sentido F2 − F1 y la máscara 1/NoData.",
+      "Separar ninguna, ambas, sólo F2 y sólo F1."
+    ],
+    "practice": "P04"
+  },
+  {
+    "id": "D20",
+    "title": "La tabla distrital debe conservar el denominador",
+    "kicker": "P05 · resumen territorial",
+    "body": "Cada media F1, F2 y Δ se calcula sobre las mismas celdas del distrito.",
+    "notes": "Demuestre la preparación de los NDVI de F1 y F2 multiplicados por P04_Soporte_NDVI. Ejecutar Estadísticas zonales de capa ráster con Distritos_20m como capa de zonas y Capa de entrada como referencia (REF_LAYER=0); unir mediante zone↔raster_code. Los códigos administrativos 21001–21013 identifican distritos; raster_code 1–13 identifica zonas de la cuadrícula. No unir nombres por apariencia. La tabla P01 aporta el denominador count del distrito; delta_count aporta el conteo comparable. Calcular area_comun_ha=delta_count*0,04 y cobertura_pct=100*delta_count/total_count. Una columna de cobertura evita presentar una media como descripción de todo el distrito.",
+    "minutes": 10,
+    "bullets": [
+      "Área comparable = delta_count × 0,04 ha.",
+      "Cobertura = 100 × celdas comparables / celdas del distrito.",
+      "Unión por códigos: zone ↔ raster_code."
+    ]
+  },
+  {
+    "id": "D21",
+    "title": "La cobertura cambia el alcance de la lectura",
+    "kicker": "P05 · trece distritos",
+    "body": "La Tigra: 12,96 % comparable. Aguas Zarcas: 89,92 %.",
+    "notes": "La Tigra tiene 728,48 ha comparables y ΔNDVI medio −0,053728; Aguas Zarcas, 16.699,08 ha y +0,091328. Ambos resultados describen celdas aceptadas, con alcance espacial muy diferente. La Tigra conserva 87,04 % de su cuadrícula sin comparación. Buenavista 36,49 %, La Fortuna 29,18 % y Venado 30,52 % también tienen cobertura inferior al 40 %. Estas unidades serán candidatas para S06. Pregunte qué debería preceder a un ordenamiento distrital por diferencia: declaración de cobertura, fechas y selección. La heterogeneidad de las celdas no es una medida de exactitud temática.",
+    "minutes": 8,
+    "figure": "assets/media/04_cobertura_distrital.webp",
+    "figureAlt": "Mapa y comparación de la cobertura de NDVI válida en ambas composiciones para los trece distritos de San Carlos."
+  },
+  {
+    "id": "D22",
+    "title": "Una celda o un distrito: elegir el peso",
+    "kicker": "P05 · agregación",
+    "body": "La media cantonal usa el número de celdas comparables de cada distrito.",
+    "notes": "Presente dos preguntas distintas: promedio de las trece medias distritales, +0,044342103, y media de todas las celdas comparables del cantón, +0,057786150. La segunda se calcula como suma de n_d*media_d dividida entre suma de n_d. Cutris y Pocosol reúnen 90.525,88 ha, el 45,44 % del soporte común; un promedio simple les asignaría conjuntamente 2/13 del peso. La diferencia no es un problema de redondeo: cambia qué unidad recibe igual peso. Para este informe territorial corresponde la media ponderada por celdas. No describa el promedio de distritos como incorrecto en cualquier contexto; responde a otra pregunta. La desviación estándar entre celdas describe dispersión, no error estándar ni intervalo de confianza.",
+    "minutes": 12,
+    "figure": "assets/media/07_ponderacion_distrital.webp",
+    "figureAlt": "Comparación entre promedio simple de medias distritales y media cantonal ponderada por celdas, mostrando la contribución territorial de cada distrito."
+  },
+  {
+    "id": "D23",
+    "title": "P05 · cerrar trece filas y un total",
+    "kicker": "Trabajo en QGIS",
+    "body": "Entregable: tabla con superficies, cobertura y medias comparables.",
+    "notes": "Reserve 35 minutos para estadísticas, uniones y contraste. Comprobar que cada distrito tiene el mismo conteo en F1, F2 y Δ después del emparejamiento. Sumar delta_count: 4.979.989; area_comun_ha: 199.199,56. Revisar Quesada como control de unión: 286.476 celdas comparables, 11.459,04 ha y cobertura 79,863287 %. La diferencia media es aproximadamente +0,039420397. Si totales coinciden y filas no, revisar claves de unión. Recalcular la media cantonal ponderada y explicar la diferencia con el promedio simple. Guardar P05_resumen_distrital.gpkg. Al terminar, pausa 14:25–14:40.",
+    "minutes": 35,
+    "bullets": [
+      "Comprobar conteos iguales por distrito en F1, F2 y Δ.",
+      "Sumar 4.979.989 celdas comparables.",
+      "Calcular la media ponderada y explicar qué representa."
+    ],
+    "practice": "P05"
+  },
+  {
+    "id": "D24",
+    "title": "S05: volver a las bandas antes de explicar",
+    "kicker": "P06 · Quesada",
+    "body": "NDVI baja de 0,889150 a 0,123993, aunque B08 aumenta.",
+    "notes": "En S05, B08 aumenta de 0,467256 a 0,640699 y B04 de 0,027417 a 0,499342. El rojo aumenta proporcionalmente más y se aproxima al NIR: se reduce el numerador y crece el denominador de NDVI. La diferencia es −0,765157. Las cuatro bandas de F2 son altas respecto a F1; SCL=5 y segura=1 cumplen los filtros del taller, pero no identifican una causa. Proponga revisar apariencia, calidad residual y adquisiciones cercanas al 7 de agosto. Compare con S04: una diferencia pequeña tampoco demuestra persistencia. Cinco sitios se eligieron para enseñar decisiones, no para estimar frecuencias cantonales.",
+    "minutes": 10,
+    "figure": "assets/media/S05_Quesada.webp",
+    "figureAlt": "Ficha de Quesada con bandas, falso color e índices; muestra una caída de NDVI a pesar del aumento del infrarrojo cercano."
+  },
+  {
+    "id": "D25",
+    "title": "Una afirmación técnica tiene tres partes",
+    "kicker": "P06 · informe",
+    "body": "Observación registrada → interpretación que admite → comprobación pendiente.",
+    "notes": "Use S03 como ejemplo: se midió un cruce de MNDWI en un intervalo conocido; agua superficial es una hipótesis; falta evidencia contemporánea e independiente para contrastarla. Use S02 para expresar una exclusión y S05 para explicar la fórmula antes de proponer una causa. El informe de una o dos páginas tendrá objeto y datos, procedimiento, resultados territoriales, observaciones y comprobación. Debe abrir con la superficie comparable y el resultado principal; acompañar cada porcentaje de su denominador y cada sitio de sus fechas. La media +0,057786 describe las celdas comparables y puede coexistir con descensos locales. Mostrar el informe resuelto sólo después del primer borrador ayuda a comparar la argumentación.",
+    "minutes": 10,
+    "bullets": [
+      "Cantidad, unidad, ámbito y fecha de la observación.",
+      "Interpretación compatible con los datos disponibles.",
+      "Evidencia necesaria para examinar una causa."
+    ]
+  },
+  {
+    "id": "D26",
+    "title": "S06: decidir con un sitio propio",
+    "kicker": "P06 · transferencia",
+    "body": "Elegir el criterio antes de consultar el resultado.",
+    "notes": "El participante seleccionará un distrito con menos del 40 % de cobertura: Buenavista, La Fortuna, La Tigra o Venado según los datos del taller. Dentro de él elegirá una celda próxima al contacto entre superficie comparable y excluida, evitando S01–S05. Registrará el criterio antes de leer índices. Para centrar en la cuadrícula entregada: E_centro=20*piso(E/20)+10; N_centro=20*piso(N/20)+10. Estas fórmulas usan un origen alineado con múltiplos de 20. Crear un CSV con id_sitio,x_8908,y_8908 y cargar EPSG:8908. La decisión se revisa por índice; un S06 excluido es válido si documenta el criterio incumplido y la observación que haría falta. No existe una respuesta numérica predeterminada.",
+    "minutes": 10,
+    "bullets": [
+      "Distrito con menos del 40 % de cobertura comparable.",
+      "Centro de una celda próxima al contacto comparable/excluido.",
+      "Calidad, fechas, índices y decisión reproducible."
+    ]
+  },
+  {
+    "id": "D27",
+    "title": "El mapa también declara el alcance",
+    "kicker": "P06 · cartografía",
+    "body": "Todo San Carlos, leyenda coherente y superficie sin comparación visible.",
+    "notes": "Abrir P06_Plantilla_Delta_NDVI en el Administrador de diseños. La plantilla A3 horizontal mide 420×297 mm y sigue las capas visibles. Activar diferencia, límites y sitios; mantener relleno gris del cantón bajo el ráster. Completar Texto_interpretacion con superficie comparable y porcentaje, además de autoría. Conservar resolución 20 m, EPSG:8908, fechas reales de las composiciones, escala en kilómetros y norte de cuadrícula. Atribución: IGN/Registro Nacional, publicación SNIT; Copernicus Sentinel-2, distribución Earth Search. Exportar PDF y abrirlo para comprobar la extensión completa, nombres y leyenda. La figura de esta diapositiva ilustra la presentación común de las composiciones; el producto del participante es el mapa de ΔNDVI.",
+    "minutes": 8,
+    "figure": "assets/media/02_comparacion_ndvi_doble_pagina.webp",
+    "figureAlt": "Dos mapas de NDVI de San Carlos con igual encuadre y escala de color, fechas de cada composición y exclusiones visibles."
+  },
+  {
+    "id": "D28",
+    "title": "P06 · entregar un informe defendible",
+    "kicker": "Trabajo en QGIS y redacción",
+    "body": "Entregable: informe, tabla distrital, mapa y proyecto.",
+    "notes": "Reserve 32 minutos de trabajo final, incluidos 10 para registrar S06. Completar el borrador del informe con alcance, método, resultados y observaciones. Comparar al menos dos distritos con cobertura distinta. Documentar S02 como exclusión y dos observaciones válidas con decisiones diferentes. Incorporar la ficha S06. Exportar el mapa cantonal desde la plantilla y abrir el PDF. Revisar que superficie, porcentajes, fechas y signos concuerdan entre mapa, tabla e informe. Guardar el proyecto y conservar las salidas en mi_trabajo/. El solucionario contiene un informe redactado para contrastar estructura y razonamiento, no para sustituir los resultados propios.",
+    "minutes": 32,
+    "bullets": [
+      "Vincular los resultados a su superficie y sus fechas.",
+      "Documentar S02, dos casos válidos y el sitio propio S06.",
+      "Exportar el mapa y revisar la concordancia con tabla e informe."
+    ],
+    "practice": "P06"
+  },
+  {
+    "id": "D29",
+    "title": "Revisión entre pares",
+    "kicker": "Cierre · 15:50–15:57",
+    "body": "Otra persona debe poder reconstruir una cifra y una decisión.",
+    "notes": "Dedique siete minutos a una revisión por parejas. Cada participante entrega a otra persona su informe, tabla y ficha S06. El revisor reconstruye un área mediante count*0,04, comprueba el denominador de un porcentaje y sigue una decisión desde la calidad y fecha hasta su índice o exclusión. Debe señalar una afirmación suficientemente sustentada y otra que requiere precisión. Comprobar que el mapa abarca los trece distritos y que el gris no se interpreta como ausencia de cambio. Si una interpretación atribuye causas sin evidencia adicional, reformularla como hipótesis y especificar el contraste pendiente. La revisión termina con una corrección concreta en el documento.",
+    "minutes": 7,
+    "bullets": [
+      "¿La cifra declara sobre qué superficie se calculó?",
+      "¿La observación conserva fecha, calidad y procedencia?",
+      "¿La comprobación propuesta responde a la interpretación?"
+    ]
+  },
+  {
+    "id": "D30",
+    "title": "El resultado: una revisión con alcance definido",
+    "kicker": "Cierre · 15:57–16:00",
+    "body": "El expediente identifica lo calculado, lo excluido y lo que requiere comprobación.",
+    "notes": "Pida tres respuestas breves: qué parte de San Carlos admite comparación; qué decisión cambia al consultar calidad o fecha; qué observación adicional solicitarían para continuar. Cierre recordando que una exclusión documentada y una hipótesis bien delimitada son resultados técnicos útiles. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La continuación conserva la procedencia y los denominadores, en lugar de ampliar el alcance de las conclusiones sin datos. Indique dónde encontrar los proyectos resueltos y el informe de ejemplo para el ensayo personal.",
+    "minutes": 3,
+    "bullets": [
+      "Superficie y observaciones identificadas.",
+      "Cálculos y decisiones reproducibles.",
+      "Comprobaciones pendientes formuladas con precisión."
+    ]
+  }
+]
