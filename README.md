@@ -1,130 +1,97 @@
-# Análisis territorial con QGIS
+# Taller interinstitucional de información territorial de La Fortuna
 
-**Workshop gratuito · San Carlos**
+Curso municipal de cuatro horas para revisar información territorial y acordar su actualización con instituciones de la Zona Norte.
 
-Sentinel-2 y cartografía oficial IGN/SNIT
+## Edición vigente
 
-Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Municipalidad de San Carlos** y dirigido a **instituciones y público general**. Se trabaja con QGIS, Sentinel-2 y cartografía oficial del Instituto Geográfico Nacional de Costa Rica, publicada mediante el SNIT. El caso de estudio comprende los trece distritos del cantón de San Carlos.
+- Versión: 2.0.0
+- Fecha: 12 de octubre de 2026
+- Alcance: área urbana de La Fortuna, con ampliación posterior al distrito
+- Duración: 240 minutos
+- Grupo: 24 a 30 personas en cinco mesas
+- Trabajo práctico: QGIS y GDAL
+- Demostración: ArcGIS Pro y ArcGIS Online
 
-**Facilitador:** Andrés Castillo Leitón · Ingeniero Topógrafo.  
-**Participación y materiales:** gratuitos.  
-**Edición del material:** 12 de octubre de 2026. La fecha de edición no es una fecha de convocatoria.
+El sitio público se publica desde `docs/`:
 
-## Acceso
+<https://apuitox04.github.io/san-carlos-taller/>
 
-- [Sitio del taller](https://apuitox04.github.io/san-carlos-taller/)
-- [Datos, proyectos QGIS y documentos de la edición 1.0.3](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3)
+## Resultado de la sesión
 
-La consulta pública no requiere una cuenta de GitHub.
+Cada mesa entrega:
 
-## Contenido
+1. proyecto QGIS con rutas relativas y EPSG:8908;
+2. mapa PDF con cobertura, vacíos y fuentes;
+3. CSV con un indicador y sus parámetros;
+4. matriz con custodio, validador, frecuencia, acceso y control de calidad;
+5. acciones con responsable y plazo.
 
-| Sección | Contenido y uso |
+## Secuencia
+
+| Minuto | Trabajo |
+| ---: | --- |
+| 00–15 | Alcance, pregunta y reglas |
+| 15–35 | Estado municipal en ArcGIS |
+| 35–65 | P01 Base territorial |
+| 65–110 | P02 Observación satelital |
+| 110–120 | Pausa y respaldo |
+| 120–160 | P03 Altura y forma urbana |
+| 160–200 | P04 Mesas sectoriales |
+| 200–230 | P05 Acuerdos |
+| 230–240 | Exportación y cierre |
+
+## Mesas
+
+1. Catastro y planificación urbana.
+2. Ambiente y agua.
+3. Producción y desarrollo rural.
+4. Riesgo e infraestructura.
+5. Conectividad, turismo y comunidad.
+
+La convocatoria solicita una persona técnica y otra con capacidad para acordar responsabilidades por entidad. Se propone invitar a Municipalidad de San Carlos, Registro Nacional/IGN, MINAE, SINAC–ACAHN, MAG, INTA, INDER, CFIA, CNE/CME, MOPT/CONAVI, ICE, AyA/ASADAS, MICITT, SUTEL/FONATEL, ICT, sector turístico, ADIFORT, academia y comunidad.
+
+## Archivos
+
+| Ruta | Uso |
 | --- | --- |
-| Programa | Identificación municipal, presentación del workshop y seis prácticas con duración, producto y acceso directo. |
-| Preparar el equipo | Descarga de ambos paquetes, estructura de carpetas, apertura del proyecto y cuatro comprobaciones del equipo. |
-| Opciones de software | Comparación de rutas libre, comercial e híbrida, equivalencias P01–P06, requisitos, formatos de intercambio y criterios para un piloto. |
-| Presentación | 30 diapositivas; navegación por teclado, proyección, notas del ponente e impresión de la presentación completa. |
-| Prácticas | Seis actividades divididas en 28 tareas. Cada tarea reúne objetivo, operación, salida, comprobación y registro; el manual y la resolución siguen disponibles. |
-| Mi trabajo | Resumen de las seis prácticas, notas y respuestas, informe, S06, exportación TXT/JSON y restauración de un JSON con revisión previa. |
-| Atlas | Mapa e inspector de San Carlos y sus 13 distritos, tabla, soporte común, umbrales de MNDWI y fechas. Copia de resultados para el informe y descargas CSV. |
-| Datos y materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
-| Guía de facilitación | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y organización de la actividad municipal gratuita. |
-| Fuentes y método | Procedencia de los límites, observaciones satelitales, decisiones de procesamiento y referencias del taller. |
+| `docs/index.html` | Curso interactivo |
+| `docs/content/course.json` | Agenda, prácticas, mesas, estado y fuentes |
+| `docs/recursos/guia-facilitacion.md` | Preparación y conducción |
+| `docs/recursos/matriz-acuerdos.csv` | Registro institucional |
+| `docs/recursos/ficha-observacion.csv` | Control técnico |
+| `docs/LICENCIAS_Y_DATOS.md` | Condiciones de uso |
+| `scripts/check.mjs` | Verificación local |
 
-## Rutas de software
+El paquete `Taller_La_Fortuna_Datos_y_Proyecto.zip` se distribuye como activo de la publicación 2.0.0 para evitar cargar datos pesados en GitHub Pages.
 
-La ruta ejecutable y comprobada del taller usa **QGIS y GDAL**. La sección **Opciones de software** permite planificar el mismo método con tres configuraciones:
+## Ejecución local
 
-- **Libre:** QGIS/GDAL, PostGIS, GeoServer o QGIS Server, GeoNode, QField, PDAL y CloudCompare.
-- **Comercial:** ArcGIS Pro y las extensiones necesarias, ArcGIS Online o Enterprise, Field Maps, Survey123, 3D Analyst y herramientas especializadas cuando el caso las justifique.
-- **Híbrida municipal:** producción y control con formatos abiertos, más licencias o servicios dirigidos a funciones que aporten soporte, publicación o integración.
+El sitio usa HTML, CSS, JavaScript y JSON. Debe servirse por HTTP:
 
-Las seis prácticas conservan una salida común. P01–P06 deben producir los mismos archivos de intercambio, tablas, mapas y controles aunque cambie el nombre de la herramienta. La matriz no acredita todavía un ensayo completo en ArcGIS Pro. En particular, Raster Calculator y Zonal Statistics as Table requieren **Spatial Analyst o Image Analyst**; cada licencia, extensión, crédito y privilegio de publicación debe verificarse antes de presupuestar o impartir esa ruta.
-
-El repositorio es público y el taller es gratuito, pero todavía no contiene una licencia general para reutilizar su código y contenido. Por ello se habla de **ruta con software libre**, no de materiales open source. La identidad municipal, las fuentes tipográficas, los datos de terceros y el contenido propio requieren condiciones separadas antes de adoptar una licencia.
-
-### Secuencia de prácticas
-
-| Código | Práctica | Minutos |
-| --- | --- | ---: |
-| P01 | Límites y superficies | 40 |
-| P02 | Bandas, fechas y calidad | 55 |
-| P03 | Índices espectrales | 70 |
-| P04 | Comparación temporal | 70 |
-| P05 | Estadísticas distritales | 65 |
-| P06 | Mapa e informe técnico | 70 |
-
-Las prácticas ocupan 370 minutos. La apertura y la revisión final suman otros 20 minutos; los descansos y el almuerzo completan la jornada de ocho horas.
-
-## Preparar una computadora
-
-1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.3.
-2. Extraer ambos en el mismo directorio. Los contenidos forman una sola carpeta `Taller_San_Carlos/`; conservar su estructura para que funcionen las rutas relativas de los proyectos QGIS.
-3. Abrir **Preparar el equipo** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
-4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Guía de facilitación** permite registrar y descargar ese ensayo.
-
-Los dos ZIP suman **661,7 MB** comprimidos (661 710 366 bytes). Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
-
-### Integridad de los paquetes
-
-| Archivo | SHA-256 |
-| --- | --- |
-| Taller_San_Carlos_Datos.zip | `0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5` |
-| Taller_San_Carlos_Materiales.zip | `0c079d8df676c846107a6039ceaac0ab0aa26b393194251fc321166b8d323c8c` |
-
-## Alcance de los resultados
-
-El sitio presenta un **ejercicio docente**, con datos y resultados preparados. No ejecuta procesos ráster en el navegador ni sustituye el trabajo en QGIS.
-
-- Los límites proceden del IGN / Registro Nacional, consultados mediante el SNIT el **11 de octubre de 2026**. El identificador de versión de la fuente se conserva como `20260410001`; no se interpreta como una fecha histórica del límite.
-- El análisis usa una malla de **20 m** en **CR-SIRGAS / CRTM05, EPSG:8908** y observaciones Sentinel-2 de 2025. Las composiciones contienen distintas fechas por celda; el atlas presenta los seis pares de adquisición y sus intervalos.
-- La comparación de NDVI conserva **4 979 989 celdas comunes**, equivalentes a **199 199,56 ha**, el **59,4264 %** de la superficie de la malla cantonal. Las celdas excluidas no se contabilizan como ausencia de cambio.
-- El mapa SVG simplifica los polígonos para su visualización. Las superficies publicadas provienen de los resultados originales, no de una medición del SVG.
-- Los umbrales de MNDWI ilustran sensibilidad de clasificación. No constituyen una delimitación validada de inundaciones o daños.
-
-Fuentes: [servicio WFS del IGN en SNIT](https://geos.snitcr.go.cr/be/IGN_5_CO/wfs?service=WFS&request=GetCapabilities), [metadatos de la división territorial administrativa](https://meta2.snitcr.go.cr/geonetwork/srv/api/records/CR_IGN_LTA_DTA_5K_VE/formatters/xml) y los registros de procedencia incluidos en los paquetes. Las referencias de [MLSpAnFOSS](https://mlspanfoss.org/workshops) y la [reseña de GRSS IEEE](https://www.grss-ieee.pl/aktualnosci/relacja-z-mlspanfoss-2026/) se mantienen en **Fuentes y método**; esta adaptación para Costa Rica no atribuye a esas organizaciones la validación de sus resultados.
-
-## Notas del participante
-
-Las respuestas, notas, tarea activa y marcas de revisión se guardan en el almacenamiento local del navegador. No se envían al ponente ni se sincronizan automáticamente entre equipos. **Mi trabajo** permite exportar el expediente como TXT legible o JSON restaurable. Al cargar un JSON, el sitio muestra las prácticas que contiene y espera una acción explícita antes de reemplazar sus registros. Admite las exportaciones anteriores de la edición web 1.0 y las nuevas de la edición 1.1.
-
-La revisión de una tarea es una marca del participante. Los controles numéricos contrastan cantidades con resultados de referencia; la interpretación del informe requiere revisión técnica. Si el navegador bloquea el almacenamiento, el sitio lo indica y mantiene las notas durante la sesión. Conviene exportar una copia al terminar.
-
-## Ejecutar y mantener el sitio
-
-El sitio utiliza HTML, CSS y módulos JavaScript. No necesita un proceso de compilación ni dependencias de producción.
-
-```sh
-git clone https://github.com/apuitox04/san-carlos-taller.git
-cd san-carlos-taller
-python3 -m http.server 8080 --directory docs
+```powershell
+python -m http.server 8080 --directory docs
 ```
 
-Abrir `http://localhost:8080`. Se debe servir por HTTP porque los módulos cargan archivos JSON; abrir `index.html` directamente mediante `file://` no es el modo de uso del sitio. Para trabajar sin servidor, descargar el cuaderno HTML independiente de la publicación.
+Si Python no está disponible:
 
-Con Node.js disponible, ejecutar la comprobación de integridad antes de publicar cambios:
+```powershell
+npx --yes serve docs
+```
 
-```sh
+Abrir <http://localhost:8080> y ejecutar después:
+
+```powershell
 npm run check
 ```
 
-El repositorio publica `docs/` desde la rama `main` mediante GitHub Pages. La copia de edición en ChatGPT Sites utiliza los mismos archivos en `dist/`; el verificador reconoce ambas ubicaciones.
+## Referencia MLSpAnFOSS
 
-Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actualizar una edición.
+La agenda adapta ejercicios sobre Raster Calculator y GDAL publicados por [MLSpAnFOSS](https://www.mlspanfoss.org/workshops). Este curso municipal no cuenta con acreditación, aval o patrocinio de sus organizadores.
 
-## Comprobaciones de esta edición
+## Licencias
 
-La edición web **1.5.0** añade la comparación de rutas libre, comercial e híbrida, las equivalencias P01–P06, fuentes oficiales y criterios para evaluar una compra o un despliegue. La ruta ejecutable continúa en QGIS y los materiales descargables siguen en la edición **1.0.3**. Los datos, cálculos y resultados conservan la edición **1.0.0**; el ZIP de datos es idéntico al de **1.0.2**.
+- Código HTML, CSS y JavaScript: MIT.
+- Textos originales: CC BY 4.0.
+- Marcas municipales, tipografías y datos de terceros: condiciones propias.
 
-Se verificaron la sintaxis, las rutas y la estructura de seis prácticas, 28 tareas y 30 diapositivas. Los dos ZIP contienen 313 archivos, cotejados contra su manifiesto conjunto, sin rutas duplicadas. La revisión de los PDF conserva las 24 páginas del cuaderno y las 26 del solucionario; mantiene el texto técnico de las páginas interiores y el área analítica de los mapas.
-
-En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.5 conserva esa lógica y los identificadores de las prácticas; la importación admite el título actual y los dos títulos anteriores. La prueba de integridad verifica también las tres rutas y las seis equivalencias. Esta verificación no acredita paridad funcional entre plataformas: esa evidencia exige ejecutar P01–P06 con los mismos datos y registrar los resultados.
-
-El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
-
-## Créditos
-
-La identidad sigue el [libro de marca publicado por la Municipalidad de San Carlos](https://www.munisc.go.cr/documentos/Secciones/52/Libro%20de%20Marca%20Completo.pdf), edición 2015: azul `#14416E`, fondo blanco, texto gris `#5D5D5D` y Museo Sans 300, 500 y 900. El escudo, la marca cantonal y la franja proceden del documento oficial; las fuentes proceden del portal municipal. Su procedencia se documenta en [docs/assets/brand/PROCEDENCIA.md](docs/assets/brand/PROCEDENCIA.md).
-
-Los datos mantienen su autoría y las condiciones de sus respectivas fuentes. La licencia SIL de IBM Plex Sans, conservada en `docs/assets/fonts/OFL.txt` como recurso de la edición anterior, no se aplica a Museo Sans ni a las marcas municipales. Los archivos de procedencia, fórmulas y resultados se conservan en las descargas. La publicación no atribuye a terceros un patrocinio o una certificación del workshop.
+Consulte [LICENCIAS_Y_DATOS.md](docs/LICENCIAS_Y_DATOS.md).

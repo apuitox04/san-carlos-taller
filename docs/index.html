@@ -1,37 +1,203 @@
 <!doctype html>
 <html lang="es">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
- <meta name="theme-color" content="#14416e">
- <meta name="description" content="Análisis territorial de San Carlos. Workshop municipal con una ruta ejecutable en QGIS y equivalencias para software libre, comercial e híbrido.">
- <title>Análisis territorial con QGIS · Workshop en San Carlos</title>
- <link rel="icon" href="assets/brand/logoIcon.png" type="image/png">
- <link rel="preload" href="assets/brand/fonts/museosans_500.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="preload" href="assets/brand/fonts/museosans_900.woff2" as="font" type="font/woff2" crossorigin>
- <link rel="stylesheet" href="assets/app.css?v=1.5.0">
- <link rel="stylesheet" href="assets/practices.css?v=1.5.0">
- <link rel="stylesheet" href="assets/atlas.css?v=1.5.0">
- <link rel="stylesheet" href="assets/municipal.css?v=1.5.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Curso municipal de cuatro horas para revisar información territorial de La Fortuna y acordar su actualización con instituciones de la Zona Norte.">
+  <meta name="theme-color" content="#14416e">
+  <title>Taller interinstitucional de información territorial de La Fortuna</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/app.css?v=2.0.0">
+  <script type="module" src="assets/app.js?v=2.0.0"></script>
 </head>
-<body class="municipal-theme">
- <a class="skip-link" id="skip-link" href="#contenido">Saltar al contenido</a>
- <button class="drawer-scrim" id="drawer-scrim" aria-label="Cerrar navegación" tabindex="-1"></button>
- <aside class="app-sidebar" id="main-navigation" aria-label="Navegación del taller">
-  <div class="sidebar-brand"><a href="#/inicio" class="workshop-wordmark" aria-label="Análisis territorial con QGIS, programa del workshop"><span>Workshop</span><strong>Análisis territorial<br>con QGIS</strong></a><button class="icon-button close-menu" id="close-menu" aria-label="Cerrar menú"><span data-icon="close"></span></button></div>
-  <nav class="side-nav" aria-label="Trabajo del participante"><p class="nav-label">Contenido</p><a href="#/inicio" data-nav="inicio"><span data-icon="home"></span>Programa</a><a href="#/preparacion" data-nav="preparacion"><span data-icon="settings"></span>Preparar el equipo<small id="sidebar-prep-count">0/4</small></a><a href="#/opciones" data-nav="opciones"><span data-icon="layers"></span>Opciones de software</a><a href="#/practicas" data-nav="practicas"><span data-icon="book"></span>Prácticas<span class="nav-count">6</span></a><a href="#/atlas" data-nav="atlas"><span data-icon="map"></span>Atlas de San Carlos</a><a href="#/expediente" data-nav="expediente"><span data-icon="folder"></span>Mi trabajo</a><a href="#/materiales" data-nav="materiales"><span data-icon="download"></span>Datos y materiales</a></nav>
-  <nav class="side-nav teacher-nav" aria-label="Herramientas de facilitación"><p class="nav-label">Para impartir</p><a href="#/presentacion" data-nav="presentacion"><span data-icon="monitor"></span>Presentación</a><a href="#/docente" data-nav="docente"><span data-icon="clock"></span>Agenda y ensayo</a></nav>
-  <div class="sidebar-bottom"><div class="sidebar-progress"><span id="sidebar-progress-label">0 de 6 prácticas revisadas</span><div><i id="sidebar-progress-fill"></i></div><small>Seguimiento personal</small></div><a class="sources-link" href="#/fuentes" data-nav="fuentes"><span data-icon="info"></span>Fuentes y método</a></div>
- </aside>
- <div class="app-workspace" id="workspace">
-  <header class="app-topbar"><a href="#/inicio" class="topbar-institution" aria-label="Municipalidad de San Carlos, Unidad de Catastro"><img src="assets/brand/escudo-municipal-oficial.png" alt="" width="35" height="37"><span><strong>Municipalidad de San Carlos</strong><small>Unidad de Catastro</small></span></a><div class="breadcrumb"><span id="current-section">Programa</span></div><div class="topbar-actions"><button class="search-button" data-open-search aria-label="Buscar en el taller"><span data-icon="search"></span><span>Buscar</span><kbd>⌘ K</kbd></button><a class="resume-button" id="resume-work" href="#/practicas/P01"><span data-icon="play"></span><span data-resume-label>Continuar P01</span></a></div></header>
-  <main id="contenido" tabindex="-1"><div class="section-loading" role="status"><span></span>Cargando el workshop…</div></main>
-  <footer class="site-footer"><span>Unidad de Catastro · Municipalidad de San Carlos<br>Workshop gratuito para instituciones y público general</span><div><a href="#/fuentes">IGN/SNIT y fuentes</a><a href="https://github.com/apuitox04/san-carlos-taller" target="_blank" rel="noopener">Proyecto en GitHub ↗</a></div></footer>
- </div>
- <nav class="mobile-navigation" id="mobile-navigation" aria-label="Accesos principales"><a href="#/inicio" data-nav="inicio"><span data-icon="home"></span><span>Programa</span></a><a href="#/practicas" data-nav="practicas"><span data-icon="book"></span><span>Prácticas</span></a><a href="#/atlas" data-nav="atlas"><span data-icon="map"></span><span>Atlas</span></a><a href="#/expediente" data-nav="expediente"><span data-icon="folder"></span><span>Mi trabajo</span></a><button id="menu-toggle" aria-controls="main-navigation" aria-expanded="false"><span data-icon="menu"></span><span>Más</span></button></nav>
- <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title"><div class="search-dialog-heading"><h2 id="search-title">Buscar en el taller</h2><button id="close-search" class="icon-button" aria-label="Cerrar búsqueda"><span data-icon="close"></span></button></div><div class="search-input-wrap"><span data-icon="search"></span><label class="sr-only" for="search-input">Práctica, concepto u operación</label><input id="search-input" type="search" placeholder="Práctica, concepto u operación…" autocomplete="off"></div><p id="search-count" class="small muted" role="status"></p><div id="search-results"></div></dialog>
- <div id="notice" role="status" aria-live="polite"></div>
- <noscript><section class="noscript-help"><h1>Análisis territorial con QGIS</h1><p>Activa JavaScript para utilizar las prácticas y el atlas. Puedes descargar los cuadernos y proyectos desde <a href="https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3">Materiales del taller</a>.</p></section></noscript>
- <script type="module" src="assets/app.js?v=1.5.0"></script>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <img class="brand__shield" src="assets/brand/escudo-municipal-oficial.png" alt="Escudo de la Municipalidad de San Carlos">
+      <div>
+        <p class="brand__unit">Municipalidad de San Carlos · Catastro y Censos</p>
+        <p class="brand__course">Información territorial de La Fortuna</p>
+      </div>
+      <img class="brand__mark" src="assets/brand/marca-san-carlos-oficial.png" alt="Marca San Carlos">
+    </div>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#inicio">Inicio</a>
+      <a href="#proyecto">Proyecto</a>
+      <a href="#ruta">Ruta</a>
+      <a href="#practicas">Prácticas</a>
+      <a href="#mesas">Mesas</a>
+      <a href="#facilitacion">Facilitación</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#fuentes">Fuentes</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero section" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">Edición 2.0 · 12 de octubre de 2026</p>
+        <h1 id="hero-title">Taller interinstitucional de información territorial de La Fortuna</h1>
+        <p class="hero__lead">QGIS, teledetección, catastro 3D y acuerdos de actualización.</p>
+        <div class="facts" aria-label="Datos básicos">
+          <div><strong>4 horas</strong><span>mañana o tarde</span></div>
+          <div><strong>5 mesas</strong><span>trabajo sectorial</span></div>
+          <div><strong>24–30</strong><span>participantes</span></div>
+          <div><strong>5 productos</strong><span>entrega verificable</span></div>
+        </div>
+        <p id="course-purpose" class="purpose">Cargando contenido…</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#ruta">Ver agenda</a>
+          <a class="button button--secondary" href="#materiales">Preparar una mesa</a>
+        </div>
+      </div>
+      <figure class="hero__visual">
+        <img src="assets/media/arcgis-pro-cobertura.png" alt="Coberturas territoriales de La Fortuna en ArcGIS Pro">
+        <figcaption>Estado municipal disponible para revisión técnica.</figcaption>
+      </figure>
+    </section>
+
+    <section class="band" aria-label="Criterio de trabajo">
+      <p><strong>Alcance.</strong> El taller usa el piloto urbano de La Fortuna. La ampliación distrital depende de controles, responsabilidades y autorizaciones acordadas.</p>
+    </section>
+
+    <section id="proyecto" class="section" aria-labelledby="proyecto-title">
+      <div class="section-heading">
+        <p class="eyebrow">Punto de partida</p>
+        <h2 id="proyecto-title">Proyecto municipal disponible</h2>
+        <p>ArcGIS Pro concentra la evidencia actual. QGIS y GDAL se usan para el ejercicio práctico. ArcGIS Online permite revisar los elementos privados autorizados.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-copy panel">
+          <dl class="project-meta">
+            <div><dt>Sistema</dt><dd id="project-crs">—</dd></div>
+            <div><dt>Cobertura</dt><dd id="project-scope">—</dd></div>
+          </dl>
+          <ul id="project-status" class="check-list"></ul>
+          <div id="project-links" class="link-list"></div>
+        </article>
+        <figure class="project-image">
+          <img src="assets/media/arcgis-pro-revision.png" loading="lazy" alt="Cobertura catastral y construcciones clasificadas para revisión en ArcGIS Pro">
+          <figcaption>Huella catastral, modelos disponibles y elementos pendientes.</figcaption>
+        </figure>
+        <figure class="project-image">
+          <img src="assets/media/arcgis-pro-lod22.png" loading="lazy" alt="Escena 3D LoD2.2 de edificios de La Fortuna en ArcGIS Pro">
+          <figcaption>Escena LoD2.2; la revisión técnica precede cualquier ampliación LoD3.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="ruta" class="section section--tint" aria-labelledby="ruta-title">
+      <div class="section-heading">
+        <p class="eyebrow">240 minutos</p>
+        <h2 id="ruta-title">Una secuencia para mañana o tarde</h2>
+        <p>Los horarios se expresan desde el inicio de la sesión. La misma agenda funciona de 08:00 a 12:00 o de 13:00 a 17:00.</p>
+      </div>
+      <div id="schedule" class="schedule"></div>
+      <p class="schedule-total"><strong>Total comprobado:</strong> <span id="schedule-total">—</span> minutos.</p>
+    </section>
+
+    <section id="practicas" class="section" aria-labelledby="practicas-title">
+      <div class="section-heading">
+        <p class="eyebrow">P01–P05</p>
+        <h2 id="practicas-title">Prácticas y evidencia</h2>
+        <p>Cada práctica responde una pregunta, deja un archivo o registro y se marca cuando la mesa verifica su evidencia.</p>
+      </div>
+      <div class="progress-panel" aria-live="polite">
+        <div>
+          <span>Avance en este navegador</span>
+          <strong id="progress-label">0 de 5 prácticas</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        <button id="reset-progress" class="text-button" type="button">Reiniciar marcas</button>
+      </div>
+      <div id="modules" class="module-grid"></div>
+    </section>
+
+    <section id="mesas" class="section section--dark" aria-labelledby="mesas-title">
+      <div class="section-heading">
+        <p class="eyebrow">Cinco preguntas</p>
+        <h2 id="mesas-title">Mesas sectoriales</h2>
+        <p>Cada mesa entrega una decisión registrable. La invitación solicita una persona técnica y otra con capacidad para acordar responsabilidades.</p>
+      </div>
+      <div id="tables" class="table-grid"></div>
+    </section>
+
+    <section id="facilitacion" class="section" aria-labelledby="facilitacion-title">
+      <div class="section-heading">
+        <p class="eyebrow">Antes de convocar</p>
+        <h2 id="facilitacion-title">Preparación de la sesión</h2>
+        <p>La convocatoria se emite cuando los datos, equipos, funciones y productos están confirmados.</p>
+      </div>
+      <div class="facilitation-layout">
+        <ol id="preparation" class="number-list"></ol>
+        <aside class="callout">
+          <h3>Funciones mínimas</h3>
+          <dl>
+            <div><dt>Facilitación</dt><dd>Controla tiempo, pregunta y producto.</dd></div>
+            <div><dt>Relatoría</dt><dd>Registra fuente, decisión, responsable y plazo.</dd></div>
+            <div><dt>Apoyo técnico</dt><dd>Resuelve apertura, rutas y exportaciones.</dd></div>
+            <div><dt>Representantes</dt><dd>Validan el aporte y la condición de acceso.</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <div class="note-box">
+        <label for="session-notes">Notas de preparación</label>
+        <textarea id="session-notes" rows="5" placeholder="Equipo, participantes, datos pendientes y fecha propuesta."></textarea>
+        <p>Las notas quedan en este navegador. Use “Descargar notas” para conservar una copia.</p>
+        <div class="button-row">
+          <button id="download-notes" class="button button--primary" type="button">Descargar notas</button>
+          <button id="clear-notes" class="button button--secondary" type="button">Limpiar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiales" class="section section--tint" aria-labelledby="materiales-title">
+      <div class="section-heading">
+        <p class="eyebrow">Archivos de trabajo</p>
+        <h2 id="materiales-title">Materiales y productos</h2>
+        <p>El paquete contiene datos recortados para La Fortuna y un proyecto QGIS. Las plantillas registran observaciones y acuerdos.</p>
+      </div>
+      <div class="materials-layout">
+        <div>
+          <h3>Descargas</h3>
+          <div id="resources" class="resource-list"></div>
+        </div>
+        <div>
+          <h3>Productos exigidos</h3>
+          <ol id="outcomes" class="deliverables"></ol>
+        </div>
+      </div>
+      <div class="privacy">
+        <strong>Datos excluidos de la copia docente</strong>
+        <p>Nombres de propietarios, identificadores personales, ubicaciones de especies sensibles e infraestructura crítica. Cada fuente mantiene su licencia y condición de acceso.</p>
+      </div>
+    </section>
+
+    <section id="fuentes" class="section" aria-labelledby="fuentes-title">
+      <div class="section-heading">
+        <p class="eyebrow">Método y atribución</p>
+        <h2 id="fuentes-title">Fuentes</h2>
+        <p>El diseño toma como referencia ejercicios publicados por MLSpAnFOSS sobre Raster Calculator y GDAL. Esta adaptación municipal no cuenta con acreditación, aval o patrocinio de sus organizadores.</p>
+      </div>
+      <div id="sources" class="source-list"></div>
+      <div class="license-card">
+        <h3>Licencias</h3>
+        <p>Código: MIT. Textos originales: CC BY 4.0. Las marcas municipales, tipografías de marca y datos de terceros quedan fuera de esas licencias y conservan sus condiciones propias.</p>
+        <a href="LICENCIAS_Y_DATOS.md">Leer condiciones y atribuciones</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>Unidad de Catastro y Censos</strong>
+      <span>Municipalidad de San Carlos</span>
+    </div>
+    <p>Curso v2.0.0 · La Fortuna · 2026</p>
+  </footer>
+
+  <noscript>Este sitio necesita JavaScript para cargar la agenda y las actividades. Los recursos descargables permanecen disponibles en la carpeta recursos.</noscript>
 </body>
 </html>

@@ -1,8 +1,8 @@
 {
   "name": "san-carlos-taller",
   "private": true,
-  "license": "UNLICENSED",
-  "version": "1.5.0",
+  "license": "MIT",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "check": "node scripts/check.mjs"
