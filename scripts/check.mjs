@@ -7,14 +7,18 @@ import {execFileSync} from 'node:child_process';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const web = join(root, existsSync(join(root, 'docs/index.html')) ? 'docs' : 'dist');
 const read = name => JSON.parse(readFileSync(join(web, 'content', name + '.json'), 'utf8'));
+const packageInfo = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 const walk = dir => readdirSync(dir).flatMap(name => {
   const path = join(dir, name);
   return statSync(path).isDirectory() ? walk(path) : [path];
 });
-const data = Object.fromEntries(['course', 'solutions', 'formulas', 'slides', 'territorio', 'sitios', 'estadisticas', 'settings'].map(name => [name, read(name)]));
+const data = Object.fromEntries(['course', 'solutions', 'formulas', 'slides', 'territorio', 'sitios', 'estadisticas', 'settings', 'plataformas'].map(name => [name, read(name)]));
 
 assert.ok(existsSync(join(web, 'index.html')));
 assert.ok(existsSync(join(web, '.nojekyll')));
+assert.equal(packageInfo.version, data.settings.webVersion);
+assert.equal(packageInfo.license, 'UNLICENSED');
+assert.ok(readFileSync(join(web, 'index.html'), 'utf8').includes(`?v=${data.settings.webVersion}`));
 assert.deepEqual(data.course.practices.map(x => x.id), ['P01', 'P02', 'P03', 'P04', 'P05', 'P06']);
 assert.equal(data.course.practices.reduce((sum, x) => sum + x.minutes, 0), 370);
 assert.equal(data.slides.length, 30);
@@ -62,6 +66,22 @@ for (const item of data.settings.downloads) {
   if (item.type === 'ZIP') assert.match(item.sha256, /^[0-9a-f]{64}$/);
 }
 
+assert.ok(existsSync(join(web, 'assets/options.js')));
+assert.deepEqual(data.plataformas.routes.map(x => x.id), ['libre', 'comercial', 'hibrida']);
+assert.deepEqual(data.plataformas.practiceEquivalences.map(x => x.practice), ['P01', 'P02', 'P03', 'P04', 'P05', 'P06']);
+for (const route of data.plataformas.routes) {
+  assert.ok(route.label && route.cost && route.summary && route.condition, `Ruta completa: ${route.id}`);
+  assert.ok(route.components.length >= 5, `Capacidades de la ruta: ${route.id}`);
+}
+for (const item of data.plataformas.practiceEquivalences) {
+  assert.ok(item.open && item.commercial && item.output, `Equivalencia completa: ${item.practice}`);
+}
+for (const source of data.plataformas.sources) assert.equal(new URL(source.url).protocol, 'https:');
+assert.deepEqual(data.plataformas.relatedProjects.map(x => x.url), [
+  'https://github.com/users/apuitox04/projects/1',
+  'https://github.com/apuitox04/catastro-gestion-geoespacial'
+]);
+
 let references = 0;
 const checkValue = value => {
   if (Array.isArray(value)) return value.forEach(checkValue);
@@ -80,5 +100,5 @@ const imageCount = files.filter(x => x.endsWith('.webp')).length;
 assert.equal(imageCount, 18);
 assert.ok(existsSync(join(web, 'assets/fonts/OFL.txt')));
 assert.ok(existsSync(join(web, 'assets/fonts/IBMPlexSans-Variable.woff')));
-console.log(`Integridad verificada: ${relative(root, web)}/, ${files.length} archivos, 6 prácticas, ${taskCount} tareas, 30 diapositivas, 13 distritos, ${imageCount} figuras, ${references} referencias locales y 5 descargas declaradas.`);
-console.log('Esta comprobación no realiza solicitudes de red ni sustituye la revisión visual o el ensayo en QGIS.');
+console.log(`Integridad verificada: ${relative(root, web)}/, ${files.length} archivos, 6 prácticas, ${taskCount} tareas, 30 diapositivas, 3 rutas de software, 13 distritos, ${imageCount} figuras, ${references} referencias locales y 5 descargas declaradas.`);
+console.log('Esta comprobación no realiza solicitudes de red ni sustituye la revisión visual o el ensayo de cada ruta con los datos municipales.');

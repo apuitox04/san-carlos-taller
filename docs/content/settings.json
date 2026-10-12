@@ -1,6 +1,6 @@
 {
   "version": "1.0.3",
-  "editionDate": "2026-10-11",
+  "editionDate": "2026-10-12",
   "githubRepository": "https://github.com/apuitox04/san-carlos-taller",
   "releaseUrl": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3",
   "downloads": [
@@ -60,7 +60,7 @@
   "author": "Andrés Castillo Leitón",
   "scenario": "Práctica formativa de la Unidad de Catastro",
   "access": "El sitio y las descargas públicas de GitHub no requieren cuenta para consultar; notas guardadas en el navegador.",
-  "webVersion": "1.4.0",
+  "webVersion": "1.5.0",
   "dataEdition": "1.0.0",
   "organizer": {
     "institution": "Municipalidad de San Carlos",
