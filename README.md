@@ -8,7 +8,7 @@ Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Muni
 
 **Facilitador:** Andrés Castillo Leitón · Ingeniero Topógrafo.  
 **Participación y materiales:** gratuitos.  
-**Edición del material:** 11 de octubre de 2026. La fecha de edición no es una fecha de convocatoria.
+**Edición del material:** 12 de octubre de 2026. La fecha de edición no es una fecha de convocatoria.
 
 ## Acceso
 
@@ -23,6 +23,7 @@ La consulta pública no requiere una cuenta de GitHub.
 | --- | --- |
 | Programa | Identificación municipal, presentación del workshop y seis prácticas con duración, producto y acceso directo. |
 | Preparar el equipo | Descarga de ambos paquetes, estructura de carpetas, apertura del proyecto y cuatro comprobaciones del equipo. |
+| Opciones de software | Comparación de rutas libre, comercial e híbrida, equivalencias P01–P06, requisitos, formatos de intercambio y criterios para un piloto. |
 | Presentación | 30 diapositivas; navegación por teclado, proyección, notas del ponente e impresión de la presentación completa. |
 | Prácticas | Seis actividades divididas en 28 tareas. Cada tarea reúne objetivo, operación, salida, comprobación y registro; el manual y la resolución siguen disponibles. |
 | Mi trabajo | Resumen de las seis prácticas, notas y respuestas, informe, S06, exportación TXT/JSON y restauración de un JSON con revisión previa. |
@@ -30,6 +31,18 @@ La consulta pública no requiere una cuenta de GitHub.
 | Datos y materiales | Dos paquetes ZIP complementarios, cuaderno PDF, solucionario PDF y cuaderno HTML para trabajo sin conexión. |
 | Guía de facilitación | Agenda de 08:00 a 16:00, ensayo de la sesión, criterios de revisión y organización de la actividad municipal gratuita. |
 | Fuentes y método | Procedencia de los límites, observaciones satelitales, decisiones de procesamiento y referencias del taller. |
+
+## Rutas de software
+
+La ruta ejecutable y comprobada del taller usa **QGIS y GDAL**. La sección **Opciones de software** permite planificar el mismo método con tres configuraciones:
+
+- **Libre:** QGIS/GDAL, PostGIS, GeoServer o QGIS Server, GeoNode, QField, PDAL y CloudCompare.
+- **Comercial:** ArcGIS Pro y las extensiones necesarias, ArcGIS Online o Enterprise, Field Maps, Survey123, 3D Analyst y herramientas especializadas cuando el caso las justifique.
+- **Híbrida municipal:** producción y control con formatos abiertos, más licencias o servicios dirigidos a funciones que aporten soporte, publicación o integración.
+
+Las seis prácticas conservan una salida común. P01–P06 deben producir los mismos archivos de intercambio, tablas, mapas y controles aunque cambie el nombre de la herramienta. La matriz no acredita todavía un ensayo completo en ArcGIS Pro. En particular, Raster Calculator y Zonal Statistics as Table requieren **Spatial Analyst o Image Analyst**; cada licencia, extensión, crédito y privilegio de publicación debe verificarse antes de presupuestar o impartir esa ruta.
+
+El repositorio es público y el taller es gratuito, pero todavía no contiene una licencia general para reutilizar su código y contenido. Por ello se habla de **ruta con software libre**, no de materiales open source. La identidad municipal, las fuentes tipográficas, los datos de terceros y el contenido propio requieren condiciones separadas antes de adoptar una licencia.
 
 ### Secuencia de prácticas
 
@@ -102,11 +115,11 @@ Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actual
 
 ## Comprobaciones de esta edición
 
-La edición web **1.4.0** aplica el título **Análisis territorial con QGIS** al sitio y las 30 diapositivas. La cabecera reúne la identificación municipal; la portada da más espacio al mapa y el programa separa práctica, producto y duración. Los materiales **1.0.3** actualizan títulos y portadas de cuadernos, mapas y proyectos QGIS. Los datos, cálculos y resultados conservan la edición **1.0.0**; el ZIP de datos es idéntico al de **1.0.2**.
+La edición web **1.5.0** añade la comparación de rutas libre, comercial e híbrida, las equivalencias P01–P06, fuentes oficiales y criterios para evaluar una compra o un despliegue. La ruta ejecutable continúa en QGIS y los materiales descargables siguen en la edición **1.0.3**. Los datos, cálculos y resultados conservan la edición **1.0.0**; el ZIP de datos es idéntico al de **1.0.2**.
 
 Se verificaron la sintaxis, las rutas y la estructura de seis prácticas, 28 tareas y 30 diapositivas. Los dos ZIP contienen 313 archivos, cotejados contra su manifiesto conjunto, sin rutas duplicadas. La revisión de los PDF conserva las 24 páginas del cuaderno y las 26 del solucionario; mantiene el texto técnico de las páginas interiores y el área analítica de los mapas.
 
-En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.4 conserva esa lógica y los identificadores de las prácticas; la importación admite el título actual y los dos títulos anteriores. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
+En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.5 conserva esa lógica y los identificadores de las prácticas; la importación admite el título actual y los dos títulos anteriores. La prueba de integridad verifica también las tres rutas y las seis equivalencias. Esta verificación no acredita paridad funcional entre plataformas: esa evidencia exige ejecutar P01–P06 con los mismos datos y registrar los resultados.
 
 El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
 

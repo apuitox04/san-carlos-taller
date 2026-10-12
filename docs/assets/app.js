@@ -5,7 +5,7 @@ const main=document.getElementById('contenido');
 const cache=new Map();
 const courses=['P01','P02','P03','P04','P05','P06'];
 const thumbnails={P01:'01_portada_apaisada',P02:'S02_La_Fortuna',P03:'09_lectura_reflectancias',P04:'03_soporte_comun',P05:'04_cobertura_distrital',P06:'05_delta_ndvi'};
-const labels={inicio:'Programa',preparacion:'Preparación',practicas:'Prácticas',atlas:'Atlas de San Carlos',expediente:'Mi trabajo',materiales:'Datos y materiales',docente:'Guía de facilitación',fuentes:'Fuentes y método',presentacion:'Presentación'};
+const labels={inicio:'Programa',preparacion:'Preparación',opciones:'Opciones de software',practicas:'Prácticas',atlas:'Atlas de San Carlos',expediente:'Mi trabajo',materiales:'Datos y materiales',docente:'Guía de facilitación',fuentes:'Fuentes y método',presentacion:'Presentación'};
 const releaseUrl='https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3';
 const prepChecks=[
  ['qgis','QGIS de escritorio está instalado','Utilice el equipo y la versión con los que realizará las prácticas.'],
@@ -20,13 +20,13 @@ async function json(name){
  if(cache.has(name))return cache.get(name);
  const pending=(async()=>{
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),15000);
-  try{const response=await fetch(`content/${name}.json?v=1.4.0`,{signal:controller.signal});if(!response.ok)throw new Error(`HTTP ${response.status}`);return await response.json()}
+  try{const response=await fetch(`content/${name}.json?v=1.5.0`,{signal:controller.signal});if(!response.ok)throw new Error(`HTTP ${response.status}`);return await response.json()}
   catch(error){cache.delete(name);throw new Error(`No se pudo cargar ${name}. ${error.name==='AbortError'?'La conexión tardó demasiado.':error.message}`)}
   finally{clearTimeout(timer)}
  })();cache.set(name,pending);pending.catch(()=>{if(cache.get(name)===pending)cache.delete(name)});return pending;
 }
 async function courseAndProgress(){
- const [course,module]=await Promise.all([json('course'),import('./practices.js?v=1.4.0')]);state.course=course;state.practiceModule=module;return {course,progress:module.getWorkshopProgress(course)};
+ const [course,module]=await Promise.all([json('course'),import('./practices.js?v=1.5.0')]);state.course=course;state.practiceModule=module;return {course,progress:module.getWorkshopProgress(course)};
 }
 function prepStatus(){const done=prepChecks.filter(([id])=>readLocal('sc-prep-'+id)==='1').length;return {done,total:prepChecks.length,ready:done===prepChecks.length}}
 function progressState(){return state.course&&state.practiceModule?state.practiceModule.getWorkshopProgress(state.course):{total:6,reviewedCount:0,startedCount:0,nextPracticeId:'P01',items:[]}}
@@ -62,15 +62,16 @@ function home(course, progress) {
     </section>
     <dl class="workshop-facts"><div><dt>Duración</dt><dd>Una jornada · 8 horas</dd></div><div><dt>Trabajo práctico</dt><dd>6 ejercicios en QGIS</dd></div><div><dt>Facilitación</dt><dd>Andrés Castillo Leitón<small>Ingeniero Topógrafo</small></dd></div></dl>
     ${progress.startedCount ? miniProgress(progress) : ''}
-    <section class="workshop-resources" aria-label="Accesos del workshop">
+    <section class="workshop-resources three" aria-label="Accesos del workshop">
       <a href="#/presentacion/1"><span class="resource-symbol">${icon('monitor')}</span><div><strong>Presentación</strong><span>30 diapositivas y notas para impartir la sesión</span></div>${icon('arrow')}</a>
       <a href="#/materiales"><span class="resource-symbol">${icon('download')}</span><div><strong>Datos y materiales</strong><span>Proyectos QGIS, cuaderno y solucionario</span></div>${icon('arrow')}</a>
+      <a href="#/opciones"><span class="resource-symbol">${icon('layers')}</span><div><strong>Opciones de software</strong><span>Rutas libre, comercial e híbrida con productos equivalentes</span></div>${icon('arrow')}</a>
     </section>
     <section class="workshop-program-section"><div class="section-heading"><div><h2>Programa de prácticas</h2></div><a class="text-link" href="#/docente">Agenda de la jornada ${icon('arrow')}</a></div><p class="program-intro">Seis prácticas con instrucciones, fórmulas y resultados de referencia.</p>${municipalProgram(course, progress)}</section>
     <section class="workshop-outcomes"><div><h2>Productos de la práctica</h2><p>Proyecto QGIS, tabla distrital, mapa e informe. El informe debe identificar las fechas, la superficie comparable y las decisiones de cálculo.</p><a class="text-link" href="#/expediente">Abrir mi trabajo ${icon('arrow')}</a></div><div class="workshop-source-note"><h3>Datos utilizados</h3><p>Los límites cantonales y distritales proceden del IGN, publicados mediante el SNIT. Las observaciones satelitales corresponden a Sentinel-2 de 2025.</p><a class="text-link" href="#/atlas">Consultar el atlas ${icon('arrow')}</a><a class="text-link" href="#/fuentes">Fuentes y método ${icon('arrow')}</a></div></section>
   </div>`;
 }
-function practiceOverview(course,progress){return `<div class="shell">${pageHeader('','Prácticas','Instrucciones, fórmulas y resultados de referencia para las seis prácticas en QGIS.',`<a class="button" href="#/practicas/${activePractice()}">${icon('play')}Continuar ${activePractice()}</a>`)}${miniProgress(progress)}<div class="inline-guidance">${icon('info')}<p>Realice los cálculos en QGIS de escritorio y registre aquí los resultados. <a href="#/preparacion">Preparar el equipo</a></p></div>${practiceCards(course,progress)}</div>`}
+function practiceOverview(course,progress){return `<div class="shell">${pageHeader('','Prácticas','Instrucciones, fórmulas y resultados de referencia para las seis prácticas en QGIS.',`<a class="button" href="#/practicas/${activePractice()}">${icon('play')}Continuar ${activePractice()}</a>`)}${miniProgress(progress)}<div class="inline-guidance">${icon('info')}<p>La ruta ejecutable usa QGIS. Si trabaja con otra plataforma, consulte primero las <a href="#/opciones">equivalencias y requisitos</a>; conserve los mismos datos, productos y controles.</p></div>${practiceCards(course,progress)}</div>`}
 function downloadTotal(settings){return num(settings.downloads.filter(f=>f.type==='ZIP').reduce((sum,f)=>sum+(Number(f.bytes)||0),0)/1000000,1)+' MB'}
 function downloadCard(f,{required=false,index=0}={}){return `<article class="download-card ${required?'required':''}"><div class="download-card-top"><span class="download-symbol">${icon(required?'layers':'file')}</span><span class="pill">${esc(f.type)} · ${esc(f.size)}</span></div>${required?`<p class="eyebrow">Paquete ${index+1} de 2</p>`:''}<h3>${esc(f.title)}</h3><p>${esc(f.description)}</p><a class="button ${required?'':'secondary'}" href="${esc(f.url)}" download>${icon('download')}Descargar ${esc(f.type)}</a>${f.sha256?`<details class="checksum"><summary>Verificar SHA-256</summary><code>${esc(f.sha256)}</code></details>`:''}</article>`}
 function preparation(settings){
@@ -110,17 +111,20 @@ async function route(){
   let html,bind;
   if(page==='inicio'||page==='practicas'&&!part){const {course,progress}=await courseAndProgress();html=page==='inicio'?home(course,progress):practiceOverview(course,progress)}
   else if(page==='preparacion'){html=preparation(await json('settings'));bind=bindPreparation}
-  else if(page==='materiales')html=materials(await json('settings'));
+   else if(page==='materiales')html=materials(await json('settings'));
+   else if(page==='opciones'){
+    const [data,module]=await Promise.all([json('plataformas'),import('./options.js?v=1.5.0')]);html=module.renderOptions(data);bind=()=>module.bindOptions(main)
+   }
   else if(page==='practicas'||page==='expediente'){
    const [{course},solutions,formulas]=await Promise.all([courseAndProgress(),json('solutions'),json('formulas')]);const module=state.practiceModule;
    if(page==='expediente'){html=`<div class="shell wide">${module.renderPortfolio(course,solutions,formulas)}</div>`;bind=()=>module.bindPortfolio(main,course,solutions,formulas)}
    else{const id=courses.includes(part)?part:'P01';state.part=id;setLocal('sc-last-practice',id);html=`<div class="shell wide practice-shell">${module.renderPractice(course,solutions,formulas,id)}</div>`;bind=()=>module.bindPractice(main,course,solutions,formulas,id)}
   }else if(page==='atlas'){
-   const [territory,stats,sites,module]=await Promise.all([json('territorio'),json('estadisticas'),json('sitios'),import('./atlas.js?v=1.4.0')]);html=`<div class="shell wide atlas-shell">${module.renderAtlas(territory,stats,sites)}</div>`;bind=()=>module.bindAtlas(main,territory,stats,sites)
+    const [territory,stats,sites,module]=await Promise.all([json('territorio'),json('estadisticas'),json('sitios'),import('./atlas.js?v=1.5.0')]);html=`<div class="shell wide atlas-shell">${module.renderAtlas(territory,stats,sites)}</div>`;bind=()=>module.bindAtlas(main,territory,stats,sites)
   }else if(page==='presentacion'){
-   const slides=await json('slides');if(!part)html=presentationLobby(slides);else{const module=await import('./presentation.js?v=1.4.0');const index=Math.max(0,Math.min(slides.length-1,(parseInt(part,10)||1)-1));html=module.renderPresentation(slides,index);bind=()=>module.bindPresentation(main,slides,index)}
+    const slides=await json('slides');if(!part)html=presentationLobby(slides);else{const module=await import('./presentation.js?v=1.5.0');const index=Math.max(0,Math.min(slides.length-1,(parseInt(part,10)||1)-1));html=module.renderPresentation(slides,index);bind=()=>module.bindPresentation(main,slides,index)}
   }else if(page==='docente'||page==='fuentes'){
-   const module=await import('./reference.js?v=1.4.0');if(page==='docente'){html=module.renderTeacher({});bind=()=>module.bindTeacher(main)}else html=module.renderSources({territory:await json('territorio')})
+    const module=await import('./reference.js?v=1.5.0');if(page==='docente'){html=module.renderTeacher({});bind=()=>module.bindTeacher(main)}else html=module.renderSources({territory:await json('territorio')})
   }else html=`<div class="shell"><div class="error-box">${icon('map')}<h1>Esta sección no existe</h1><p>Abre el índice para elegir una práctica o consultar los materiales.</p><a class="button" href="#/inicio">Volver al inicio ${icon('arrow')}</a></div></div>`;
   if(serial!==state.serial)return;main.innerHTML=html;state.cleanup=bind?.()||null;bindMainUtilities();updateShell();document.title=`${labels[page]||'Taller'}${state.part&&page==='practicas'?' '+state.part:''} · San Carlos`;window.scrollTo({top:0,behavior:'instant'});main.removeAttribute('aria-busy');if(!projecting)main.focus({preventScroll:true});
  }catch(error){if(serial!==state.serial)return;document.body.classList.remove('presenting');main.removeAttribute('aria-busy');main.innerHTML=`<div class="shell"><section class="error-box">${icon('info')}<h1>No se pudo cargar esta sección</h1><p>Vuelve a intentarlo. Puedes seguir utilizando las otras secciones o descargar los archivos desde GitHub.</p><p class="small muted">${esc(error.message)}</p><div class="actions"><button id="retry-section" class="button">Volver a intentar</button><a class="button secondary" href="${releaseUrl}">Descargar materiales</a></div></section></div>`;main.querySelector('#retry-section').addEventListener('click',route);console.error(error)}
@@ -130,7 +134,7 @@ const searchDialog=document.getElementById('search-dialog');let searchItems=null
 async function openSearch(){
  if(!searchDialog.showModal){location.hash='#/practicas';return}
  searchDialog.showModal();const input=document.getElementById('search-input');input.value='';input.focus();document.getElementById('search-results').innerHTML='<p class="muted">Cargando el índice…</p>';
- try{if(!searchItems){const [course,slides]=await Promise.all([json('course'),json('slides')]);searchItems=[...course.practices.map(p=>({kind:`Práctica ${p.id}`,title:p.title,text:p.question+' '+p.inputs.join(' ')+' '+p.sections.map(s=>s.title+' '+s.blocks.map(b=>b.text||b.items?.join(' ')||'').join(' ')).join(' '),url:`#/practicas/${p.id}`})),...slides.map((s,i)=>({kind:`Diapositiva ${i+1}`,title:s.title,text:[s.body,s.notes,...(s.bullets||[])].join(' '),url:`#/presentacion/${i+1}`})),{kind:'Preparación',title:'Descargar datos y abrir el proyecto QGIS',text:'archivos zip extracción capas perdidas rutas',url:'#/preparacion'},{kind:'Mi trabajo',title:'Notas, respuestas e informe',text:'expediente exportar importar restaurar s06',url:'#/expediente'},{kind:'Atlas',title:'Cobertura y resultados de los trece distritos',text:'ndvi mndwi umbral fechas tabla csv',url:'#/atlas'}]};renderSearch(input.value)}catch{document.getElementById('search-results').innerHTML='<p>No se pudo cargar el índice. Abre <a href="#/practicas" data-search-link>Prácticas</a> para continuar.</p>';bindSearchLinks()}
+  try{if(!searchItems){const [course,slides,platforms]=await Promise.all([json('course'),json('slides'),json('plataformas')]);searchItems=[...course.practices.map(p=>({kind:`Práctica ${p.id}`,title:p.title,text:p.question+' '+p.inputs.join(' ')+' '+p.sections.map(s=>s.title+' '+s.blocks.map(b=>b.text||b.items?.join(' ')||'').join(' ')).join(' '),url:`#/practicas/${p.id}`})),...slides.map((s,i)=>({kind:`Diapositiva ${i+1}`,title:s.title,text:[s.body,s.notes,...(s.bullets||[])].join(' '),url:`#/presentacion/${i+1}`})),{kind:'Opciones de software',title:platforms.title,text:[platforms.subtitle,...platforms.routes.flatMap(r=>[r.label,r.summary,...r.components.flatMap(c=>[c.stage,c.tools])]),...platforms.practiceEquivalences.flatMap(e=>[e.practice,e.objective,e.open,e.commercial])].join(' '),url:'#/opciones'},{kind:'Preparación',title:'Descargar datos y abrir el proyecto QGIS',text:'archivos zip extracción capas perdidas rutas',url:'#/preparacion'},{kind:'Mi trabajo',title:'Notas, respuestas e informe',text:'expediente exportar importar restaurar s06',url:'#/expediente'},{kind:'Atlas',title:'Cobertura y resultados de los trece distritos',text:'ndvi mndwi umbral fechas tabla csv',url:'#/atlas'}]};renderSearch(input.value)}catch{document.getElementById('search-results').innerHTML='<p>No se pudo cargar el índice. Abre <a href="#/practicas" data-search-link>Prácticas</a> para continuar.</p>';bindSearchLinks()}
 }
 const normalize=text=>String(text??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 function renderSearch(query){const terms=normalize(query).trim().split(/\s+/).filter(Boolean);const results=(searchItems||[]).filter(item=>terms.every(word=>normalize(item.title+' '+item.kind+' '+item.text).includes(word))).slice(0,12);document.getElementById('search-count').textContent=terms.length?`${results.length}${results.length===12?'+':''} resultados`:'Prácticas y accesos';document.getElementById('search-results').innerHTML=results.length?results.map(r=>`<a href="${r.url}" class="search-result" data-search-link><span>${esc(r.kind)}</span><strong>${esc(r.title)}</strong>${icon('arrow')}</a>`).join(''):'<p class="search-empty">No hay coincidencias. Prueba con una práctica, un índice o una operación.</p>';bindSearchLinks()}

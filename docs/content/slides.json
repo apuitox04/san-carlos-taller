@@ -1788,8 +1788,8 @@
     "id": "D30",
     "title": "Entrega del expediente",
     "kicker": "Cierre · Revisión final",
-    "body": "Proyectos resueltos y cuaderno disponibles para repetir la práctica.",
-    "notes": "Indique que los materiales corresponden al taller gratuito impartido por la Unidad de Catastro de la Municipalidad de San Carlos y pueden consultarse para continuar la práctica. Pida tres respuestas breves: qué parte de San Carlos admite comparación; qué decisión cambia al consultar calidad o fecha; qué observación adicional solicitarían para continuar. Cierre recordando que una exclusión documentada y una hipótesis bien delimitada son resultados técnicos útiles. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La continuación conserva la procedencia y los denominadores, en lugar de ampliar el alcance de las conclusiones sin datos. Indique dónde encontrar los proyectos resueltos y el informe de ejemplo para el ensayo personal.",
+    "body": "Expediente, proyectos resueltos y rutas de software para repetir el método.",
+    "notes": "Indique que los materiales corresponden al taller gratuito impartido por la Unidad de Catastro de la Municipalidad de San Carlos y pueden consultarse para continuar la práctica. Pida tres respuestas breves: qué parte de San Carlos admite comparación; qué decisión cambia al consultar calidad o fecha; qué observación adicional solicitarían para continuar. Cierre recordando que una exclusión documentada y una hipótesis bien delimitada son resultados técnicos útiles. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La sección Opciones de software relaciona cada práctica con una ruta libre, comercial e híbrida, pero conserva los mismos productos y controles. Indique dónde encontrar los proyectos resueltos, el informe de ejemplo y esa matriz para el ensayo personal.",
     "minutes": 3,
     "bullets": [
       "Superficie comparable y fechas registradas.",
@@ -1813,7 +1813,7 @@
       },
       {
         "label": "Continuación",
-        "text": "Indique que los materiales corresponden al taller gratuito impartido por la Unidad de Catastro de la Municipalidad de San Carlos y pueden consultarse para continuar la práctica. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La continuación conserva la procedencia y los denominadores, en lugar de ampliar el alcance de las conclusiones sin datos. Indique dónde encontrar los proyectos resueltos y el informe de ejemplo para el ensayo personal."
+        "text": "Indique que los materiales corresponden al taller gratuito impartido por la Unidad de Catastro de la Municipalidad de San Carlos y pueden consultarse para continuar la práctica. El expediente permite repetir las operaciones, mejorar la cobertura con nuevas observaciones y revisar sitios con evidencia independiente. La sección Opciones de software relaciona cada práctica con rutas libre, comercial e híbrida sin cambiar las salidas ni los controles. Indique dónde encontrar los proyectos resueltos, el informe de ejemplo y la matriz para el ensayo personal."
       }
     ],
     "organizer": {

@@ -9,6 +9,7 @@ Las rutas siguientes corresponden a GitHub. En la copia de ChatGPT Sites, el dir
 | `docs/index.html` | Metadatos, navegación, pie y estructura inicial. |
 | `docs/assets/app.js` | Enrutamiento, inicio, preparación, descargas, índice de presentación, búsqueda y navegación. |
 | `docs/assets/app.css` | Estructura general, páginas de acceso, adaptación móvil e impresión. |
+| `docs/assets/options.js` | Comparación y filtro de las rutas libre, comercial e híbrida. |
 | `docs/assets/municipal.css` | Museo Sans, colores institucionales, cabecera, portada, programa y adaptación móvil. |
 | `docs/assets/brand/` | Escudo, marca cantonal, franja, fuentes y registros de procedencia. |
 | `docs/assets/shared.js` | Iconos, texto seguro, almacenamiento, copia y descarga. |
@@ -25,6 +26,7 @@ Las rutas siguientes corresponden a GitHub. En la copia de ChatGPT Sites, el dir
 | `docs/content/estadisticas.json` | Coberturas, fechas y sensibilidad de umbrales. |
 | `docs/content/sitios.json` | Sitios de control y valores resueltos. |
 | `docs/content/settings.json` | Versión, autor, repositorio, descargas y huellas SHA-256. |
+| `docs/content/plataformas.json` | Rutas tecnológicas, equivalencias P01–P06, criterios de decisión, proyectos vinculados y fuentes oficiales. |
 | `docs/assets/media/manifest.json` | Relación entre las figuras originales y sus copias web. |
 
 ## Correcciones de texto o diseño
@@ -40,7 +42,18 @@ Conservar las interfaces de los módulos:
 
 Cada función `bind` devuelve una función de limpieza. El enrutador la ejecuta al abandonar la sección. El índice interno de presentación comienza en cero y las direcciones visibles comienzan en uno. El módulo de prácticas emite `sc-progress-change` al guardar; la navegación actualiza el avance sin volver a dibujar los campos de escritura.
 
-Las tareas referencian bloques originales, fórmulas, controles, soluciones y figuras por identificador. Revisar esas relaciones cuando cambie el recorrido. Los cambios de presentación o navegación pueden tener una versión web propia, sin reemplazar los activos de datos de una publicación anterior. Los recursos de la edición web 1.4.0 usan `?v=1.4.0`; actualizar ese identificador al publicar una revisión para evitar mezclar archivos almacenados en caché.
+Las tareas referencian bloques originales, fórmulas, controles, soluciones y figuras por identificador. Revisar esas relaciones cuando cambie el recorrido. Los cambios de presentación o navegación pueden tener una versión web propia, sin reemplazar los activos de datos de una publicación anterior. Los recursos de la edición web 1.5.0 usan `?v=1.5.0`; actualizar ese identificador al publicar una revisión para evitar mezclar archivos almacenados en caché.
+
+## Mantener las opciones de software
+
+La ruta ejecutable de esta edición es QGIS/GDAL. `plataformas.json` documenta equivalencias para preparar pruebas en otros entornos; no debe presentarse una equivalencia como validada hasta ejecutar P01–P06 con los mismos datos y comparar CRS, alineación, NoData, conteos, tablas y exportaciones.
+
+- Conservar una pregunta, una entrada, una salida y un criterio de aceptación comunes para todas las rutas.
+- Enlazar documentación oficial del fabricante o del proyecto. Evitar blogs comerciales como fuente de requisitos.
+- No publicar precios exactos sin indicar fecha, país, tipo de usuario, extensión, créditos e impuestos. Usar primero el costo total de operación como criterio.
+- Indicar qué operaciones requieren extensiones o privilegios. Raster Calculator y Zonal Statistics as Table en ArcGIS Pro requieren Spatial Analyst o Image Analyst.
+- Mantener GeoPackage, GeoTIFF/COG, CSV, PDF, LAS/LAZ, IFC, CityGML/CityJSON y servicios OGC como salidas de intercambio cuando corresponda.
+- No describir este repositorio como open source hasta aprobar licencias separadas para código, textos, datos, tipografías y marcas municipales.
 
 No modificar los resultados numéricos para ajustar una frase. Una revisión del método o de los datos requiere recalcular el material fuente, comprobar sus salidas y publicar una nueva edición.
 
@@ -75,6 +88,6 @@ Mi trabajo exporta JSON 2.0 y admite JSON 1.0 y 2.0 del taller. Antes de restaur
 
 El taller es gratuito, impartido por la Unidad de Catastro de la Municipalidad de San Carlos y dirigido a instituciones y público general. Andrés Castillo Leitón figura como facilitador. Conservar esta identificación en portada, presentación, cuadernos, proyectos QGIS y publicaciones de materiales. Las fechas de convocatoria, la sede y el procedimiento de inscripción solo se incorporan cuando se hayan definido.
 
-La edición de materiales 1.0.3 y la web 1.4.0 usan el título «Análisis territorial con QGIS», la etiqueta «Workshop gratuito · San Carlos» y el diseño del libro de marca publicado por la Municipalidad. Conservar colores, proporciones y procedencia de sus activos. No aplicar filtros, sombras, deformaciones ni recoloraciones al escudo o a la marca cantonal. Los mapas mantienen sus escalas cromáticas analíticas.
+La edición de materiales 1.0.3 y la web 1.5.0 usan el título «Análisis territorial con QGIS», la etiqueta «Workshop gratuito · San Carlos» y el diseño del libro de marca publicado por la Municipalidad. Conservar colores, proporciones y procedencia de sus activos. No aplicar filtros, sombras, deformaciones ni recoloraciones al escudo o a la marca cantonal. Los mapas mantienen sus escalas cromáticas analíticas.
 
 El ZIP de materiales cambia por la revisión de documentos, mapas, proyectos y notas editoriales. El ZIP de datos es idéntico al activo 1.0.2. Los archivos geográficos, las observaciones satelitales, los cálculos y los resultados conservan la edición analítica 1.0.0. Una revisión editorial no representa un nuevo ensayo de los cálculos o de QGIS.
