@@ -92,12 +92,13 @@
   "schemaVersion": "san-carlos-web/1.0",
   "provenance": {
     "source": "resolucion_tecnica.json",
-    "sha256": "37d125927527447f700685abae7b253eba1a94e6fc56d098f284674e4ab618c2"
+    "sha256": "37d125927527447f700685abae7b253eba1a94e6fc56d098f284674e4ab618c2",
+    "editorialRevision": "1.0.3"
   },
   "introduction": [
     {
       "id": "resolucion",
-      "title": "La conclusión que debe sostener el expediente",
+      "title": "Resultado cantonal",
       "practice": null,
       "purpose": "Reconocer la diferencia entre resolver un cálculo y fundamentar una conclusión.",
       "blocks": [
@@ -167,7 +168,7 @@
       "sections": [
         {
           "id": "r01_territorio",
-          "title": "P01 resuelta · un territorio, dos representaciones de superficie",
+          "title": "P01 resuelta · área vectorial y superficie rasterizada",
           "practice": "P01",
           "purpose": "Resolver la procedencia y el denominador con las geometrías oficiales.",
           "blocks": [
@@ -280,7 +281,7 @@
       "sections": [
         {
           "id": "r02_observaciones",
-          "title": "P02 resuelta · las fechas y la calidad cambian la comparación",
+          "title": "P02 resuelta · fechas y calidad de las observaciones",
           "practice": "P02",
           "purpose": "Resolver el registro de observación y su distribución temporal.",
           "blocks": [
@@ -929,7 +930,7 @@
         },
         {
           "id": "r04_sitios",
-          "title": "P04 resuelta · de la observación a la comprobación",
+          "title": "P04 resuelta · observaciones y comprobación",
           "practice": "P04",
           "purpose": "Construir una lectura técnica de cinco situaciones sin atribuir causas no verificadas.",
           "blocks": [

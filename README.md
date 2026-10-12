@@ -1,6 +1,8 @@
-# San Carlos con datos abiertos
+# Análisis territorial con QGIS
 
-**Workshop · QGIS, Sentinel-2 y cartografía oficial IGN/SNIT**
+**Workshop gratuito · San Carlos**
+
+Sentinel-2 y cartografía oficial IGN/SNIT
 
 Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Municipalidad de San Carlos** y dirigido a **instituciones y público general**. Se trabaja con QGIS, Sentinel-2 y cartografía oficial del Instituto Geográfico Nacional de Costa Rica, publicada mediante el SNIT. El caso de estudio comprende los trece distritos del cantón de San Carlos.
 
@@ -11,9 +13,9 @@ Taller gratuito de una jornada, impartido por la **Unidad de Catastro de la Muni
 ## Acceso
 
 - [Sitio del taller](https://apuitox04.github.io/san-carlos-taller/)
-- [Datos, proyectos QGIS y documentos de la edición 1.0.2](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.2)
+- [Datos, proyectos QGIS y documentos de la edición 1.0.3](https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3)
 
-La participación en el taller y la descarga de sus materiales son gratuitas. La consulta pública no requiere una cuenta de GitHub.
+La consulta pública no requiere una cuenta de GitHub.
 
 ## Contenido
 
@@ -33,30 +35,30 @@ La participación en el taller y la descarga de sus materiales son gratuitas. La
 
 | Código | Práctica | Minutos |
 | --- | --- | ---: |
-| P01 | El territorio y su superficie | 40 |
+| P01 | Límites y superficies | 40 |
 | P02 | Bandas, fechas y calidad | 55 |
-| P03 | Índices y exclusiones | 70 |
-| P04 | Comparar las mismas celdas | 70 |
-| P05 | Los trece distritos | 65 |
-| P06 | El informe y el mapa | 70 |
+| P03 | Índices espectrales | 70 |
+| P04 | Comparación temporal | 70 |
+| P05 | Estadísticas distritales | 65 |
+| P06 | Mapa e informe técnico | 70 |
 
 Las prácticas ocupan 370 minutos. La apertura y la revisión final suman otros 20 minutos; los descansos y el almuerzo completan la jornada de ocho horas.
 
 ## Preparar una computadora
 
-1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.2.
+1. Descargar **Taller_San_Carlos_Datos.zip** y **Taller_San_Carlos_Materiales.zip** desde la publicación 1.0.3.
 2. Extraer ambos en el mismo directorio. Los contenidos forman una sola carpeta `Taller_San_Carlos/`; conservar su estructura para que funcionen las rutas relativas de los proyectos QGIS.
 3. Abrir **Preparar el equipo** y comprobar instalación de QGIS, extracción conjunta, apertura de `proyectos/01_Practica.qgz` y copia en `mi_trabajo/Practica_San_Carlos.qgz`.
 4. Ensayar P01–P06 con el solucionario antes de impartir la sesión. La sección **Guía de facilitación** permite registrar y descargar ese ensayo.
 
-Los dos ZIP suman **663,7 MB** comprimidos (663 673 622 bytes). Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
+Los dos ZIP suman **661,7 MB** comprimidos (661 710 366 bytes). Los datos grandes se distribuyen como activos de la publicación, separados de los archivos que carga el sitio.
 
 ### Integridad de los paquetes
 
 | Archivo | SHA-256 |
 | --- | --- |
 | Taller_San_Carlos_Datos.zip | `0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5` |
-| Taller_San_Carlos_Materiales.zip | `58cb0696f62f2b033ecb4a523ce577b2d45c3492807b385b95bf5c28ebc9c393` |
+| Taller_San_Carlos_Materiales.zip | `0c079d8df676c846107a6039ceaac0ab0aa26b393194251fc321166b8d323c8c` |
 
 ## Alcance de los resultados
 
@@ -100,11 +102,11 @@ Véase [MANTENIMIENTO.md](MANTENIMIENTO.md) para localizar el contenido y actual
 
 ## Comprobaciones de esta edición
 
-La edición web **1.3.0** incorpora el título **San Carlos con datos abiertos** y la identidad municipal en la portada, navegación y 30 diapositivas. El programa presenta las seis prácticas con duración, producto y acceso. Los materiales **1.0.2** aplican la misma identidad a los cuadernos, mapas y proyectos QGIS; conservan los datos, cálculos y resultados de **1.0.0**. El ZIP de datos es idéntico al activo de **1.0.1**.
+La edición web **1.4.0** aplica el título **Análisis territorial con QGIS** al sitio y las 30 diapositivas. La cabecera reúne la identificación municipal; la portada da más espacio al mapa y el programa separa práctica, producto y duración. Los materiales **1.0.3** actualizan títulos y portadas de cuadernos, mapas y proyectos QGIS. Los datos, cálculos y resultados conservan la edición **1.0.0**; el ZIP de datos es idéntico al de **1.0.2**.
 
-Se verificaron la sintaxis, las rutas y la estructura de seis prácticas, 28 tareas y 30 diapositivas. Los dos ZIP contienen 312 archivos, cotejados contra su manifiesto conjunto, sin rutas duplicadas. La revisión de los PDF conserva las 24 páginas del cuaderno y las 26 del solucionario; mantiene el texto técnico de las páginas interiores y el área analítica de los mapas.
+Se verificaron la sintaxis, las rutas y la estructura de seis prácticas, 28 tareas y 30 diapositivas. Los dos ZIP contienen 313 archivos, cotejados contra su manifiesto conjunto, sin rutas duplicadas. La revisión de los PDF conserva las 24 páginas del cuaderno y las 26 del solucionario; mantiene el texto técnico de las páginas interiores y el área analítica de los mapas.
 
-En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.3 conserva esa lógica y los identificadores de las prácticas; la importación admite el título anterior y el nuevo. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
+En la edición web 1.1 se comprobaron la preparación, el avance de tareas, la conservación de registros anteriores, la restauración con revisión previa, la selección del atlas, las exportaciones y los controles de presentación en un entorno DOM automatizado. La revisión 1.4 conserva esa lógica y los identificadores de las prácticas; la importación admite el título actual y los dos títulos anteriores. Esta verificación no equivale a una revisión visual en navegadores y dispositivos reales.
 
 El procesamiento de los materiales originales se ejecutó con QGIS 3.34.4 y GDAL 3.8.4 en modo sin interfaz. Esa comprobación no acredita un ensayo completo de la interfaz de QGIS 3.40.14 o 4.0.3; el ensayo del ponente debe realizarse en los equipos y la versión que se usarán durante el taller.
 

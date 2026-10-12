@@ -1,17 +1,17 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "editionDate": "2026-10-11",
   "githubRepository": "https://github.com/apuitox04/san-carlos-taller",
-  "releaseUrl": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.2",
+  "releaseUrl": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v1.0.3",
   "downloads": [
     {
       "type": "ZIP",
       "title": "Datos de San Carlos",
-      "description": "Límites oficiales y observaciones preparadas para las prácticas. Descarga también el paquete de materiales.",
+      "description": "Límites oficiales y observaciones preparadas para las prácticas. Descargue también el paquete de materiales.",
       "file": "Taller_San_Carlos_Datos.zip",
       "size": "291,4 MB",
       "sha256": "0abb6b073d05826b379436abeaaf3d0e9dcd9d6f8b2b8bdba4dcefdafb4342f5",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.2/Taller_San_Carlos_Datos.zip",
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.3/Taller_San_Carlos_Datos.zip",
       "bytes": 291443339
     },
     {
@@ -19,48 +19,48 @@
       "title": "Proyectos, prácticas y resultados",
       "description": "Los dos proyectos QGIS, fórmulas, resultados resueltos, tablas, mapas y cuadernos.",
       "file": "Taller_San_Carlos_Materiales.zip",
-      "size": "372,2 MB",
-      "sha256": "58cb0696f62f2b033ecb4a523ce577b2d45c3492807b385b95bf5c28ebc9c393",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.2/Taller_San_Carlos_Materiales.zip",
-      "bytes": 372230283
+      "size": "370,3 MB",
+      "sha256": "0c079d8df676c846107a6039ceaac0ab0aa26b393194251fc321166b8d323c8c",
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.3/Taller_San_Carlos_Materiales.zip",
+      "bytes": 370267027
     },
     {
       "type": "PDF",
       "title": "Cuaderno de trabajo",
       "description": "Procedimientos P01–P06, conceptos, interpretación y productos de la jornada.",
       "file": "Taller_QGIS_GDAL_Costa_Rica.pdf",
-      "size": "7,2 MB",
+      "size": "6,6 MB",
       "pages": 24,
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.2/Taller_QGIS_GDAL_Costa_Rica.pdf",
-      "bytes": 7195521,
-      "sha256": "d13936a173840994c02472b67173c4f55addd3d03af054a284e4532298648e55"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.3/Taller_QGIS_GDAL_Costa_Rica.pdf",
+      "bytes": 6614368,
+      "sha256": "5dd70740f1b03ecf97a20723d9d5442ee9e5e635fcf084009c386831a39b4d82"
     },
     {
       "type": "PDF",
       "title": "Solucionario e informe técnico",
       "description": "Cálculos desarrollados, sitios de control, resumen distrital y un informe de ejemplo.",
       "file": "Solucionario_San_Carlos.pdf",
-      "size": "9,3 MB",
+      "size": "8,8 MB",
       "pages": 26,
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.2/Solucionario_San_Carlos.pdf",
-      "bytes": 9343040,
-      "sha256": "c211785923d64353a0d1948188ad431683ad48f6016d42d5b6856ebde03adb93"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.3/Solucionario_San_Carlos.pdf",
+      "bytes": 8783637,
+      "sha256": "bab1814d5f2652e95300b242370332f1a80592503e714d1385055af043914c6b"
     },
     {
       "type": "HTML",
       "title": "Cuaderno sin conexión",
-      "description": "Contenido completo, figuras y notas. Descárgalo y ábrelo desde el navegador de tu computadora.",
+      "description": "Contenido completo, figuras y notas. Descárguelo y ábralo desde el navegador de su computadora.",
       "file": "Taller_QGIS_GDAL_Costa_Rica_editable.html",
       "size": "15,2 MB",
-      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.2/Taller_QGIS_GDAL_Costa_Rica_editable.html",
-      "bytes": 15155144,
-      "sha256": "316b16922f6a0f61a195c6a60347c05943fc678474d2ae20a4c4bcd57d94e7ed"
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/download/v1.0.3/Taller_QGIS_GDAL_Costa_Rica_editable.html",
+      "bytes": 15156712,
+      "sha256": "6e6946c40e767e416a785694f2ca0e5a9afb945d16632764f8f13bae4389752c"
     }
   ],
   "author": "Andrés Castillo Leitón",
   "scenario": "Práctica formativa de la Unidad de Catastro",
   "access": "El sitio y las descargas públicas de GitHub no requieren cuenta para consultar; notas guardadas en el navegador.",
-  "webVersion": "1.3.0",
+  "webVersion": "1.4.0",
   "dataEdition": "1.0.0",
   "organizer": {
     "institution": "Municipalidad de San Carlos",
@@ -69,7 +69,7 @@
   "audience": "Instituciones y público general",
   "participation": "Gratuita",
   "facilitator": "Andrés Castillo Leitón · Ingeniero Topógrafo",
-  "title": "San Carlos con datos abiertos",
-  "subtitle": "QGIS, Sentinel-2 y cartografía oficial IGN/SNIT",
+  "title": "Análisis territorial con QGIS",
+  "subtitle": "Sentinel-2 y cartografía oficial IGN/SNIT",
   "format": "Workshop"
 }

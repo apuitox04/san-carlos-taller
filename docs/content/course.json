@@ -1,6 +1,6 @@
 {
-  "title": "San Carlos con datos abiertos",
-  "subtitle": "QGIS, Sentinel-2 y cartografía oficial IGN/SNIT",
+  "title": "Análisis territorial con QGIS",
+  "subtitle": "Sentinel-2 y cartografía oficial IGN/SNIT",
   "audience": "Instituciones y público general interesados en interpretar información territorial. Para realizar las prácticas, se recomienda manejo básico de capas y tablas en QGIS.",
   "duration": "Una jornada: 390 minutos de trabajo y 90 minutos de pausas.",
   "scope": "Práctica formativa municipal sobre los trece distritos del cantón San Carlos. Las seis prácticas producen un informe, una tabla distrital y un mapa de diferencia espectral.",
@@ -130,12 +130,13 @@
   "provenance": {
     "source": "cuaderno_participante.json",
     "sha256": "6c8c85d1ffbfd64813d463bc5c64f0538edb16ef273b2f9176a44398cff56571",
-    "policy": "Bloques técnicos conservados íntegramente. panels sólo organiza su presentación."
+    "policy": "Cifras, fórmulas, procedimientos y resultados conservados. Títulos editoriales revisados en 1.0.3.",
+    "editorialRevision": "1.0.3"
   },
   "introduction": [
     {
       "id": "encargo",
-      "title": "Encargo · preparar un informe de revisión territorial",
+      "title": "Informe de revisión territorial",
       "practice": null,
       "purpose": "Definir qué pregunta puede responder el conjunto de datos y qué debe contener el informe.",
       "blocks": [
@@ -184,7 +185,7 @@
     },
     {
       "id": "expediente",
-      "title": "El expediente y sus unidades de análisis",
+      "title": "Unidades de análisis",
       "practice": null,
       "purpose": "Reconocer cómo se relacionan geometría, celda y observación antes de calcular.",
       "blocks": [
@@ -299,9 +300,9 @@
   "practices": [
     {
       "id": "P01",
-      "title": "El territorio y su superficie",
+      "title": "Límites y superficies",
       "question": "¿Qué superficie utilizará como denominador del informe?",
-      "deliverable": "Límites y cuadrícula oficiales",
+      "deliverable": "Límites IGN y superficie rasterizada",
       "minutes": 40,
       "purpose": "Establecer la procedencia, el SRC y las unidades administrativas del análisis. Distinguir el área vectorial de la superficie representada por la cuadrícula.",
       "inputs": [
@@ -692,7 +693,7 @@
       "id": "P02",
       "title": "Bandas, fechas y calidad",
       "question": "¿De qué adquisición procede cada celda y puede aceptarse?",
-      "deliverable": "Observaciones identificadas",
+      "deliverable": "Bandas, fechas y calidad de S01–S05",
       "minutes": 55,
       "purpose": "Entender bandas, reflectancia y fecha como partes de un mismo registro. Obtener una ficha trazable de los cinco sitios y aplicar el criterio de calidad.",
       "inputs": [
@@ -805,7 +806,7 @@
             },
             {
               "type": "h3",
-              "text": "Qué decisión cambia esta lectura"
+              "text": "Fechas que debe declarar el informe"
             },
             {
               "type": "p",
@@ -1196,9 +1197,9 @@
     },
     {
       "id": "P03",
-      "title": "Índices y exclusiones",
+      "title": "Índices espectrales",
       "question": "¿Qué calculan los índices y cuándo debe conservarse NoData?",
-      "deliverable": "Seis índices con una regla explícita",
+      "deliverable": "NDVI, SAVI y MNDWI en F1 y F2",
       "minutes": 70,
       "purpose": "Relacionar cada fórmula con el contraste espectral y sus unidades. Ejecutar seis índices sin alterar la cuadrícula ni convertir ausencias en valores.",
       "inputs": [
@@ -1218,7 +1219,7 @@
       "sections": [
         {
           "id": "p03_fundamento",
-          "title": "P03 · construir el significado de los índices",
+          "title": "P03 · interpretar los índices espectrales",
           "practice": "P03",
           "purpose": "Relacionar cada fórmula con el contraste espectral y sus unidades.",
           "blocks": [
@@ -1289,7 +1290,7 @@
         },
         {
           "id": "p03_calculo",
-          "title": "P03 · aplicar una regla de cálculo a todo San Carlos",
+          "title": "P03 · calcular índices en San Carlos",
           "practice": "P03",
           "purpose": "Ejecutar seis índices sin alterar la cuadrícula ni convertir ausencias en valores.",
           "blocks": [
@@ -1676,9 +1677,9 @@
     },
     {
       "id": "P04",
-      "title": "Comparar las mismas celdas",
+      "title": "Comparación temporal",
       "question": "¿Dónde hay comparación y cuánto cambia una selección al mover el umbral?",
-      "deliverable": "Diferencia, cobertura y umbral",
+      "deliverable": "Diferencia de NDVI, superficie comparable y clases de MNDWI",
       "minutes": 70,
       "purpose": "Comparar observaciones emparejadas y cuantificar el territorio al que se refiere la diferencia. Distinguir un contraste continuo de la superficie que selecciona un umbral.",
       "inputs": [
@@ -1819,7 +1820,7 @@
             },
             {
               "type": "h3",
-              "text": "Qué cambia al elegir el umbral"
+              "text": "Sensibilidad al umbral"
             },
             {
               "type": "p",
@@ -2152,9 +2153,9 @@
     },
     {
       "id": "P05",
-      "title": "Los trece distritos",
+      "title": "Estadísticas distritales",
       "question": "¿Qué representan las medias cuando la cobertura es desigual?",
-      "deliverable": "Resumen distrital y ponderación",
+      "deliverable": "Medias y cobertura de los trece distritos",
       "minutes": 65,
       "purpose": "Agrupar las mismas celdas para obtener medias y cobertura distritales. Comprobar la tabla y decidir el alcance de cada afirmación distrital.",
       "inputs": [
@@ -2176,7 +2177,7 @@
       "sections": [
         {
           "id": "p05_tabla",
-          "title": "P05 · construir el resumen de los trece distritos",
+          "title": "P05 · estadísticas de los 13 distritos",
           "practice": "P05",
           "purpose": "Agrupar las mismas celdas para obtener medias y cobertura distritales.",
           "blocks": [
@@ -2631,9 +2632,9 @@
     },
     {
       "id": "P06",
-      "title": "El informe y el mapa",
+      "title": "Mapa e informe técnico",
       "question": "¿Puede reconstruirse cada afirmación a partir de los datos y del método?",
-      "deliverable": "Expediente final y sitio S06",
+      "deliverable": "Mapa, informe y registro de S06",
       "minutes": 70,
       "purpose": "Integrar territorio, cobertura, resultados y comprobaciones en un informe legible.",
       "inputs": [
@@ -2721,7 +2722,7 @@
             },
             {
               "type": "h3",
-              "text": "Transferencia · un sitio elegido con criterio propio"
+              "text": "Selección y documentación de S06"
             },
             {
               "type": "p",
@@ -2979,7 +2980,7 @@
   "participation": {
     "cost": 0,
     "currency": "CRC",
-    "label": "Workshop gratuito",
+    "label": "Workshop gratuito · San Carlos",
     "audience": "Instituciones y público general"
   },
   "facilitator": {
@@ -2988,6 +2989,7 @@
   },
   "format": "Workshop",
   "legacyTitles": [
-    "San Carlos: revisión territorial con imágenes Sentinel-2"
+    "San Carlos: revisión territorial con imágenes Sentinel-2",
+    "San Carlos con datos abiertos"
   ]
 }
