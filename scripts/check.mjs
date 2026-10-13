@@ -45,7 +45,7 @@ for (const id of ["inicio", "territorio", "proyecto", "ruta", "practicas", "mesa
   assert.ok(index.includes(`href="#${id}"`), `Navegación #${id}`);
 }
 assert.equal((index.match(/<h1\b/g) || []).length, 1);
-assert.ok(index.includes("?v=2.0.1"));
+assert.ok(index.includes("?v=3.0.0"));
 assert.ok(index.includes("no cuenta con acreditación, aval o patrocinio"));
 assert.ok(!/trece distritos|13 distritos|ocho horas|8 horas/i.test(index));
 assert.ok(!/trece distritos|13 distritos|ocho horas|8 horas/i.test(JSON.stringify(course)));
