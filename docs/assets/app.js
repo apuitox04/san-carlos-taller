@@ -1,6 +1,6 @@
 const COURSE_URL = "content/course.json";
-const PROGRESS_KEY = "msc_lafortuna_curso_v2_progreso";
-const NOTES_KEY = "msc_lafortuna_curso_v2_notas";
+const PROGRESS_KEY = "msc_lafortuna_curso_v3_progreso";
+const NOTES_KEY = "msc_lafortuna_curso_v3_notas";
 
 const el = (tag, options = {}, children = []) => {
   const node = document.createElement(tag);
