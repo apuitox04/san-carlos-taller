@@ -1,186 +1,197 @@
 {
   "meta": {
-    "version": "2.0.1",
+    "version": "3.0.0",
     "updated": "2026-10-12",
-    "title": "Taller interinstitucional de información territorial de La Fortuna",
-    "subtitle": "QGIS, observaciones satelitales, demostración 3D y acuerdos",
+    "title": "La Fortuna | Laboratorio de análisis territorial",
+    "subtitle": "Agua, cobertura vegetal, agricultura, asentamientos y conectividad con software libre",
     "durationMinutes": 240,
     "capacity": "24 a 30 personas",
-    "format": "Cinco mesas; P01–P02 con proyecto QGIS, P03 demostración municipal controlada, P04–P05 acuerdos"
+    "format": "Ejercicios aplicados en 5 mesas; QGIS, GDAL, plMapcalc y herramientas plTools"
   },
-  "purpose": "Utilizar datos distritales preparados de La Fortuna para revisar fuentes y observaciones satelitales y acordar quién aporta, valida, actualiza y autoriza la información necesaria para el piloto urbano municipal.",
+  "purpose": "Examinar el distrito 21007 La Fortuna mediante fuentes oficiales y observaciones Sentinel-2, comparando el entorno del Parque Nacional Volcán Arenal, lago Arenal, área urbana, paisaje agropecuario, hidrografía y redes. Registrar evidencia, incertidumbre y tareas de comprobación; no atribuir usos jurídicos a una clasificación espectral.",
   "outcomes": [
-    "Proyecto QGIS guardado con rutas relativas y sistema EPSG:8908.",
-    "Mapa PDF que registra cobertura, vacíos y fuentes utilizadas.",
-    "CSV con un indicador calculado y sus parámetros.",
-    "Matriz institucional con custodio, validador, frecuencia, acceso y control de calidad.",
-    "Lista priorizada de acciones con responsable y plazo."
+    "Proyecto QGIS del distrito con capas originales y resultados espectrales identificados por fuente y calidad.",
+    "Mapas que distinguen agua candidata, vegetación, superficies expuestas y territorios sin observación aceptada.",
+    "CSV reproducible de índices y cobertura, con denominadores y proporción del distrito observado.",
+    "Inventario de capas oficiales pendientes: límite del parque, embalse, usos agropecuarios, urbanización, relieve y redes.",
+    "Matriz territorial por mesa con hallazgo, fuente, responsable de validación y siguiente acción."
   ],
   "schedule": [
     {
       "slot": "00:00–00:15",
       "minutes": 15,
-      "title": "Apertura",
-      "detail": "Alcance urbano, pregunta de trabajo, reglas sobre datos y resultado esperado."
+      "title": "Apertura · seis paisajes, una unidad territorial",
+      "detail": "Parque, lago, ciudad, agricultura, drenajes y redes. Qué indican las imágenes y qué requiere datos oficiales."
     },
     {
-      "slot": "00:15–00:35",
-      "minutes": 20,
-      "title": "Estado municipal",
-      "detail": "Demostración de ArcGIS Pro y ArcGIS Online: catastro, coberturas ráster y escena 3D."
+      "slot": "00:15–00:40",
+      "minutes": 25,
+      "title": "P01 · Fuentes, geometría y cobertura",
+      "detail": "IGN/SNIT: distrito 21007. Inventario de capas y revisión de fechas, EPSG:8908, resolución y celdas válidas."
     },
     {
-      "slot": "00:35–01:05",
-      "minutes": 30,
-      "title": "P01 · Base territorial",
-      "detail": "Fuente, fecha, sistema de referencia, extensión y trazabilidad de cada capa."
+      "slot": "00:40–01:20",
+      "minutes": 40,
+      "title": "P02 · Agua y lago Arenal",
+      "detail": "GDAL y plMapcalc: MNDWI y máscara de calidad. Comparación espectral sin trazar límites jurídicos del embalse."
     },
     {
-      "slot": "01:05–01:50",
-      "minutes": 45,
-      "title": "P02 · Observación satelital",
-      "detail": "Calidad, NoData, fechas y cálculo de un índice con QGIS/GDAL."
+      "slot": "01:20–02:00",
+      "minutes": 40,
+      "title": "P03 · Bosque y entorno del parque",
+      "detail": "NDVI y diferencia temporal. Fragmentación y segmentación con plTools como extensión cuando exista máscara forestal de referencia."
     },
     {
-      "slot": "01:50–02:00",
+      "slot": "02:00–02:10",
       "minutes": 10,
       "title": "Pausa",
-      "detail": "Guardar el proyecto y verificar productos intermedios."
+      "detail": "Guardar el proyecto y comprobar resultados."
     },
     {
-      "slot": "02:00–02:40",
+      "slot": "02:10–02:50",
       "minutes": 40,
-      "title": "P03 · Altura y forma urbana",
-      "detail": "Ortofoto, DTM, DSM, nDSM, LiDAR, edificios y controles de altura."
+      "title": "P04 · Ciudad, agricultura y superficies expuestas",
+      "detail": "NDBI, NDVI y firmas combinadas. Contrastar candidatos con datos de uso y huellas de referencia."
     },
     {
-      "slot": "02:40–03:20",
-      "minutes": 40,
-      "title": "P04 · Mesas sectoriales",
-      "detail": "Vacíos de información, restricciones, responsable técnico y necesidad de actualización."
+      "slot": "02:50–03:20",
+      "minutes": 30,
+      "title": "P05 · Relieve, accesos y restricciones",
+      "detail": "Identificar DEM, red vial, amenazas e infraestructura faltantes y proponer la consulta espacial verificable."
     },
     {
       "slot": "03:20–03:50",
       "minutes": 30,
-      "title": "P05 · Acuerdos",
-      "detail": "Custodio, validador, frecuencia, acceso, control de calidad, responsable y plazo."
+      "title": "P06 · Diagnóstico por cinco mesas",
+      "detail": "Mapa, ficha de evidencia y matriz: problema, cobertura, método, resultado, incertidumbre y custodio."
     },
     {
       "slot": "03:50–04:00",
       "minutes": 10,
-      "title": "Cierre",
-      "detail": "Exportar el mapa, el indicador y la matriz; confirmar la siguiente revisión."
+      "title": "Cierre · recepción y pendientes",
+      "detail": "Consolidación de mapas, indicadores, inventario de fuentes y acuerdos de actualización."
     }
   ],
   "modules": [
     {
       "id": "P01",
-      "title": "Base territorial y procedencia",
-      "question": "¿Qué cobertura puede usarse y bajo qué condiciones?",
+      "title": "Referencia distrital y procedencia",
+      "question": "¿Qué área estudia cada archivo y cuánta superficie tiene observación utilizable?",
       "steps": [
-        "Abrir el límite IGN del distrito 21007 y las capas incluidas en el proyecto QGIS; no interpretar ese límite como perímetro urbano.",
-        "Confirmar EPSG:8908, extensión, fecha y fuente.",
-        "Registrar licencia, restricciones, custodio y vacíos.",
-        "Guardar el proyecto con rutas relativas."
+        "Abrir el proyecto QGIS del distrito 21007; verificar la única geometría IGN y EPSG:8908.",
+        "Comprobar píxel de 20 m, cuatro bandas Sentinel-2 y composición por fecha de 2025.",
+        "Identificar 22.957,84 ha representadas en la cuadrícula y 6.699,88 ha comparables en ambas composiciones (29,18 %).",
+        "Preparar la ficha de capas adicionales exigidas por parque, embalse, ciudad, agricultura y redes."
       ],
-      "evidence": "Proyecto QGIS y ficha de procedencia."
+      "evidence": "Proyecto QGIS, control de cobertura y catálogo de fuentes."
     },
     {
       "id": "P02",
-      "title": "Calidad e indicador satelital",
-      "question": "¿Qué celdas permiten una comparación válida?",
+      "title": "Agua: lago, ríos y humedales",
+      "question": "¿Qué píxeles presentan respuesta espectral de agua y cuáles necesitan comprobación oficial?",
       "steps": [
-        "Revisar reflectancia, calidad y fecha de dos observaciones Sentinel-2.",
-        "Excluir NoData, nubes, sombras y combinaciones sin soporte común.",
-        "Calcular un índice y guardar los parámetros usados.",
-        "Exportar un CSV con superficie válida y resultado."
+        "Examinar B03 verde y B11 infrarrojo de onda corta y sus máscaras de calidad.",
+        "Calcular MNDWI=(B03−B11)/(B03+B11) con GDAL; comparar la operación de plMapcalc.",
+        "Revisar firma candidata MNDWI>0,20 y NDVI<0,15 sin contarla como área oficial del lago.",
+        "Solicitar delimitación oficial del embalse y red hídrica antes de resumir por cuerpo de agua."
       ],
-      "evidence": "Ráster de salida y CSV de indicador."
+      "evidence": "Ráster MNDWI, mapa de agua candidata y ficha de contraste."
     },
     {
       "id": "P03",
-      "title": "Demostración 3D y revisión",
-      "question": "¿Qué evidencia falta para aceptar la geometría 3D municipal?",
+      "title": "Vegetación y paisaje volcánico",
+      "question": "¿Dónde hay vegetación espectralmente vigorosa y qué no podemos afirmar sobre bosque o cultivo?",
       "steps": [
-        "Examinar con acceso institucional la ortofoto, DTM, DSM, nDSM y LiDAR; esos archivos no se distribuyen en el paquete.",
-        "Revisar huella, cubierta, alturas y relación con terreno, sin equiparar una visualización con control de exactitud.",
-        "Registrar el estado de cada caso mostrado y las incidencias; la aceptación LoD2.2 permanece bajo responsabilidad técnica municipal.",
-        "Identificar la referencia vertical y los controles independientes pendientes; no aplicar correcciones de altura."
+        "Examinar NDVI en dos composiciones y su soporte común, manteniendo NoData separado de cero.",
+        "Preparar una máscara de vigor (NDVI≥0,65) sin llamarla cobertura forestal.",
+        "Localizar cambios candidatos y discutir fecha, atmósfera, relieve y diferencias de manejo.",
+        "Documentar cómo plForestFragment y plGeoJSEG se aplicarían tras obtener una máscara validada de bosque y límite SINAC."
       ],
-      "evidence": "Ficha de observación de la demostración y listado de revisiones; sin redistribuir datos municipales."
+      "evidence": "Mapa NDVI, diferencia temporal y lista de validaciones forestales."
     },
     {
       "id": "P04",
-      "title": "Mesas sectoriales",
-      "question": "¿Qué información falta para una decisión concreta?",
+      "title": "Asentamientos y producción agrícola",
+      "question": "¿Qué firmas exponen posibles cambios físicos sin identificar por sí solas uso urbano o agropecuario?",
       "steps": [
-        "Seleccionar una pregunta sectorial y las capas mínimas.",
-        "Identificar custodio, validador y restricción de acceso.",
-        "Definir frecuencia y control de calidad.",
-        "Registrar un vacío que pueda resolverse en el piloto."
+        "Calcular NDBI=(B11−B08)/(B11+B08) y compararlo con NDVI y MNDWI.",
+        "Marcar superficies expuestas o construidas como candidatas; distinguir suelos desnudos, techos, caminos y cauces.",
+        "Examinar por qué una cobertura agrícola vigorosa puede confundirse con bosque en una única composición.",
+        "Solicitar huellas municipales, registros de uso y capas productivas pertinentes para validación temática."
       ],
-      "evidence": "Fila completa en la matriz institucional."
+      "evidence": "Mapa de firmas candidatas, matriz de confusiones esperadas y fuentes faltantes."
     },
     {
       "id": "P05",
-      "title": "Responsables y siguiente revisión",
-      "question": "¿Qué se hará, quién lo hará y cuándo se revisará?",
+      "title": "Relieve, exposición e infraestructura",
+      "question": "¿Qué capas hacen falta para relacionar un cambio con accesos, riesgo o capacidad de servicio?",
       "steps": [
-        "Priorizar acciones por utilidad, esfuerzo y dependencia.",
-        "Asignar una persona responsable y una entidad validadora.",
-        "Definir plazo, formato de intercambio y evidencia de cierre.",
-        "Acordar la fecha de la siguiente sesión técnica."
+        "Identificar DTM/DEM, hidrografía, caminos, puentes y zonas de amenaza para análisis posterior.",
+        "Separar observación espectral de amenaza técnica, restricción normativa y decisión municipal.",
+        "Definir consulta por acceso a servicios o conectividad de red y su unidad de análisis.",
+        "Registrar metadatos, custodia, disponibilidad y permisos de las capas faltantes."
       ],
-      "evidence": "Matriz firmable y lista de acciones."
+      "evidence": "Ficha de requerimientos y pregunta espacial reproducible."
+    },
+    {
+      "id": "P06",
+      "title": "Lectura integrada y acuerdos",
+      "question": "¿Qué hallazgo podemos sostener y quién debe comprobar su efecto territorial?",
+      "steps": [
+        "Cada mesa elige un paisaje: parque, lago, ciudad, agricultura o conectividad/riesgo.",
+        "Presentar un mapa, un indicador con denominador y una condición de calidad.",
+        "Separar hallazgo verificado, hipótesis espectral y documento o capa pendiente.",
+        "Asignar custodio, revisor, fecha de intercambio y próxima comprobación."
+      ],
+      "evidence": "Mapa, CSV, ficha de observación y matriz de acuerdos."
     }
   ],
   "tables": [
     {
       "id": "M1",
-      "name": "Catastro y planificación urbana",
-      "question": "¿Qué cobertura permite evaluar ocupación, crecimiento, servicios y compatibilidad con planificación urbana?",
-      "participants": "Municipalidad, Registro Nacional/IGN, CFIA y planificación territorial",
-      "decision": "Capas autorizadas, escala, validador y criterio para incorporar cambios."
+      "name": "Parque Nacional Volcán Arenal y bosque",
+      "question": "¿Qué parte de la cobertura del parque puede compararse con imágenes válidas y qué sectores requieren otra campaña?",
+      "participants": "SINAC–ACAHN, Municipalidad, universidades",
+      "decision": "Límite oficial, máscara forestal validada, temporalidad, restricciones de uso y custodia."
     },
     {
       "id": "M2",
-      "name": "Ambiente y agua",
-      "question": "¿Qué información permite proteger bosque, agua, biodiversidad y áreas con restricción?",
-      "participants": "MINAE, SINAC–ACAHN, AyA/ASADAS y gestión ambiental municipal",
-      "decision": "Nivel de acceso, generalización de datos sensibles y frecuencia de actualización."
+      "name": "Lago Arenal y sistemas hídricos",
+      "question": "¿Cuáles firmas de agua se observan y qué información debe aportar la autoridad para analizar orillas y cuencas?",
+      "participants": "ICE, AyA/ASADAS, SINAC, Municipalidad",
+      "decision": "Polígonos oficiales, series hidrológicas, cambios de nivel y autoridad para validación."
     },
     {
       "id": "M3",
-      "name": "Producción y desarrollo rural",
-      "question": "¿Qué capas permiten relacionar uso de suelo, actividad productiva, caminos y servicios rurales?",
-      "participants": "MAG, INTA, INDER y organizaciones productivas",
-      "decision": "Fuente oficial, verificación de campo y formato de intercambio."
+      "name": "Área urbana y crecimiento constructivo",
+      "question": "¿Qué superficies alteradas requieren comprobación con edificios, permisos, vías y servicios?",
+      "participants": "Municipalidad, Registro Nacional/IGN, CFIA",
+      "decision": "Huellas, fechas, estado administrativo, calidad cartográfica y acceso controlado."
     },
     {
       "id": "M4",
-      "name": "Riesgo e infraestructura",
-      "question": "¿Qué información se requiere para analizar exposición, acceso, drenaje y continuidad de servicios?",
-      "participants": "CNE/CME, MOPT/CONAVI, ICE y unidades municipales responsables",
-      "decision": "Escenario prioritario, cobertura crítica y regla para mantenerla vigente."
+      "name": "Agricultura, ganadería y paisaje rural",
+      "question": "¿Cómo distinguir cultivo, pastura, regeneración y bosque sin atribuir usos solo por NDVI?",
+      "participants": "MAG, INTA, INDER, productores y Municipalidad",
+      "decision": "Muestras de campo, cultivos, calendario, parcelas productivas y fuentes administrativas."
     },
     {
       "id": "M5",
-      "name": "Conectividad, turismo y comunidad",
-      "question": "¿Qué indicadores permiten medir conectividad, presión turística, accesibilidad y necesidades de la población?",
-      "participants": "MICITT, SUTEL/FONATEL, ICT, sector turístico, ADIFORT, academia y comunidad",
-      "decision": "Indicador verificable, responsable, fuente y periodicidad."
+      "name": "Relieve, conectividad y riesgo",
+      "question": "¿Qué elementos de red y terreno condicionan drenaje, acceso, exposición e infraestructura?",
+      "participants": "CNE/CME, MOPT/CONAVI, ICE, Municipalidad y prestadores",
+      "decision": "DTM oficial, conexiones, estado de obras, restricciones vigentes y datos de calidad."
     }
   ],
   "project": {
     "crs": "CR-SIRGAS / CRTM05 · EPSG:8908",
-    "scope": "El proyecto municipal comienza en el área urbana. El paquete docente utiliza como referencia el distrito 21007; ambos límites no son equivalentes.",
+    "scope": "El taller analiza todo el distrito 21007 La Fortuna (aprox. 22.958 ha en la cuadrícula de 20 m). El piloto cartográfico municipal de 691,216 ha se revisa como proyecto distinto.",
     "status": [
-      "Proyecto ArcGIS Pro consolidado, sin fuentes rotas en la verificación de 12 de octubre de 2026.",
-      "Cobertura catastral incorporada como referencia de huella de fincas.",
-      "La ortofoto municipal RGB de 20 cm y las visualizaciones DTM, DSM y nDSM de 1 m están previstas solo para demostración institucional. No integran el ZIP público del taller.",
-      "La revisión técnica de los modelos declarados LoD2.2 corresponde al técnico designado. El taller únicamente registra observaciones y no acepta modelos.",
-      "Una huella carece de modelo 3D; su incorporación precede cualquier ampliación hacia LoD3.",
-      "La referencia vertical debe quedar documentada antes de ajustar alturas o publicar resultados definitivos."
+      "El ZIP original contiene el límite distrital IGN/SNIT, composiciones Sentinel-2 L2A de 2025, NDVI y cuatro sitios de revisión; no contiene polígono oficial del parque, lago, uso agropecuario o perímetro urbano.",
+      "El soporte común entre las composiciones cubre 6.699,88 ha de 22.957,84 ha representadas: 29,18 %. No se extrapolan áreas espectrales al resto del distrito.",
+      "El módulo ampliado calcula MNDWI, NDBI y firmas candidatas, con exclusión de NoData y control radiométrico; no son mapas oficiales de cobertura ni usos.",
+      "Los modelos LoD2.2 municipales no se entregan en el ZIP; pueden mostrarse en una demostración restringida fuera del núcleo de prácticas.",
+      "La fragmentación forestal y GeoJSEG requieren datos de referencia y validación antes de emitir resultados sobre el parque."
     ],
     "online": [
       {
@@ -196,71 +207,87 @@
     ]
   },
   "preparation": [
-    "Designar una persona facilitadora, una relatora y apoyo técnico.",
-    "Confirmar 24 a 30 participantes; pedir una persona técnica y otra con capacidad de acuerdo por entidad.",
-    "Preparar cinco computadoras con QGIS LTR, GDAL, espacio libre y ZIP extraído; verificar que el proyecto use únicamente los archivos entregados.",
-    "Probar el proyecto QGIS, los rásteres Sentinel-2, el GeoPackage distrital y la exportación PDF/CSV.",
-    "Retirar datos personales, especies sensibles e infraestructura crítica de la copia de trabajo.",
-    "Imprimir una matriz por mesa y disponer una carpeta para los productos finales.",
-    "Usar una computadora institucional independiente para la demostración de ArcGIS. No copiar parcelas, ortofotos, LAS ni modelos 3D a los equipos de participantes."
+    "Confirmar una sala con cinco equipos, QGIS y GDAL funcionales, espacio para el paquete y material de respaldo.",
+    "Instalar y probar plTools/plMapcalc desde el repositorio del autor si se ejecutará en vivo; GDAL y scripts reproducibles quedan como ruta principal de respaldo.",
+    "Preparar el ZIP v3.0 local que añade MNDWI, NDBI, mapa de firmas y guía sin distribuir capas municipales privadas.",
+    "Revisar la geometría IGN del distrito y los metadatos de origen de las composiciones Sentinel-2 de 2025.",
+    "Solicitar al SINAC el límite oficial del parque y al custodio correspondiente el embalse; sin esas geometrías no calcular porcentajes por área protegida o lago.",
+    "Preparar una ficha por mesa sobre bosque, lago, ciudad, agricultura y conectividad/riesgo.",
+    "Separar archivos públicos de datos que requieran autorización y registrar quién puede consultar cada conjunto.",
+    "Probar exportación de mapa y CSV, mecanismos de recuperación y accesibilidad desde móviles."
   ],
   "resources": [
     {
-      "label": "Paquete de datos y proyecto QGIS",
+      "label": "Paquete anterior v2.0.0 — datos base",
       "url": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v2.0.0",
-      "note": "Publicación 2.0.0"
+      "note": "Publicación histórica; la edición distrital ampliada v3.0 se distribuye como entrega revisada aparte."
     },
     {
       "label": "Matriz de acuerdos",
       "url": "recursos/matriz-acuerdos.csv",
-      "note": "CSV editable"
+      "note": "CSV editable por mesa"
     },
     {
       "label": "Ficha de observación",
       "url": "recursos/ficha-observacion.csv",
-      "note": "CSV editable"
+      "note": "CSV de evidencia y validación"
     },
     {
       "label": "Guía de facilitación",
       "url": "recursos/guia-facilitacion.md",
-      "note": "Markdown"
+      "note": "Programa aplicado al distrito"
     },
     {
-      "label": "Código y materiales del curso",
+      "label": "Código y materiales del taller",
       "url": "https://github.com/apuitox04/san-carlos-taller",
-      "note": "Repositorio público"
+      "note": "Fuentes y revisiones"
     }
   ],
   "sources": [
     {
-      "label": "MLSpAnFOSS 2026",
-      "url": "https://mlspanfoss.org/",
-      "use": "Referencia internacional sobre aprendizaje automático, percepción remota y software geoespacial libre."
+      "label": "MLSpAnFOSS 2026 — programa",
+      "url": "https://www.mlspanfoss.org/programme",
+      "use": "Talleres publicados de GDAL, plMapcalc, Jupyter y métodos de análisis espacial."
     },
     {
-      "label": "Talleres MLSpAnFOSS",
+      "label": "MLSpAnFOSS 2026 — materiales",
       "url": "https://www.mlspanfoss.org/workshops",
-      "use": "Referencia para ejercicios con Raster Calculator y GDAL."
+      "use": "Prácticas originales de álgebra ráster con plMapcalc y análisis de imágenes con GDAL."
     },
     {
-      "label": "QGIS",
-      "url": "https://qgis.org/",
-      "use": "Aplicación principal para el trabajo práctico."
+      "label": "plTools (repositorio del autor)",
+      "url": "https://gitlist.host417505.xce.pl/plTools",
+      "use": "plMapcalc, plForestFragment, plGeoJSEG y otras herramientas; comprobar instalación y licencia GPLv3."
     },
     {
-      "label": "GDAL",
-      "url": "https://gdal.org/",
-      "use": "Procesamiento y verificación de datos geoespaciales."
-    },
-    {
-      "label": "SNIT Costa Rica",
+      "label": "IGN/SNIT — IDE Costa Rica",
       "url": "https://www.snitcr.go.cr/",
-      "use": "Consulta de cartografía y metadatos oficiales."
+      "use": "Límites, servicios de capas y metadatos oficiales."
+    },
+    {
+      "label": "SINAC — Parque Nacional Volcán Arenal",
+      "url": "https://www.sinac.go.cr/ES/ac/ACAHN/pnva/Paginas/default.aspx",
+      "use": "Decretos, función hídrica, gestión del parque y enlace a planes de manejo."
+    },
+    {
+      "label": "SINAC — Área de Conservación Arenal Tempisque",
+      "url": "https://www.sinac.go.cr/ES/ac/acat/Paginas/default.aspx",
+      "use": "Información contextual del embalse Arenal, energía, agua y paisaje."
     },
     {
       "label": "Copernicus Data Space",
       "url": "https://dataspace.copernicus.eu/",
-      "use": "Fuente de observaciones Sentinel-2 y documentación asociada."
+      "use": "Origen de Sentinel-2 L2A, reflectancias y calidad de imágenes."
+    },
+    {
+      "label": "GDAL",
+      "url": "https://gdal.org/",
+      "use": "Procesamiento, control y álgebra ráster."
+    },
+    {
+      "label": "QGIS",
+      "url": "https://qgis.org/",
+      "use": "Visualización, fuentes, composición cartográfica y lectura de resultados."
     }
   ]
 }
