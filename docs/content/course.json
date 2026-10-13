@@ -1,14 +1,14 @@
 {
   "meta": {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "updated": "2026-10-12",
     "title": "Taller interinstitucional de información territorial de La Fortuna",
-    "subtitle": "QGIS, teledetección, catastro 3D y acuerdos de actualización",
+    "subtitle": "QGIS, observaciones satelitales, demostración 3D y acuerdos",
     "durationMinutes": 240,
     "capacity": "24 a 30 personas",
-    "format": "Cinco mesas; una computadora preparada por mesa"
+    "format": "Cinco mesas; P01–P02 con proyecto QGIS, P03 demostración municipal controlada, P04–P05 acuerdos"
   },
-  "purpose": "Revisar la información disponible para el área urbana de La Fortuna y acordar quién aporta, valida, actualiza y autoriza cada cobertura necesaria para el piloto municipal.",
+  "purpose": "Utilizar datos distritales preparados de La Fortuna para revisar fuentes y observaciones satelitales y acordar quién aporta, valida, actualiza y autoriza la información necesaria para el piloto urbano municipal.",
   "outcomes": [
     "Proyecto QGIS guardado con rutas relativas y sistema EPSG:8908.",
     "Mapa PDF que registra cobertura, vacíos y fuentes utilizadas.",
@@ -17,152 +17,250 @@
     "Lista priorizada de acciones con responsable y plazo."
   ],
   "schedule": [
-    {"slot":"00:00–00:15","minutes":15,"title":"Apertura","detail":"Alcance urbano, pregunta de trabajo, reglas sobre datos y resultado esperado."},
-    {"slot":"00:15–00:35","minutes":20,"title":"Estado municipal","detail":"Demostración de ArcGIS Pro y ArcGIS Online: catastro, coberturas ráster y escena 3D."},
-    {"slot":"00:35–01:05","minutes":30,"title":"P01 · Base territorial","detail":"Fuente, fecha, sistema de referencia, extensión y trazabilidad de cada capa."},
-    {"slot":"01:05–01:50","minutes":45,"title":"P02 · Observación satelital","detail":"Calidad, NoData, fechas y cálculo de un índice con QGIS/GDAL."},
-    {"slot":"01:50–02:00","minutes":10,"title":"Pausa","detail":"Guardar el proyecto y verificar productos intermedios."},
-    {"slot":"02:00–02:40","minutes":40,"title":"P03 · Altura y forma urbana","detail":"Ortofoto, DTM, DSM, nDSM, LiDAR, edificios y controles de altura."},
-    {"slot":"02:40–03:20","minutes":40,"title":"P04 · Mesas sectoriales","detail":"Vacíos de información, restricciones, responsable técnico y necesidad de actualización."},
-    {"slot":"03:20–03:50","minutes":30,"title":"P05 · Acuerdos","detail":"Custodio, validador, frecuencia, acceso, control de calidad, responsable y plazo."},
-    {"slot":"03:50–04:00","minutes":10,"title":"Cierre","detail":"Exportar el mapa, el indicador y la matriz; confirmar la siguiente revisión."}
+    {
+      "slot": "00:00–00:15",
+      "minutes": 15,
+      "title": "Apertura",
+      "detail": "Alcance urbano, pregunta de trabajo, reglas sobre datos y resultado esperado."
+    },
+    {
+      "slot": "00:15–00:35",
+      "minutes": 20,
+      "title": "Estado municipal",
+      "detail": "Demostración de ArcGIS Pro y ArcGIS Online: catastro, coberturas ráster y escena 3D."
+    },
+    {
+      "slot": "00:35–01:05",
+      "minutes": 30,
+      "title": "P01 · Base territorial",
+      "detail": "Fuente, fecha, sistema de referencia, extensión y trazabilidad de cada capa."
+    },
+    {
+      "slot": "01:05–01:50",
+      "minutes": 45,
+      "title": "P02 · Observación satelital",
+      "detail": "Calidad, NoData, fechas y cálculo de un índice con QGIS/GDAL."
+    },
+    {
+      "slot": "01:50–02:00",
+      "minutes": 10,
+      "title": "Pausa",
+      "detail": "Guardar el proyecto y verificar productos intermedios."
+    },
+    {
+      "slot": "02:00–02:40",
+      "minutes": 40,
+      "title": "P03 · Altura y forma urbana",
+      "detail": "Ortofoto, DTM, DSM, nDSM, LiDAR, edificios y controles de altura."
+    },
+    {
+      "slot": "02:40–03:20",
+      "minutes": 40,
+      "title": "P04 · Mesas sectoriales",
+      "detail": "Vacíos de información, restricciones, responsable técnico y necesidad de actualización."
+    },
+    {
+      "slot": "03:20–03:50",
+      "minutes": 30,
+      "title": "P05 · Acuerdos",
+      "detail": "Custodio, validador, frecuencia, acceso, control de calidad, responsable y plazo."
+    },
+    {
+      "slot": "03:50–04:00",
+      "minutes": 10,
+      "title": "Cierre",
+      "detail": "Exportar el mapa, el indicador y la matriz; confirmar la siguiente revisión."
+    }
   ],
   "modules": [
     {
-      "id":"P01",
-      "title":"Base territorial y procedencia",
-      "question":"¿Qué cobertura puede usarse y bajo qué condiciones?",
-      "steps":[
-        "Abrir el límite urbano y la cobertura catastral de referencia.",
+      "id": "P01",
+      "title": "Base territorial y procedencia",
+      "question": "¿Qué cobertura puede usarse y bajo qué condiciones?",
+      "steps": [
+        "Abrir el límite IGN del distrito 21007 y las capas incluidas en el proyecto QGIS; no interpretar ese límite como perímetro urbano.",
         "Confirmar EPSG:8908, extensión, fecha y fuente.",
         "Registrar licencia, restricciones, custodio y vacíos.",
         "Guardar el proyecto con rutas relativas."
       ],
-      "evidence":"Proyecto QGIS y ficha de procedencia."
+      "evidence": "Proyecto QGIS y ficha de procedencia."
     },
     {
-      "id":"P02",
-      "title":"Calidad e indicador satelital",
-      "question":"¿Qué celdas permiten una comparación válida?",
-      "steps":[
+      "id": "P02",
+      "title": "Calidad e indicador satelital",
+      "question": "¿Qué celdas permiten una comparación válida?",
+      "steps": [
         "Revisar reflectancia, calidad y fecha de dos observaciones Sentinel-2.",
         "Excluir NoData, nubes, sombras y combinaciones sin soporte común.",
         "Calcular un índice y guardar los parámetros usados.",
         "Exportar un CSV con superficie válida y resultado."
       ],
-      "evidence":"Ráster de salida y CSV de indicador."
+      "evidence": "Ráster de salida y CSV de indicador."
     },
     {
-      "id":"P03",
-      "title":"Altura y forma urbana",
-      "question":"¿La geometría 3D coincide con el terreno y la evidencia aérea?",
-      "steps":[
-        "Comparar ortofoto, DTM, DSM, nDSM y una muestra LiDAR.",
-        "Revisar huella, altura de alero, cumbrera y relación con el terreno.",
-        "Marcar cada construcción como aceptada, por revisar o sin modelo.",
-        "Documentar la referencia vertical; evitar correcciones sin respaldo."
+      "id": "P03",
+      "title": "Demostración 3D y revisión",
+      "question": "¿Qué evidencia falta para aceptar la geometría 3D municipal?",
+      "steps": [
+        "Examinar con acceso institucional la ortofoto, DTM, DSM, nDSM y LiDAR; esos archivos no se distribuyen en el paquete.",
+        "Revisar huella, cubierta, alturas y relación con terreno, sin equiparar una visualización con control de exactitud.",
+        "Registrar el estado de cada caso mostrado y las incidencias; la aceptación LoD2.2 permanece bajo responsabilidad técnica municipal.",
+        "Identificar la referencia vertical y los controles independientes pendientes; no aplicar correcciones de altura."
       ],
-      "evidence":"Mapa de revisión y registro de observaciones LoD2.2."
+      "evidence": "Ficha de observación de la demostración y listado de revisiones; sin redistribuir datos municipales."
     },
     {
-      "id":"P04",
-      "title":"Mesas sectoriales",
-      "question":"¿Qué información falta para una decisión concreta?",
-      "steps":[
+      "id": "P04",
+      "title": "Mesas sectoriales",
+      "question": "¿Qué información falta para una decisión concreta?",
+      "steps": [
         "Seleccionar una pregunta sectorial y las capas mínimas.",
         "Identificar custodio, validador y restricción de acceso.",
         "Definir frecuencia y control de calidad.",
         "Registrar un vacío que pueda resolverse en el piloto."
       ],
-      "evidence":"Fila completa en la matriz institucional."
+      "evidence": "Fila completa en la matriz institucional."
     },
     {
-      "id":"P05",
-      "title":"Responsables y siguiente revisión",
-      "question":"¿Qué se hará, quién lo hará y cuándo se revisará?",
-      "steps":[
+      "id": "P05",
+      "title": "Responsables y siguiente revisión",
+      "question": "¿Qué se hará, quién lo hará y cuándo se revisará?",
+      "steps": [
         "Priorizar acciones por utilidad, esfuerzo y dependencia.",
         "Asignar una persona responsable y una entidad validadora.",
         "Definir plazo, formato de intercambio y evidencia de cierre.",
         "Acordar la fecha de la siguiente sesión técnica."
       ],
-      "evidence":"Matriz firmable y lista de acciones."
+      "evidence": "Matriz firmable y lista de acciones."
     }
   ],
   "tables": [
     {
-      "id":"M1",
-      "name":"Catastro y planificación urbana",
-      "question":"¿Qué cobertura permite evaluar ocupación, crecimiento, servicios y compatibilidad con planificación urbana?",
-      "participants":"Municipalidad, Registro Nacional/IGN, CFIA y planificación territorial",
-      "decision":"Capas autorizadas, escala, validador y criterio para incorporar cambios."
+      "id": "M1",
+      "name": "Catastro y planificación urbana",
+      "question": "¿Qué cobertura permite evaluar ocupación, crecimiento, servicios y compatibilidad con planificación urbana?",
+      "participants": "Municipalidad, Registro Nacional/IGN, CFIA y planificación territorial",
+      "decision": "Capas autorizadas, escala, validador y criterio para incorporar cambios."
     },
     {
-      "id":"M2",
-      "name":"Ambiente y agua",
-      "question":"¿Qué información permite proteger bosque, agua, biodiversidad y áreas con restricción?",
-      "participants":"MINAE, SINAC–ACAHN, AyA/ASADAS y gestión ambiental municipal",
-      "decision":"Nivel de acceso, generalización de datos sensibles y frecuencia de actualización."
+      "id": "M2",
+      "name": "Ambiente y agua",
+      "question": "¿Qué información permite proteger bosque, agua, biodiversidad y áreas con restricción?",
+      "participants": "MINAE, SINAC–ACAHN, AyA/ASADAS y gestión ambiental municipal",
+      "decision": "Nivel de acceso, generalización de datos sensibles y frecuencia de actualización."
     },
     {
-      "id":"M3",
-      "name":"Producción y desarrollo rural",
-      "question":"¿Qué capas permiten relacionar uso de suelo, actividad productiva, caminos y servicios rurales?",
-      "participants":"MAG, INTA, INDER y organizaciones productivas",
-      "decision":"Fuente oficial, verificación de campo y formato de intercambio."
+      "id": "M3",
+      "name": "Producción y desarrollo rural",
+      "question": "¿Qué capas permiten relacionar uso de suelo, actividad productiva, caminos y servicios rurales?",
+      "participants": "MAG, INTA, INDER y organizaciones productivas",
+      "decision": "Fuente oficial, verificación de campo y formato de intercambio."
     },
     {
-      "id":"M4",
-      "name":"Riesgo e infraestructura",
-      "question":"¿Qué información se requiere para analizar exposición, acceso, drenaje y continuidad de servicios?",
-      "participants":"CNE/CME, MOPT/CONAVI, ICE y unidades municipales responsables",
-      "decision":"Escenario prioritario, cobertura crítica y regla para mantenerla vigente."
+      "id": "M4",
+      "name": "Riesgo e infraestructura",
+      "question": "¿Qué información se requiere para analizar exposición, acceso, drenaje y continuidad de servicios?",
+      "participants": "CNE/CME, MOPT/CONAVI, ICE y unidades municipales responsables",
+      "decision": "Escenario prioritario, cobertura crítica y regla para mantenerla vigente."
     },
     {
-      "id":"M5",
-      "name":"Conectividad, turismo y comunidad",
-      "question":"¿Qué indicadores permiten medir conectividad, presión turística, accesibilidad y necesidades de la población?",
-      "participants":"MICITT, SUTEL/FONATEL, ICT, sector turístico, ADIFORT, academia y comunidad",
-      "decision":"Indicador verificable, responsable, fuente y periodicidad."
+      "id": "M5",
+      "name": "Conectividad, turismo y comunidad",
+      "question": "¿Qué indicadores permiten medir conectividad, presión turística, accesibilidad y necesidades de la población?",
+      "participants": "MICITT, SUTEL/FONATEL, ICT, sector turístico, ADIFORT, academia y comunidad",
+      "decision": "Indicador verificable, responsable, fuente y periodicidad."
     }
   ],
   "project": {
-    "crs":"CR-SIRGAS / CRTM05 · EPSG:8908",
-    "scope":"Área urbana de La Fortuna; ampliación posterior al distrito.",
-    "status":[
+    "crs": "CR-SIRGAS / CRTM05 · EPSG:8908",
+    "scope": "El proyecto municipal comienza en el área urbana. El paquete docente utiliza como referencia el distrito 21007; ambos límites no son equivalentes.",
+    "status": [
       "Proyecto ArcGIS Pro consolidado, sin fuentes rotas en la verificación de 12 de octubre de 2026.",
       "Cobertura catastral incorporada como referencia de huella de fincas.",
-      "Ortofoto RGB de 20 cm y modelos DTM, DSM y nDSM de 1 m incluidos en el paquete portable.",
-      "El técnico asignado revisará once construcciones y registrará la aceptación o el ajuste de cada modelo LoD2.2.",
+      "La ortofoto municipal RGB de 20 cm y las visualizaciones DTM, DSM y nDSM de 1 m están previstas solo para demostración institucional. No integran el ZIP público del taller.",
+      "La revisión técnica de los modelos declarados LoD2.2 corresponde al técnico designado. El taller únicamente registra observaciones y no acepta modelos.",
       "Una huella carece de modelo 3D; su incorporación precede cualquier ampliación hacia LoD3.",
       "La referencia vertical debe quedar documentada antes de ajustar alturas o publicar resultados definitivos."
     ],
-    "online":[
-      {"label":"Mapa privado en ArcGIS Online","url":"https://munisc.maps.arcgis.com/apps/mapviewer/index.html?webmap=ba83db9b79574da185fc3ea4bb30e85d","access":"Cuenta municipal autorizada"},
-      {"label":"Paquete privado en ArcGIS Online","url":"https://munisc.maps.arcgis.com/home/item.html?id=371a46c73a5e4d2fb38c7a7c54912079","access":"Cuenta municipal autorizada"}
+    "online": [
+      {
+        "label": "Mapa privado en ArcGIS Online",
+        "url": "https://munisc.maps.arcgis.com/apps/mapviewer/index.html?webmap=ba83db9b79574da185fc3ea4bb30e85d",
+        "access": "Cuenta municipal autorizada"
+      },
+      {
+        "label": "Paquete privado en ArcGIS Online",
+        "url": "https://munisc.maps.arcgis.com/home/item.html?id=371a46c73a5e4d2fb38c7a7c54912079",
+        "access": "Cuenta municipal autorizada"
+      }
     ]
   },
   "preparation": [
     "Designar una persona facilitadora, una relatora y apoyo técnico.",
     "Confirmar 24 a 30 participantes; pedir una persona técnica y otra con capacidad de acuerdo por entidad.",
-    "Preparar cinco computadoras con QGIS LTR, GDAL, espacio libre y el paquete extraído.",
-    "Probar rutas relativas, archivos ráster, GeoPackage y exportación PDF/CSV.",
+    "Preparar cinco computadoras con QGIS LTR, GDAL, espacio libre y ZIP extraído; verificar que el proyecto use únicamente los archivos entregados.",
+    "Probar el proyecto QGIS, los rásteres Sentinel-2, el GeoPackage distrital y la exportación PDF/CSV.",
     "Retirar datos personales, especies sensibles e infraestructura crítica de la copia de trabajo.",
-    "Imprimir una matriz por mesa y disponer una carpeta para los productos finales."
+    "Imprimir una matriz por mesa y disponer una carpeta para los productos finales.",
+    "Usar una computadora institucional independiente para la demostración de ArcGIS. No copiar parcelas, ortofotos, LAS ni modelos 3D a los equipos de participantes."
   ],
   "resources": [
-    {"label":"Paquete de datos y proyecto QGIS","url":"https://github.com/apuitox04/san-carlos-taller/releases/tag/v2.0.0","note":"Publicación 2.0.0"},
-    {"label":"Matriz de acuerdos","url":"recursos/matriz-acuerdos.csv","note":"CSV editable"},
-    {"label":"Ficha de observación","url":"recursos/ficha-observacion.csv","note":"CSV editable"},
-    {"label":"Guía de facilitación","url":"recursos/guia-facilitacion.md","note":"Markdown"},
-    {"label":"Código y materiales del curso","url":"https://github.com/apuitox04/san-carlos-taller","note":"Repositorio público"}
+    {
+      "label": "Paquete de datos y proyecto QGIS",
+      "url": "https://github.com/apuitox04/san-carlos-taller/releases/tag/v2.0.0",
+      "note": "Publicación 2.0.0"
+    },
+    {
+      "label": "Matriz de acuerdos",
+      "url": "recursos/matriz-acuerdos.csv",
+      "note": "CSV editable"
+    },
+    {
+      "label": "Ficha de observación",
+      "url": "recursos/ficha-observacion.csv",
+      "note": "CSV editable"
+    },
+    {
+      "label": "Guía de facilitación",
+      "url": "recursos/guia-facilitacion.md",
+      "note": "Markdown"
+    },
+    {
+      "label": "Código y materiales del curso",
+      "url": "https://github.com/apuitox04/san-carlos-taller",
+      "note": "Repositorio público"
+    }
   ],
   "sources": [
-    {"label":"MLSpAnFOSS 2026","url":"https://mlspanfoss.org/","use":"Referencia internacional sobre aprendizaje automático, percepción remota y software geoespacial libre."},
-    {"label":"Talleres MLSpAnFOSS","url":"https://www.mlspanfoss.org/workshops","use":"Referencia para ejercicios con Raster Calculator y GDAL."},
-    {"label":"QGIS","url":"https://qgis.org/","use":"Aplicación principal para el trabajo práctico."},
-    {"label":"GDAL","url":"https://gdal.org/","use":"Procesamiento y verificación de datos geoespaciales."},
-    {"label":"SNIT Costa Rica","url":"https://www.snitcr.go.cr/","use":"Consulta de cartografía y metadatos oficiales."},
-    {"label":"Copernicus Data Space","url":"https://dataspace.copernicus.eu/","use":"Fuente de observaciones Sentinel-2 y documentación asociada."}
+    {
+      "label": "MLSpAnFOSS 2026",
+      "url": "https://mlspanfoss.org/",
+      "use": "Referencia internacional sobre aprendizaje automático, percepción remota y software geoespacial libre."
+    },
+    {
+      "label": "Talleres MLSpAnFOSS",
+      "url": "https://www.mlspanfoss.org/workshops",
+      "use": "Referencia para ejercicios con Raster Calculator y GDAL."
+    },
+    {
+      "label": "QGIS",
+      "url": "https://qgis.org/",
+      "use": "Aplicación principal para el trabajo práctico."
+    },
+    {
+      "label": "GDAL",
+      "url": "https://gdal.org/",
+      "use": "Procesamiento y verificación de datos geoespaciales."
+    },
+    {
+      "label": "SNIT Costa Rica",
+      "url": "https://www.snitcr.go.cr/",
+      "use": "Consulta de cartografía y metadatos oficiales."
+    },
+    {
+      "label": "Copernicus Data Space",
+      "url": "https://dataspace.copernicus.eu/",
+      "use": "Fuente de observaciones Sentinel-2 y documentación asociada."
+    }
   ]
 }
