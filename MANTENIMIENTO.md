@@ -1,4 +1,4 @@
-# Mantenimiento de la edición 2.0
+# Mantenimiento de la edición 2.0.1
 
 ## Regla de edición
 
@@ -17,7 +17,7 @@ Editar `docs/content/course.json` para cambiar:
 - productos;
 - fuentes.
 
-El total de agenda debe sumar 240 minutos. Los identificadores de prácticas se mantienen como P01–P05 y los de mesas como M1–M5.
+La agenda suma 240 minutos. Los módulos P01–P02 se realizan con el paquete QGIS, P03 es demostración restringida y P04–P05 son mesas y acuerdos. Las mesas se identifican M1–M5.
 
 ## Diseño
 
@@ -42,7 +42,7 @@ Antes de reemplazarlo:
 1. abrir el proyecto QGIS;
 2. comprobar rutas relativas;
 3. confirmar EPSG:8908;
-4. revisar GeoPackage, ráster y muestra LiDAR;
+4. revisar GeoPackage, ráster y CSV; el paquete v2.0.0 no contiene LiDAR municipal;
 5. exportar un mapa PDF y un CSV;
 6. calcular SHA-256;
 7. actualizar el manifiesto incluido en el paquete.
@@ -65,8 +65,8 @@ No presentar una escena anterior como equivalente a la versión consolidada.
 1. Ejecutar `npm run check`.
 2. Revisar el sitio en 1440 × 900, 1024 × 768 y 390 × 844.
 3. Confirmar contraste, teclado, enlaces y descargas.
-4. Crear o actualizar la publicación `v2.0.0`.
-5. Cargar el paquete y registrar su SHA-256.
+4. Preparar la edición del sitio `v2.0.1` y conservar la descarga histórica `v2.0.0` sin sustituirla.
+5. Comprobar que el enlace a `v2.0.0` entregue el ZIP intacto, con SHA-256 `fdce5a71a51b02a0b479967d3368c9d3d7f53fa62010bf2d2191e2eb5680fe74`.
 6. Publicar `docs/` desde `main` mediante GitHub Pages.
 7. Verificar la URL pública sin iniciar sesión.
 
