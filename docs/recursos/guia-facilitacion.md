@@ -30,9 +30,9 @@ Entidades propuestas: Municipalidad de San Carlos, Registro Nacional/IGN, MINAE,
 2. Extraer el paquete en una ruta corta, sin caracteres especiales.
 3. Abrir el proyecto QGIS y revisar que ninguna capa figure como ausente.
 4. Confirmar EPSG:8908.
-5. Probar lectura de GeoPackage, ráster, CSV y muestra LiDAR.
+5. Probar lectura de GeoPackage, ráster y CSV del paquete. El LiDAR municipal no se incluye.
 6. Ejecutar una exportación PDF y otra CSV.
-7. Abrir el proyecto ArcGIS Pro en la computadora de demostración.
+7. Abrir ArcGIS Pro únicamente en la computadora institucional de demostración; no copiar datos municipales a equipos de asistentes.
 8. Confirmar la sesión autorizada para el mapa privado de ArcGIS Online.
 9. Retirar nombres de propietarios, identificadores personales, especies sensibles e infraestructura crítica.
 10. Guardar una copia intacta para restablecer cada computadora.
@@ -55,7 +55,7 @@ Entidades propuestas: Municipalidad de San Carlos, Registro Nacional/IGN, MINAE,
 | 35–65 | P01 Base territorial | Proyecto guardado |
 | 65–110 | P02 Observación satelital | Ráster y CSV |
 | 110–120 | Pausa y respaldo | Archivos verificados |
-| 120–160 | P03 Altura y forma urbana | Registro LoD2.2 |
+| 120–160 | P03 Demostración municipal 3D | Ficha de observación, sin aprobación LoD2.2 |
 | 160–200 | P04 Mesas sectoriales | Vacíos y custodios |
 | 200–230 | P05 Acuerdos | Matriz completa |
 | 230–240 | Exportación y cierre | Próxima revisión |
@@ -66,7 +66,7 @@ Entidades propuestas: Municipalidad de San Carlos, Registro Nacional/IGN, MINAE,
 - Una celda NoData no representa ausencia de cambio.
 - Una corrección de altura requiere una referencia vertical documentada.
 - LoD2.2 queda en revisión hasta que la persona técnica asignada registre el resultado.
-- La copia docente excluye información personal o sensible.
+- La copia docente excluye información personal o sensible, ortofotos y nubes LiDAR municipales, parcelas y modelos 3D de acceso restringido.
 - Un acuerdo contiene responsable, plazo, formato y evidencia de cierre.
 
 ## Cierre
