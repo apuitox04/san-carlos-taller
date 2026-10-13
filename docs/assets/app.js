@@ -1,6 +1,6 @@
 const COURSE_URL = "content/course.json";
-const PROGRESS_KEY = "msc_lafortuna_curso_v2_progreso";
-const NOTES_KEY = "msc_lafortuna_curso_v2_notas";
+const PROGRESS_KEY = "msc_lafortuna_curso_v3_progreso";
+const NOTES_KEY = "msc_lafortuna_curso_v3_notas";
 
 const el = (tag, options = {}, children = []) => {
   const node = document.createElement(tag);
@@ -78,7 +78,7 @@ const renderProject = project => {
 const updateProgress = modules => {
   const state = readJson(PROGRESS_KEY);
   const count = modules.filter(module => state[module.id] === true).length;
-  document.querySelector("#progress-label").textContent = `${count} de ${modules.length} prácticas`;
+  document.querySelector("#progress-label").textContent = `${count} de ${modules.length} módulos`;
   document.querySelector("#progress-bar").style.width = `${Math.round((count / modules.length) * 100)}%`;
 };
 

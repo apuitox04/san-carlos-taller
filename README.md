@@ -1,97 +1,57 @@
-# Taller interinstitucional de información territorial de La Fortuna
+# La Fortuna | Laboratorio de análisis territorial
 
-Curso municipal de cuatro horas para revisar información territorial y acordar su actualización con instituciones de la Zona Norte.
+**Municipalidad de San Carlos · Catastro y Censos · Revisión 3.0.0**
 
-## Edición vigente
+Workshop gratuito y presencial, de cuatro horas, para instituciones y público general. Utiliza las herramientas y prácticas publicadas en MLSpAnFOSS 2026 como referencia metodológica, sin acreditación ni patrocinio de sus organizadores.
 
-- Versión: 2.0.0
-- Fecha: 12 de octubre de 2026
-- Alcance: área urbana de La Fortuna, con ampliación posterior al distrito
-- Duración: 240 minutos
-- Grupo: 24 a 30 personas en cinco mesas
-- Trabajo práctico: QGIS y GDAL
-- Demostración: ArcGIS Pro y ArcGIS Online
+## Pregunta de trabajo
+¿Qué información tenemos para explicar cómo interactúan bosque, Parque Nacional Volcán Arenal, embalse Arenal, asentamientos, agricultura y redes en el distrito 21007 La Fortuna?
 
-El sitio público se publica desde `docs/`:
+**La unidad de estudio es el distrito completo**, con 22.957,84 ha representadas en la cuadrícula del paquete Sentinel-2. El piloto municipal de cartografía urbana de 691,216 ha es independiente.
 
-<https://apuitox04.github.io/san-carlos-taller/>
+## Herramientas
+1. **QGIS**: fuentes, inspección y mapas.
+2. **GDAL**: rasterización, índices espectrales, control de datos y operaciones reproducibles.
+3. **plMapcalc**: álgebra de mapas; alternativa del taller MLSpAnFOSS.
+4. **plForestFragment/plGeoJSEG**: extensión avanzada opcional sobre datos temáticos validados.
+5. **Jupyter/Python**: reconstrucción de indicadores.
 
-## Resultado de la sesión
+## Distribución de los 240 minutos
+| Min | Tema |
+|---:|---|
+| 00–15 | Presentación de paisajes y preguntas |
+| 15–40 | P01 Referencias y cobertura |
+| 40–80 | P02 Lago/agua (MNDWI) |
+| 80–120 | P03 Vegetación/parque (NDVI) |
+| 120–130 | Pausa |
+| 130–170 | P04 Área urbana/agricultura (NDBI y comparación) |
+| 170–200 | P05 Relieve, acceso, riesgos y capas pendientes |
+| 200–230 | P06 Diagnóstico en cinco mesas |
+| 230–240 | Consolidación y entrega |
 
-Cada mesa entrega:
+## Datos y resultados
+El ZIP público anterior `v2.0.0` incorpora el límite IGN/SNIT, reflectancias L2A compuestas de 2025 (B03, B04, B08 y B11), máscaras, NDVI, cuatro puntos de revisión, proyecto QGIS y registros de control. Se mantienen sus identificadores y su SHA-256 original.
 
-1. proyecto QGIS con rutas relativas y EPSG:8908;
-2. mapa PDF con cobertura, vacíos y fuentes;
-3. CSV con un indicador y sus parámetros;
-4. matriz con custodio, validador, frecuencia, acceso y control de calidad;
-5. acciones con responsable y plazo.
+El complemento local v3.0.0 añade MNDWI, NDBI, firmas espectrales exploratorias, proyecto QGIS actualizado, mapas y guías, sin incorporar información municipal privada. El soporte común de las dos composiciones cubre **6.699,88 ha (29,18 %)** de la cuadrícula distrital. No se infieren porcentajes de cobertura del suelo sobre el área sin observación aceptada.
 
-## Secuencia
+**No están incluidos** los perímetros oficiales de parque, embalse, áreas urbanas o fincas agrícolas. No confundir firmas espectrales con usos jurídicos o una zonificación vigente.
 
-| Minuto | Trabajo |
-| ---: | --- |
-| 00–15 | Alcance, pregunta y reglas |
-| 15–35 | Estado municipal en ArcGIS |
-| 35–65 | P01 Base territorial |
-| 65–110 | P02 Observación satelital |
-| 110–120 | Pausa y respaldo |
-| 120–160 | P03 Altura y forma urbana |
-| 160–200 | P04 Mesas sectoriales |
-| 200–230 | P05 Acuerdos |
-| 230–240 | Exportación y cierre |
+## Acceso al sitio
+El despliegue público vigente depende de fusionar el PR de revisión; la versión preliminar no se considera publicada por estar solo en una rama:
+https://apuitox04.github.io/san-carlos-taller/
 
-## Mesas
+Archivos de revisión:
+- `docs/content/course.json` - programa y casos;
+- `docs/recursos/guia-facilitacion.md` - conducción;
+- `docs/recursos/fuentes_y_umbrales.md` - fuentes y fórmulas;
+- `scripts/check.mjs` - control automático.
 
-1. Catastro y planificación urbana.
-2. Ambiente y agua.
-3. Producción y desarrollo rural.
-4. Riesgo e infraestructura.
-5. Conectividad, turismo y comunidad.
-
-La convocatoria solicita una persona técnica y otra con capacidad para acordar responsabilidades por entidad. Se propone invitar a Municipalidad de San Carlos, Registro Nacional/IGN, MINAE, SINAC–ACAHN, MAG, INTA, INDER, CFIA, CNE/CME, MOPT/CONAVI, ICE, AyA/ASADAS, MICITT, SUTEL/FONATEL, ICT, sector turístico, ADIFORT, academia y comunidad.
-
-## Archivos
-
-| Ruta | Uso |
-| --- | --- |
-| `docs/index.html` | Curso interactivo |
-| `docs/content/course.json` | Agenda, prácticas, mesas, estado y fuentes |
-| `docs/recursos/guia-facilitacion.md` | Preparación y conducción |
-| `docs/recursos/matriz-acuerdos.csv` | Registro institucional |
-| `docs/recursos/ficha-observacion.csv` | Control técnico |
-| `docs/LICENCIAS_Y_DATOS.md` | Condiciones de uso |
-| `scripts/check.mjs` | Verificación local |
-
-El paquete `Taller_La_Fortuna_Datos_y_Proyecto.zip` se distribuye como activo de la publicación 2.0.0 para evitar cargar datos pesados en GitHub Pages.
-
-## Ejecución local
-
-El sitio usa HTML, CSS, JavaScript y JSON. Debe servirse por HTTP:
-
-```powershell
+## Reproducir localmente
+```bash
 python -m http.server 8080 --directory docs
-```
-
-Si Python no está disponible:
-
-```powershell
-npx --yes serve docs
-```
-
-Abrir <http://localhost:8080> y ejecutar después:
-
-```powershell
 npm run check
 ```
-
-## Referencia MLSpAnFOSS
-
-La agenda adapta ejercicios sobre Raster Calculator y GDAL publicados por [MLSpAnFOSS](https://www.mlspanfoss.org/workshops). Este curso municipal no cuenta con acreditación, aval o patrocinio de sus organizadores.
+La URL del sitio no garantiza que el paquete ampliado v3.0 esté publicado en Releases. La versión histórica v2.0.0 permanece en: https://github.com/apuitox04/san-carlos-taller/releases/tag/v2.0.0
 
 ## Licencias
-
-- Código HTML, CSS y JavaScript: MIT.
-- Textos originales: CC BY 4.0.
-- Marcas municipales, tipografías y datos de terceros: condiciones propias.
-
-Consulte [LICENCIAS_Y_DATOS.md](docs/LICENCIAS_Y_DATOS.md).
+Código: MIT. Textos originales: CC BY 4.0. plTools conserva su licencia GPLv3 y las fuentes de terceros sus condiciones propias. Ver `docs/LICENCIAS_Y_DATOS.md`.

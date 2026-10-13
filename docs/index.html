@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Curso municipal de cuatro horas para revisar información territorial de La Fortuna y acordar su actualización con instituciones de la Zona Norte.">
   <meta name="theme-color" content="#14416e">
-  <title>Taller interinstitucional de información territorial de La Fortuna</title>
+  <title>La Fortuna | Laboratorio de análisis territorial</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/app.css?v=2.0.0">
-  <script type="module" src="assets/app.js?v=2.0.0"></script>
+  <link rel="stylesheet" href="assets/app.css?v=3.0.0">
+  <script type="module" src="assets/app.js?v=3.0.0"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Ir al contenido</a>
@@ -18,15 +18,15 @@
       <img class="brand__shield" src="assets/brand/escudo-municipal-oficial.png" alt="Escudo de la Municipalidad de San Carlos">
       <div>
         <p class="brand__unit">Municipalidad de San Carlos · Catastro y Censos</p>
-        <p class="brand__course">Información territorial de La Fortuna</p>
+        <p class="brand__course">Análisis territorial de La Fortuna</p>
       </div>
       <img class="brand__mark" src="assets/brand/marca-san-carlos-oficial.png" alt="Marca San Carlos">
     </div>
     <nav class="nav" aria-label="Secciones">
       <a href="#inicio">Inicio</a>
-      <a href="#proyecto">Proyecto</a>
+      <a href="#territorio">Territorio</a><a href="#proyecto">Fuentes</a>
       <a href="#ruta">Ruta</a>
-      <a href="#practicas">Prácticas</a>
+      <a href="#practicas">Módulos</a>
       <a href="#mesas">Mesas</a>
       <a href="#facilitacion">Facilitación</a>
       <a href="#materiales">Materiales</a>
@@ -37,14 +37,14 @@
   <main id="contenido">
     <section id="inicio" class="hero section" aria-labelledby="hero-title">
       <div class="hero__copy">
-        <p class="eyebrow">Edición 2.0 · 12 de octubre de 2026</p>
-        <h1 id="hero-title">Taller interinstitucional de información territorial de La Fortuna</h1>
-        <p class="hero__lead">QGIS, teledetección, catastro 3D y acuerdos de actualización.</p>
+        <p class="eyebrow">Propuesta técnica 3.0 · 12 de octubre de 2026</p>
+        <h1 id="hero-title">La Fortuna | Laboratorio de análisis territorial</h1>
+        <p class="hero__lead">Agua, bosque, lago, agricultura, ciudad y conectividad con herramientas de MLSpAnFOSS.</p>
         <div class="facts" aria-label="Datos básicos">
           <div><strong>4 horas</strong><span>mañana o tarde</span></div>
-          <div><strong>5 mesas</strong><span>trabajo sectorial</span></div>
+          <div><strong>5 paisajes</strong><span>trabajo sectorial</span></div>
           <div><strong>24–30</strong><span>participantes</span></div>
-          <div><strong>5 productos</strong><span>entrega verificable</span></div>
+          <div><strong>5 entregables</strong><span>entrega verificable</span></div>
         </div>
         <p id="course-purpose" class="purpose">Cargando contenido…</p>
         <div class="hero__actions">
@@ -54,19 +54,37 @@
       </div>
       <figure class="hero__visual">
         <img src="assets/media/arcgis-pro-cobertura.png" alt="Coberturas territoriales de La Fortuna en ArcGIS Pro">
-        <figcaption>Estado municipal disponible para revisión técnica.</figcaption>
+        <figcaption>Imagen urbana municipal como referencia complementaria; no representa todo el distrito.</figcaption>
       </figure>
     </section>
 
     <section class="band" aria-label="Criterio de trabajo">
-      <p><strong>Alcance.</strong> El taller usa el piloto urbano de La Fortuna. La ampliación distrital depende de controles, responsabilidades y autorizaciones acordadas.</p>
+      <p><strong>Alcance.</strong> Se analiza el distrito 21007 completo; el proyecto urbano de 691,216 ha es un caso municipal diferenciado. Una firma espectral no acredita uso, derecho ni perímetro oficial.</p>
+    </section>
+
+
+    <section id="territorio" class="section section--tint" aria-labelledby="territorio-title">
+      <div class="section-heading">
+        <p class="eyebrow">Distrito 21007 · La Fortuna</p>
+        <h2 id="territorio-title">Seis paisajes, seis preguntas</h2>
+        <p>Las imágenes permiten formular hipótesis; la verificación requiere instrumentos, delimitaciones y expedientes de cada entidad competente.</p>
+      </div>
+      <div class="landscape-grid">
+        <article><span>01 · Área protegida</span><h3>Volcán Arenal</h3><p>¿Qué vegetación se observa y qué información exige delimitar el parque?</p></article>
+        <article><span>02 · Embalse</span><h3>Lago Arenal</h3><p>¿Dónde aparece firma de agua y qué datos oficiales delimitan su extensión?</p></article>
+        <article><span>03 · Asentamientos</span><h3>Centro urbano</h3><p>¿Qué superficies cambiaron y cuáles requieren expediente o inspección?</p></article>
+        <article><span>04 · Producción</span><h3>Territorio agropecuario</h3><p>¿Cómo separar vegetación agrícola, pastura, regeneración y bosque?</p></article>
+        <article><span>05 · Agua y relieve</span><h3>Cuencas y laderas</h3><p>¿Qué DEM, drenajes y series hacen falta para interpretar pendientes y escorrentía?</p></article>
+        <article><span>06 · Conexiones</span><h3>Vías y servicios</h3><p>¿Qué accesos y activos condicionan la continuidad de los servicios?</p></article>
+      </div>
+      <p class="method-note"><strong>Cobertura temporal utilizable.</strong> En el paquete original, las dos composiciones Sentinel-2 de 2025 coinciden con calidad aceptada sobre 6.699,88 ha de una cuadrícula distrital de 22.957,84 ha (29,18 %). El área sin observación válida no se clasifica.</p>
     </section>
 
     <section id="proyecto" class="section" aria-labelledby="proyecto-title">
       <div class="section-heading">
         <p class="eyebrow">Punto de partida</p>
-        <h2 id="proyecto-title">Proyecto municipal disponible</h2>
-        <p>ArcGIS Pro concentra la evidencia actual. QGIS y GDAL se usan para el ejercicio práctico. ArcGIS Online permite revisar los elementos privados autorizados.</p>
+        <h2 id="proyecto-title">Territorio y fuentes de estudio</h2>
+        <p>El ejercicio usa IGN/SNIT y Sentinel-2 en QGIS, GDAL y plMapcalc. ArcGIS se reserva para mostrar, con autorización, información catastral urbana que no forma parte del paquete público.</p>
       </div>
       <div class="project-grid">
         <article class="project-copy panel">
@@ -79,11 +97,11 @@
         </article>
         <figure class="project-image">
           <img src="assets/media/arcgis-pro-revision.png" loading="lazy" alt="Cobertura catastral y construcciones clasificadas para revisión en ArcGIS Pro">
-          <figcaption>Huella catastral, modelos disponibles y elementos pendientes.</figcaption>
+          <figcaption>Ejemplo urbano municipal: huellas y modelos no incluidos en el paquete.</figcaption>
         </figure>
         <figure class="project-image">
           <img src="assets/media/arcgis-pro-lod22.png" loading="lazy" alt="Escena 3D LoD2.2 de edificios de La Fortuna en ArcGIS Pro">
-          <figcaption>Escena LoD2.2; la revisión técnica precede cualquier ampliación LoD3.</figcaption>
+          <figcaption>Modelo LoD2.2 en revisión: la escena no certifica exactitud ni derechos.</figcaption>
         </figure>
       </div>
     </section>
@@ -100,14 +118,14 @@
 
     <section id="practicas" class="section" aria-labelledby="practicas-title">
       <div class="section-heading">
-        <p class="eyebrow">P01–P05</p>
-        <h2 id="practicas-title">Prácticas y evidencia</h2>
-        <p>Cada práctica responde una pregunta, deja un archivo o registro y se marca cuando la mesa verifica su evidencia.</p>
+        <p class="eyebrow">P01–P06</p>
+        <h2 id="practicas-title">Prácticas y resultados territoriales</h2>
+        <p>P01–P04 desarrollan análisis ráster y comprobaciones; P05 identifica dependencias de relieve y redes; P06 consolida hallazgos y acuerdos.</p>
       </div>
       <div class="progress-panel" aria-live="polite">
         <div>
           <span>Avance en este navegador</span>
-          <strong id="progress-label">0 de 5 prácticas</strong>
+          <strong id="progress-label">0 de 6 módulos</strong>
         </div>
         <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
         <button id="reset-progress" class="text-button" type="button">Reiniciar marcas</button>
@@ -195,7 +213,7 @@
       <strong>Unidad de Catastro y Censos</strong>
       <span>Municipalidad de San Carlos</span>
     </div>
-    <p>Curso v2.0.0 · La Fortuna · 2026</p>
+    <p>Curso v3.0.0 · La Fortuna · 2026</p>
   </footer>
 
   <noscript>Este sitio necesita JavaScript para cargar la agenda y las actividades. Los recursos descargables permanecen disponibles en la carpeta recursos.</noscript>
