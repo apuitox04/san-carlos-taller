@@ -6,13 +6,13 @@ El código HTML, CSS y JavaScript de este repositorio se distribuye bajo la lice
 
 ## Textos originales
 
-Los textos originales de la edición 2.0 se distribuyen bajo Creative Commons Atribución 4.0 Internacional (CC BY 4.0):
+Los textos originales de la edición 2.0.1 se distribuyen bajo Creative Commons Atribución 4.0 Internacional (CC BY 4.0):
 
 <https://creativecommons.org/licenses/by/4.0/deed.es>
 
 Atribución sugerida:
 
-> Municipalidad de San Carlos, Unidad de Catastro y Censos. Taller interinstitucional de información territorial de La Fortuna, versión 2.0, 2026.
+> Municipalidad de San Carlos, Unidad de Catastro y Censos. Taller interinstitucional de información territorial de La Fortuna, versión 2.0.1, 2026.
 
 ## Exclusiones
 
