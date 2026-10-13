@@ -6,13 +6,13 @@ El código HTML, CSS y JavaScript de este repositorio se distribuye bajo la lice
 
 ## Textos originales
 
-Los textos originales de la edición 2.0.1 se distribuyen bajo Creative Commons Atribución 4.0 Internacional (CC BY 4.0):
+Los textos originales de la edición 3.0.0 se distribuyen bajo Creative Commons Atribución 4.0 Internacional (CC BY 4.0):
 
 <https://creativecommons.org/licenses/by/4.0/deed.es>
 
 Atribución sugerida:
 
-> Municipalidad de San Carlos, Unidad de Catastro y Censos. Taller interinstitucional de información territorial de La Fortuna, versión 2.0.1, 2026.
+> Municipalidad de San Carlos, Unidad de Catastro y Censos. La Fortuna | Laboratorio de análisis territorial, versión 3.0.0, 2026.
 
 ## Exclusiones
 
@@ -29,3 +29,7 @@ Cada fuente mantiene sus condiciones de uso, atribución y acceso.
 ## Uso de MLSpAnFOSS
 
 Los enlaces a MLSpAnFOSS identifican referencias metodológicas. Este curso municipal no cuenta con acreditación, aval o patrocinio de sus organizadores.
+
+## Herramientas plTools
+
+plTools y sus componentes mantienen licencia GPLv3; el taller enlaza al repositorio del autor y no incorpora binarios ni contenido de terceros a la licencia MIT del sitio. Su instalación y ejecución deben revisarse por separado. Las fórmulas y resultados del paquete original Sentinel-2 no son equivalentes a una clasificación oficial de bosque, lago, agricultura ni área urbana.
