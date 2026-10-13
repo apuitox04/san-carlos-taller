@@ -1036,3 +1036,6 @@ noscript {
     text-decoration: none;
   }
 }
+
+/* Análisis territorial: seis casos de estudio con lectura en móvil e impresión */
+.landscape-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.landscape-grid article{background:white;border:1px solid var(--line);padding:1.25rem;border-top:3px solid var(--blue);min-height:156px}.landscape-grid article span{font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green-dark);font-weight:800}.landscape-grid article h3{color:var(--blue);font-size:1.18rem;margin:.5rem 0}.landscape-grid article p{color:var(--muted);line-height:1.55;font-size:.88rem}.method-note{margin-top:1.2rem;border-left:3px solid var(--green);background:#f7fafb;padding:1rem;line-height:1.6}@media(max-width:980px){.landscape-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:680px){.landscape-grid{grid-template-columns:1fr}}@media print{.landscape-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.landscape-grid article{break-inside:avoid}}
