@@ -15,7 +15,7 @@ const index = readText(indexPath);
 const appCss = readText(join(web, "assets", "app.css"));
 const appJs = readText(join(web, "assets", "app.js"));
 
-assert.equal(packageInfo.version, "2.0.0");
+assert.equal(packageInfo.version, "2.0.1");
 assert.equal(packageInfo.license, "MIT");
 assert.equal(course.meta.version, packageInfo.version);
 assert.equal(course.meta.durationMinutes, 240);
@@ -41,7 +41,7 @@ for (const id of ["inicio", "proyecto", "ruta", "practicas", "mesas", "facilitac
   assert.ok(index.includes(`href="#${id}"`), `Navegación #${id}`);
 }
 assert.equal((index.match(/<h1\b/g) || []).length, 1);
-assert.ok(index.includes("?v=2.0.0"));
+assert.ok(index.includes("?v=2.0.1"));
 assert.ok(index.includes("no cuenta con acreditación, aval o patrocinio"));
 assert.ok(!/trece distritos|13 distritos|ocho horas|8 horas/i.test(index));
 assert.ok(!/trece distritos|13 distritos|ocho horas|8 horas/i.test(JSON.stringify(course)));
@@ -100,9 +100,9 @@ for (const image of ["arcgis-pro-cobertura.png", "arcgis-pro-revision.png", "arc
 }
 
 console.log([
-  "Edición 2.0.0 verificada:",
+  "Sitio 2.0.1 verificado:",
   "240 minutos,",
-  "5 prácticas,",
+  "5 módulos,",
   "5 mesas,",
   `${course.outcomes.length} productos,`,
   `${localReferences.length} referencias HTML locales y`,
