@@ -4,7 +4,7 @@ Curso municipal de cuatro horas para revisar información territorial y acordar 
 
 ## Edición vigente
 
-- Versión: 2.0.0
+- Versión del sitio revisado: 2.0.1
 - Fecha: 12 de octubre de 2026
 - Alcance: área urbana de La Fortuna, con ampliación posterior al distrito
 - Duración: 240 minutos
@@ -35,7 +35,7 @@ Cada mesa entrega:
 | 35–65 | P01 Base territorial |
 | 65–110 | P02 Observación satelital |
 | 110–120 | Pausa y respaldo |
-| 120–160 | P03 Altura y forma urbana |
+| 120–160 | P03 Demostración municipal 3D |
 | 160–200 | P04 Mesas sectoriales |
 | 200–230 | P05 Acuerdos |
 | 230–240 | Exportación y cierre |
@@ -62,7 +62,15 @@ La convocatoria solicita una persona técnica y otra con capacidad para acordar 
 | `docs/LICENCIAS_Y_DATOS.md` | Condiciones de uso |
 | `scripts/check.mjs` | Verificación local |
 
-El paquete `Taller_La_Fortuna_Datos_y_Proyecto.zip` se distribuye como activo de la publicación 2.0.0 para evitar cargar datos pesados en GitHub Pages.
+## Alcance del paquete
+
+El archivo `Taller_La_Fortuna_Datos_y_Proyecto.zip` permanece como activo de la publicación **v2.0.0**, con SHA-256 `fdce5a71a51b02a0b479967d3368c9d3d7f53fa62010bf2d2191e2eb5680fe74`. Contiene proyecto QGIS, límite distrital IGN 21007, insumos Sentinel-2, indicadores y plantillas. **No contiene el límite urbano oficial ni las parcelas municipales, ortofotos, modelos DTM/DSM, LAS o edificios LoD2.2.** El ámbito del ejercicio no coincide necesariamente con los 691,216 ha del piloto urbano.
+
+P01–P02 se realizan con los datos entregados. P03 utiliza una demostración con acceso municipal autorizado y genera una ficha; no certifica modelos 3D. P04 y P05 documentan acuerdos. El sitio v2.0.1 revisa estas instrucciones sin modificar el ZIP publicado.
+
+## Fuente del paquete
+
+El paquete `Taller_La_Fortuna_Datos_y_Proyecto.zip` se descarga de la [publicación v2.0.0](https://github.com/apuitox04/san-carlos-taller/releases/tag/v2.0.0).
 
 ## Ejecución local
 
