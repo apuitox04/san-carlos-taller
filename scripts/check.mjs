@@ -15,17 +15,21 @@ const index = readText(indexPath);
 const appCss = readText(join(web, "assets", "app.css"));
 const appJs = readText(join(web, "assets", "app.js"));
 
-assert.equal(packageInfo.version, "2.0.1");
+assert.equal(packageInfo.version, "3.0.0");
 assert.equal(packageInfo.license, "MIT");
 assert.equal(course.meta.version, packageInfo.version);
 assert.equal(course.meta.durationMinutes, 240);
 assert.equal(course.schedule.reduce((sum, item) => sum + item.minutes, 0), 240);
-assert.deepEqual(course.modules.map(item => item.id), ["P01", "P02", "P03", "P04", "P05"]);
+assert.deepEqual(course.modules.map(item => item.id), ["P01", "P02", "P03", "P04", "P05", "P06"]);
 assert.deepEqual(course.tables.map(item => item.id), ["M1", "M2", "M3", "M4", "M5"]);
 assert.equal(course.outcomes.length, 5);
 assert.equal(course.project.crs.includes("EPSG:8908"), true);
 assert.equal(course.project.online.length, 2);
 assert.ok(course.project.status.some(item => item.includes("LoD2.2")));
+assert.ok(course.purpose.includes("distrito 21007"));
+assert.ok(course.sources.some(item=>item.url.includes("plTools")));
+assert.ok(course.modules.some(item=>item.steps.join(" ").includes("plMapcalc")));
+assert.ok(course.schedule.every(item=>item.minutes>0));
 
 for (const item of [...course.schedule, ...course.modules, ...course.tables]) {
   assert.ok(item.title || item.name, "Cada elemento tiene título o nombre");
@@ -36,7 +40,7 @@ for (const module of course.modules) {
   assert.ok(module.evidence, `${module.id}: evidencia`);
 }
 
-for (const id of ["inicio", "proyecto", "ruta", "practicas", "mesas", "facilitacion", "materiales", "fuentes"]) {
+for (const id of ["inicio", "territorio", "proyecto", "ruta", "practicas", "mesas", "facilitacion", "materiales", "fuentes"]) {
   assert.ok(index.includes(`id="${id}"`), `Sección #${id}`);
   assert.ok(index.includes(`href="#${id}"`), `Navegación #${id}`);
 }
@@ -100,7 +104,7 @@ for (const image of ["arcgis-pro-cobertura.png", "arcgis-pro-revision.png", "arc
 }
 
 console.log([
-  "Sitio 2.0.1 verificado:",
+  "Sitio 3.0.0 verificado:",
   "240 minutos,",
   "5 módulos,",
   "5 mesas,",
