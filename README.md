@@ -1,4 +1,22 @@
-# Taller interinstitucional de información territorial de La Fortuna
+# Proyectos de formación geoespacial · Municipalidad de San Carlos
+
+## Workshop cantonal — cuatro ejes estratégicos UTN
+
+**San Carlos: análisis territorial aplicado**, actividad gratuita de la Unidad de Catastro, dirigida a instituciones y público general.
+
+- [Abrir el workshop en GitHub Pages](https://apuitox04.github.io/san-carlos-taller/territorio/)
+- [Guía de las prácticas](docs/territorio/PRACTICAS.md)
+- [Fundamento oficial y matriz de alineamiento](docs/territorio/ALINEAMIENTO_UTN.md)
+- [Matriz de evaluación para 13 distritos y 4 ejes](docs/territorio/matriz_evaluacion_territorial.csv)
+- [Escenario financiero ilustrativo](docs/territorio/escenario_financiero_ejemplo.csv)
+
+El programa sigue los cuatro ejes aprobados en el Acuerdo 2-16-2021: Reservas de la Biosfera, Educación Financiera, Innovación Agroindustrial y Atracción de Inversión Regional. La UTN se considera sede propuesta, sin coorganización o fecha confirmadas. Los indicadores computados son de registros de huellas; las superficies ambientales y las evaluaciones de aptitud todavía requieren capas verificables.
+
+---
+
+## Taller independiente de La Fortuna
+
+
 
 Curso municipal de cuatro horas para revisar información territorial y acordar su actualización con instituciones de la Zona Norte.
 
