@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Workshop gratuito de la Unidad de Catastro de San Carlos. Detección de construcciones mediante IA, comparación de fuentes y análisis multitemporal.">
+<title>Detección de construcciones con IA | San Carlos</title>
+<style>
+:root{--navy:#123a56;--deep:#092a40;--teal:#166f82;--cyan:#d9eced;--gold:#bb8643;--ink:#213849;--muted:#597080;--border:#d9e2e7;--bg:#f6f8fa;--white:#fff;--radius:14px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.53}
+a{color:var(--teal)}button,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #d19b54;outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:#fffefdf7;border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.shell{max-width:1200px;margin:auto;padding-left:26px;padding-right:26px}
+.top{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px;color:var(--navy);font-size:12px;font-weight:700;letter-spacing:.04em}.monogram{display:grid;place-items:center;width:38px;height:40px;background:var(--navy);color:white;border-radius:5px 5px 12px 12px;font-weight:700;font-size:11px}
+.brand span{display:block;font-weight:500;letter-spacing:0;color:#4c697c}nav{display:flex;align-items:center;flex-wrap:wrap;gap:16px}nav a{text-decoration:none;color:var(--navy);font-size:13px;font-weight:600}nav a:hover{color:var(--teal)}
+.hero{background:var(--navy);color:white;overflow:hidden;padding:70px 0 76px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:800;color:#c7d6e0}
+.hero h1{font-size:clamp(38px,5.2vw,70px);line-height:1.03;margin:18px 0 24px;letter-spacing:-.045em;max-width:700px}
+.hero p{max-width:580px;color:#dce8ee;font-size:18px}.hero small{display:block;color:#c6d5de;margin-top:26px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:29px}.btn{border-radius:8px;padding:12px 20px;font-size:14px;font-weight:700;border:1px solid transparent;text-decoration:none;display:inline-block}
+.btn.primary{background:white;color:var(--navy)}.btn.secondary{color:white;background:transparent;border-color:#7ea2b7}.btn.dark{background:var(--navy);color:white}.btn.line{background:#fff;border-color:var(--border);color:var(--navy)}
+.hero-visual{background:#fff;color:var(--ink);border-radius:15px;padding:24px;box-shadow:0 18px 70px #00172330}
+.overline{display:flex;gap:8px;align-items:center;font-size:11px;font-weight:800;letter-spacing:.11em;color:#526c7c}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.snapshot{font-weight:800;color:var(--navy);font-size:19px;margin:7px 0 15px}
+.minirow{display:grid;grid-template-columns:73px 1fr 82px;align-items:center;gap:11px;margin:14px 0;font-size:12px}
+.track{background:#edf1f3;border-radius:4px;height:16px;overflow:hidden}.fill{height:100%;background:var(--teal);border-radius:4px}.fill.google{background:#ca9957}.fill.overture{background:#5794a4}.fill.ign{background:#7a94a7}
+.minirow strong{font-size:14px;color:var(--navy);text-align:right}.hero-visual .note{border-top:1px solid var(--border);padding-top:13px;margin:18px 0 0;font-size:12px;color:var(--muted)}
+main section.block{padding:66px 0}main section.tint{background:#eaf1f5}
+.section-label{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:0 0 7px}
+h2{font-size:clamp(27px,3.3vw,40px);color:var(--navy);line-height:1.13;letter-spacing:-.03em;margin:0 0 15px}
+.lead{font-size:16px;color:var(--muted);max-width:770px;margin:0 0 30px}
+.stat-strip{border-bottom:1px solid var(--border);background:white}.stats{display:grid;grid-template-columns:repeat(4,1fr)}.stats article{padding:20px 10px 21px;border-right:1px solid var(--border)}.stats article:last-child{border:0}.stats strong{display:block;font-size:28px;color:var(--navy);letter-spacing:-.03em}.stats span{display:block;color:var(--muted);font-size:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.tile{border:1px solid var(--border);border-radius:var(--radius);background:white;padding:25px;min-height:200px}.tile .num{color:#a67a46;font-size:12px;font-weight:800}.tile h3{font-size:20px;margin:13px 0 11px;color:var(--navy);line-height:1.2}.tile p{font-size:14px;color:var(--muted)}.tile a{font-size:13px;font-weight:700}
+.two{display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:start}.panel{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:26px}
+.steps{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}.step{display:grid;grid-template-columns:105px 1fr;gap:15px;background:white;padding:17px 20px}.step time{font-size:13px;color:var(--teal);font-weight:800}.step h3{margin:0;color:var(--navy);font-size:15px}.step p{font-size:13px;color:var(--muted);margin:4px 0 0}
+label{font-weight:700;color:var(--navy);font-size:13px;display:block;margin-bottom:6px}select{padding:11px 12px;width:100%;border:1px solid #bed1db;border-radius:8px;background:white;color:var(--navy)}
+.bar-panel{display:flex;flex-direction:column;gap:10px}.bar-line{display:grid;grid-template-columns:88px 1fr 70px;gap:13px;align-items:center;font-size:13px}.bar-line b{text-align:right;color:var(--navy)}.bar-bg{background:#edf3f6;height:20px;border-radius:4px;overflow:hidden}.bar-bg i{display:block;height:100%;background:var(--teal)}.bar-line:nth-child(2) i{background:#b98b52}.bar-line:nth-child(3) i{background:#718ca4}.bar-line:nth-child(4) i{background:#639ca2}
+.caption{font-size:12px;color:var(--muted);margin-top:17px}.figure-number{font-size:12px;color:var(--muted);font-weight:600}
+button.textbtn{border:0;background:none;padding:0;color:var(--teal);font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.exercise{border-left:3px solid var(--gold);padding-left:19px;margin:22px 0}.exercise h3{color:var(--navy);margin:0 0 7px;font-size:17px}
+.flexinputs{display:grid;grid-template-columns:1fr 1fr;gap:18px}.metric{margin:22px 0}.metric strong{font-size:34px;color:var(--navy);letter-spacing:-.04em}.metric span{display:block;color:var(--muted);font-size:13px}
+.reading{background:var(--bg);padding:16px 18px;border-radius:8px;color:var(--ink);font-size:13px;margin:18px 0}
+.question{border:1px solid var(--border);border-radius:10px;background:white;padding:19px;margin-top:16px}
+.question p{margin:0 0 9px;font-weight:600}.question button{padding:8px 11px;margin:3px;border:1px solid var(--border);border-radius:6px;background:white;color:var(--navy);font-size:13px}
+.feedback{font-size:13px;min-height:22px;color:var(--teal);margin:8px 0 0}.foot{background:var(--deep);color:#dce8ef;padding:38px 0;font-size:13px}
+.foot a{color:white}.foot-inner{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap}
+.note-list{list-style:none;padding:0;margin:0}.note-list li{padding:11px 0;border-bottom:1px solid var(--border);font-size:14px}
+.data-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.data-list a,.data-list button{display:block;border:1px solid var(--border);background:white;border-radius:8px;padding:13px 15px;text-align:left;text-decoration:none;color:var(--navy);font-size:14px;font-weight:700}
+.slides{position:fixed;inset:0;background:#0b304a;color:white;z-index:80;display:none;flex-direction:column}.slides.show{display:flex}
+.slide-body{flex:1;display:flex;align-items:center;justify-content:center;padding:40px}.slide-inner{max-width:850px;width:100%}.slide-num{font-weight:700;letter-spacing:.13em;color:#9fcad7;font-size:13px}.slide-inner h2{color:white;font-size:clamp(34px,5vw,62px)}.slide-inner p{font-size:clamp(18px,2.1vw,26px);line-height:1.45;color:#d2e5ec}
+.slide-footer{border-top:1px solid #527087;padding:16px 25px;display:flex;align-items:center;justify-content:space-between}.slide-footer button{background:transparent;border:1px solid #88a9bc;color:white;padding:8px 16px;border-radius:7px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:0;top:0;background:white;padding:10px;z-index:100}
+@media(max-width:900px){nav{gap:10px}.hero-grid,.two{grid-template-columns:1fr}.hero{padding:45px 0}.grid3{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start;padding-top:13px;padding-bottom:13px;flex-direction:column}.hero-visual{max-width:680px}}
+@media(max-width:520px){.shell{padding-left:17px;padding-right:17px}.hero h1{font-size:39px}.hero p{font-size:16px}.stats strong{font-size:23px}.step{grid-template-columns:1fr;gap:4px}.flexinputs,.data-list{grid-template-columns:1fr}main section.block{padding:42px 0}}
+@media print{header,.actions,.btn,.slides,nav,.question{display:none!important}.hero{background:white;color:var(--ink);padding:10px}.hero h1{color:var(--navy)}.hero p,.hero small{color:var(--ink)}.hero-grid{grid-template-columns:1fr}main section.block{padding:25px 0}.tile,.panel{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#inicio">Ir al contenido</a>
+<header><div class="shell top"><div class="brand"><div class="monogram" aria-hidden="true">MSC</div><div>UNIDAD DE CATASTRO<span>Municipalidad de San Carlos</span></div></div><nav aria-label="Secciones"><a href="#inicio">Inicio</a><a href="#programa">Programa</a><a href="#laboratorio">Laboratorio</a><a href="#cantonal">Cantón</a><a href="#sede">Sede</a><a href="#materiales">Materiales</a></nav></div></header>
+<section id="inicio" class="hero"><div class="shell hero-grid">
+<div><div class="eyebrow">WORKSHOP MUNICIPAL · PARTICIPACIÓN GRATUITA</div><h1>Detección de construcciones con IA</h1><p>Análisis multitemporal de edificaciones en San Carlos. Comparación de fuentes abiertas, modelos de visión artificial y revisión técnica de resultados.</p><div class="actions"><a class="btn primary" href="#laboratorio">Explorar prácticas</a><button class="btn secondary" id="openSlides" type="button">Ver presentación</button></div><small>13 distritos · QGIS / Python · Unidad de Catastro · Sede UTN propuesta</small></div>
+<div class="hero-visual"><div class="overline"><span class="dot"></span> DATOS DE REFERENCIA · QUESADA</div><div class="snapshot">Comparación de cuatro catálogos</div>
+<div class="minirow"><span>Google</span><div class="track"><div class="fill google" style="width:100%"></div></div><strong>27.888</strong></div>
+<div class="minirow"><span>Overture</span><div class="track"><div class="fill overture" style="width:75.66%"></div></div><strong>21.101</strong></div>
+<div class="minirow"><span>Microsoft</span><div class="track"><div class="fill" style="width:59.29%"></div></div><strong>16.534</strong></div>
+<div class="minirow"><span>IGN 2017</span><div class="track"><div class="fill ign" style="width:35.54%"></div></div><strong>9.912</strong></div>
+<p class="note">Registros por fuente. No representan edificaciones únicas ni cambios temporales. Overture integra datos de otros proveedores.</p></div></div></section>
+<div class="stat-strip"><div class="shell stats"><article><strong>13</strong><span>distritos de San Carlos</span></article><article><strong>4</strong><span>catálogos analizados</span></article><article><strong>3</strong><span>prácticas con solución</span></article><article><strong>1 día</strong><span>jornada gratuita propuesta</span></article></div></div>
+<main>
+<section class="block"><div class="shell"><p class="section-label">El problema</p><h2>Qué puede afirmar un modelo</h2><p class="lead">La IA detecta geometrías candidatas. El análisis temporal exige imágenes con fecha y calidad verificables. Un catálogo publicado después de otro no prueba que sus edificios sean más recientes.</p>
+<div class="grid3"><article class="tile"><span class="num">01 / OBSERVACIÓN</span><h3>Localizar edificaciones</h3><p>Examinar polígonos extraídos por modelos de visión y comprobar su relación con imágenes y terreno.</p></article><article class="tile"><span class="num">02 / COMPARACIÓN</span><h3>Detectar discrepancias</h3><p>Medir intersección geométrica, omisiones aparentes y diferencias de delimitación entre fuentes.</p></article><article class="tile"><span class="num">03 / VALIDACIÓN</span><h3>Justificar cambios</h3><p>Separar altas y retiros posibles de artefactos, sombras, error del modelo y falta de observación.</p></article></div></div></section>
+<section id="programa" class="block tint"><div class="shell two"><div><p class="section-label">Organización docente</p><h2>Programa de un día</h2><p class="lead">20–24 participantes. QGIS para todos; Python opcional. Las operaciones complejas se entregan ejecutadas y se revisan durante la sesión.</p><div class="reading">Pausas 10:00–10:15 y 14:45–15:00. Almuerzo 12:30–13:30. Cada participante entrega un mapa, una tabla de revisión y una ficha de interpretación.</div></div><div class="steps">
+<div class="step"><time>08:30</time><div><h3>Fuentes y problema territorial</h3><p>Orígenes, fechas y criterios para definir un resultado válido.</p></div></div>
+<div class="step"><time>09:00</time><div><h3>Catálogos de huellas</h3><p>IGN/SNIT, Google, Microsoft y Overture.</p></div></div>
+<div class="step"><time>10:15</time><div><h3>Práctica 01 · Quesada</h3><p>Muestra real de 1 km², geometrías y puntaje de confianza.</p></div></div>
+<div class="step"><time>11:30</time><div><h3>Concordancia geométrica</h3><p>Intersección sobre unión y casos sin correspondencia suficiente.</p></div></div>
+<div class="step"><time>13:30</time><div><h3>Práctica 02 · IA multitemporal</h3><p>Escenas sintéticas T1/T2 y evaluación de falsos cambios.</p></div></div>
+<div class="step"><time>15:00</time><div><h3>Práctica 03 · San Carlos</h3><p>Comparación de registros entre los trece distritos.</p></div></div>
+<div class="step"><time>15:45</time><div><h3>Informe y cierre</h3><p>Incertidumbre, acciones de verificación y productos.</p></div></div></div></div></section>
+<section id="laboratorio" class="block"><div class="shell"><p class="section-label">Prácticas verificables</p><h2>Laboratorio</h2><p class="lead">El ejercicio real compara resultados de detectores publicados. El multitemporal utiliza una simulación señalada como tal: el ZIP aportado no contiene dos ortofotografías fechadas.</p>
+<div class="two"><div class="panel"><div class="overline"><span class="dot"></span> 01 · MUESTRA REAL</div><h3>¿Coinciden dos detectores?</h3><p>Quesada · 1 km² · Google Open Buildings y Microsoft. Se toma el IoU máximo de cada huella Google frente a una huella Microsoft.</p><div class="flexinputs"><div><label for="iou">Umbral IoU</label><select id="iou"><option value="0">0,20</option><option value="1" selected>0,35</option><option value="2">0,50</option><option value="3">0,70</option></select></div><div><div class="metric"><strong id="coinc">886</strong><span>huellas con coincidencia geométrica</span></div></div></div><div class="reading" id="iouExplain" aria-live="polite">1.207 huellas de Google no alcanzan IoU 0,35 con ninguna huella de Microsoft. No implica que sean construcciones nuevas.</div><button type="button" class="textbtn" id="copyMethod">Copiar interpretación técnica</button></div>
+<div class="panel"><div class="overline"><span class="dot"></span> 02 · SIMULACIÓN DE IA</div><h3>¿Cuándo aparece un falso cambio?</h3><p>Un Random Forest entrenado en una escena sintética independiente identifica tejados en T1 y T2.</p><div class="flexinputs"><div class="metric"><strong>0,840</strong><span>F1 en T1 (simulado)</span></div><div class="metric"><strong>0,983</strong><span>F1 en T2 (simulado)</span></div></div><div class="reading">Diseño conocido: 4 tejados añadidos, 2 retirados y 1 modificado. El modelo introduce errores; no existe aquí evidencia de un cambio real en el cantón.</div></div></div>
+<div class="question"><p>Comprobación: Google muestra una huella y Microsoft no. ¿Qué puede concluirse?</p><button data-answer="wrong">Se construyó después de 2023</button><button data-answer="right">Hay una discrepancia que requiere revisión</button><button data-answer="wrong">La huella es necesariamente falsa</button><p class="feedback" id="feedback" aria-live="polite"></p></div>
+</div></section>
+<section id="cantonal" class="block tint"><div class="shell"><p class="section-label">13 distritos</p><h2>Explorador de fuentes</h2><p class="lead">Seleccione un distrito para comparar sus registros originales. Estos conteos usan la asignación del ZIP municipal recibido; la versión institucional requiere un nuevo cruce con la DTA oficial IGN/SNIT.</p><div class="two"><div class="panel"><label for="district">Distrito</label><select id="district"></select><h3 style="color:var(--navy);font-size:20px;margin:24px 0 12px" id="districtTitle">Quesada</h3><div class="bar-panel" id="districtBars"></div><p class="caption">Las cantidades de fuentes distintas no se suman. Overture incluye datos de Google y Microsoft.</p></div>
+<div class="panel"><h3 style="color:var(--navy);margin-top:0">Uso correcto del resultado</h3><ul class="note-list"><li>Conservar procedencia, versión y atributos de cada proveedor.</li><li>Consultar la cobertura de captura y la antigüedad de las imágenes.</li><li>No inferir fecha de construcción desde la fecha de publicación.</li><li>Usar la DTA oficial IGN/SNIT para una estadística administrativa definitiva.</li><li>Vincular resultados a predios solo después de verificar geometría y régimen de acceso.</li></ul><p style="margin-top:20px"><button type="button" class="btn dark" id="exportCsv">Descargar tabla de 13 distritos (CSV)</button></p></div></div></div></section>
+<section id="sede" class="block"><div class="shell two"><div><p class="section-label">Organización de la jornada</p><h2>Ecocampus UTN: sede propuesta</h2><p class="lead">La UTN sitúa su Ecocampus en La Abundancia, Ciudad Quesada. Publica disponibilidad de aulas y auditorio para actividades formativas. La fecha, la sala y cualquier colaboración institucional todavía deben acordarse.</p><a class="btn line" href="https://www.utn.ac.cr/content/sede-regional-san-carlos" target="_blank" rel="noopener">Información oficial de la UTN ↗</a></div><div class="panel"><h3 style="color:var(--navy);margin:0 0 13px">Requisitos para una práctica presencial</h3><ul class="note-list"><li>Aula con mesas y tomacorrientes para 20–24 participantes.</li><li>Proyección y equipo de sonido del instructor.</li><li>Computadora portátil con QGIS por participante.</li><li>Datos entregados antes de la jornada para evitar descargas durante la sesión.</li><li>Acceso a internet opcional para consultar servicios OGC.</li></ul><p class="caption">Sede y fecha pendientes de confirmación. La UTN no figura todavía como coorganizadora.</p></div></div></section>
+<section id="materiales" class="block tint"><div class="shell"><p class="section-label">Insumos y reproducibilidad</p><h2>Materiales del workshop</h2><p class="lead">Las prácticas se basan en cuatro conjuntos entregados por el organizador. El sitio publica indicadores y fuentes, no redistribuye automáticamente las cuatro bases completas.</p>
+<div class="data-list"><button type="button" id="downloadEval">Descargar ficha de revisión (CSV)</button><a href="#cantonal">Consultar estadísticas cantonales</a><a href="https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_Research_open-buildings_v3_polygons" target="_blank" rel="noopener">Google Open Buildings v3 ↗</a><a href="https://github.com/microsoft/GlobalMLBuildingFootprints" target="_blank" rel="noopener">Microsoft Building Footprints ↗</a><a href="https://docs.overturemaps.org/guides/buildings/" target="_blank" rel="noopener">Overture Buildings ↗</a><a href="https://www.snitcr.go.cr/servicios_ogc_completo" target="_blank" rel="noopener">IGN / SNIT ↗</a></div>
+<div class="reading" style="margin-top:25px">Para ejecutar una detección temporal sobre construcciones reales se necesitan ortofotos T1 y T2 de alta resolución con fechas verificadas, alineamiento, etiquetas independientes y un modelo validado. El material entregado permite revisar los detectores y practicar un flujo sintético mientras se preparan esos insumos.</div></div></section>
+</main>
+<footer class="foot"><div class="shell foot-inner"><div><strong>Unidad de Catastro · Municipalidad de San Carlos</strong><p>Workshop gratuito para instituciones y público general.<br>Propuesta técnica de octubre 2026. Sin fecha de realización confirmada.</p></div><div>Fuentes: IGN/SNIT · Google Open Buildings · Microsoft · Overture<br>Metodología de revisión; no constituye inventario municipal certificado.<br><a href="https://github.com/apuitox04/san-carlos-taller">Proyecto en GitHub</a></div></div></footer>
+<div class="slides" id="slideDeck" role="dialog" aria-modal="true" aria-label="Presentación del workshop"><div class="slide-body"><div class="slide-inner"><div class="slide-num" id="slideNum"></div><h2 id="slideTitle"></h2><p id="slideText"></p></div></div><div class="slide-footer"><button type="button" id="slidePrev">← Anterior</button><div id="slideCounter"></div><div><button type="button" id="slideNext">Siguiente →</button> <button type="button" id="slideClose">Cerrar ×</button></div></div></div>
+<script>
+"use strict";
+const rows=[
+["AGUAS ZARCAS",8207,8114,16207,13341],["BUENAVISTA",326,318,545,447],["CUTRIS",6719,5406,11654,11589],
+["FLORENCIA",8003,9693,16851,14183],["FORTUNA",8203,9506,14670,13292],["MONTERREY",2791,2551,4102,3804],
+["PALMERA",3604,3821,6931,6272],["PITAL",8241,6768,13604,12020],["POCOSOL",8932,7258,12990,12924],
+["QUESADA",9912,16534,27888,21101],["TIGRA",3926,3837,7674,6499],["VENADO",1630,1453,2556,2367],["VENECIA",4891,5267,9857,8934]
+];
+const num=n=>new Intl.NumberFormat("es-CR").format(n);
+const district=document.getElementById("district");
+rows.forEach(r=>{const o=document.createElement("option");o.value=r[0];o.textContent=r[0];district.appendChild(o)});
+district.value="QUESADA";
+function redraw(){
+ const r=rows.find(x=>x[0]===district.value);document.getElementById("districtTitle").textContent=r[0];
+ const labels=["IGN 2017","Microsoft","Google","Overture"];const max=Math.max(...r.slice(1));
+ const box=document.getElementById("districtBars");box.replaceChildren();
+ r.slice(1).forEach((value,j)=>{
+  const line=document.createElement("div");line.className="bar-line";
+  const span=document.createElement("span");span.textContent=labels[j];
+  const bg=document.createElement("div");bg.className="bar-bg";
+  const bar=document.createElement("i");bar.style.width=(100*value/max).toFixed(1)+"%";
+  bg.appendChild(bar);const strong=document.createElement("b");strong.textContent=num(value);
+  line.append(span,bg,strong);box.appendChild(line)
+ })
+}
+district.addEventListener("change",redraw);redraw();
+const outcomes=[{min:0.2,m:1227,u:866},{min:0.35,m:886,u:1207},{min:0.5,m:505,u:1588},{min:0.7,m:89,u:2004}];
+let currentThreshold=1;
+function updateIoU(){currentThreshold=Number(document.getElementById("iou").value);const v=outcomes[currentThreshold];
+ document.getElementById("coinc").textContent=num(v.m);
+ document.getElementById("iouExplain").textContent=num(v.u)+" huellas de Google no alcanzan IoU "+v.min.toFixed(2).replace(".",",")+" con ninguna huella de Microsoft. No implica que sean construcciones nuevas."}
+document.getElementById("iou").addEventListener("change",updateIoU);
+function csvDownload(name,content){
+ const blob=new Blob(["\ufeff"+content],{type:"text/csv;charset=utf-8"});
+ const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),500)
+}
+document.getElementById("exportCsv").addEventListener("click",()=>{
+ const text="distrito,ign,microsoft,google,overture\n"+rows.map(r=>r.join(",")).join("\n")+"\nSIN ASIGNACION UNICA,57,58,82,95\n";
+ csvDownload("San_Carlos_huellas_por_fuente.csv",text)
+});
+document.getElementById("downloadEval").addEventListener("click",()=>{
+ csvDownload("ficha_inspeccion_construcciones.csv","codigo,distrito,coordenada_E,coordenada_N,fuentes,fecha_imagen_t1,fecha_imagen_t2,observacion_valida,resultado_IA,revision_manual,estado,observaciones\nREV-001,,,,,,,,,,pendiente,\n")
+});
+document.getElementById("copyMethod").addEventListener("click",async()=>{
+ const v=outcomes[currentThreshold];const t="Muestra de Quesada, 1 km²: Google 2.093 huellas y Microsoft 1.201. Con IoU ≥ "+v.min+", "+v.m+" huellas Google tienen concordancia geométrica; "+v.u+" no alcanzan el umbral. La comparación no demuestra cambios temporales.";
+ try{await navigator.clipboard.writeText(t);document.getElementById("copyMethod").textContent="Interpretación copiada"}catch(e){document.getElementById("copyMethod").textContent="Puede seleccionar el texto de la práctica"}
+});
+document.querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>{
+ document.getElementById("feedback").textContent=b.dataset.answer==="right"?"Correcto. La discrepancia requiere comprobar la geometría, la fuente, la fecha local de las imágenes y, de ser necesario, realizar inspección.":"No puede deducirse eso de dos proveedores. Una fecha de publicación no es una fecha de construcción."
+}));
+const slides=[
+["Detección de construcciones con IA","Workshop gratuito de la Unidad de Catastro. Ámbito: los 13 distritos de San Carlos."],
+["Problema técnico","Una huella detectada no equivale a una construcción confirmada ni acredita su situación catastral."],
+["Las cuatro fuentes","IGN 2017: 75.442. Microsoft: 80.584. Google: 145.611. Overture: 126.868."],
+["Las fuentes no son independientes","Overture reutiliza Microsoft, Google y OSM. Sus registros no pueden sumarse."],
+["¿Qué fecha representa cada capa?","IGN: ortofotos 2015–2018. Google: inferencia 2023. En Microsoft y Overture la fecha local de las imágenes varía."],
+["La unidad territorial","San Carlos completo. Para los informes administrativos se aplica la DTA oficial publicada por el IGN/SNIT."],
+["Ejercicio 01 · Quesada","Ventana de 1 km². Google: 2.093 huellas. Microsoft: 1.201 huellas."],
+["Concordancia geométrica","IoU = intersección / unión. Con umbral 0,35: 886 huellas Google alcanzan concordancia; 1.207 no."],
+["Ausencia de concordancia ≠ nueva construcción","Puede haber cambios de trazado, comisiones, omisiones, edificios divididos o fechas desconocidas."],
+["Ejercicio 02 · análisis multitemporal sintético","T1 y T2 son imágenes artificiales. Un clasificador predice techos y se comparan sus errores."],
+["El error puede parecer un cambio","F1 T1 = 0,840; F1 T2 = 0,983. Un falso positivo en T1 puede transformarse en falsa retirada."],
+["Para detectar cambios reales","Se requieren ortofotos T1 y T2 fechadas, cobertura homologable, máscaras de calidad y validación independiente."],
+["Ejercicio 03 · distritos","Se comparan cuatro catálogos con sus denominadores y la misma geometría territorial."],
+["Producto final","Mapa, tabla, GeoPackage de revisión y ficha que separe evidencia, inferencia y verificación pendiente."],
+["Sede propuesta","Ecocampus UTN, La Abundancia. Actividad gratuita; sede y fecha por confirmar."]
+];
+let slideIdx=0;const deck=document.getElementById("slideDeck");
+function showSlide(){document.getElementById("slideNum").textContent="WORKSHOP SAN CARLOS · PRESENTACIÓN";document.getElementById("slideTitle").textContent=slides[slideIdx][0];document.getElementById("slideText").textContent=slides[slideIdx][1];document.getElementById("slideCounter").textContent=(slideIdx+1)+" / "+slides.length}
+function changeSlide(delta){slideIdx=Math.min(Math.max(0,slideIdx+delta),slides.length-1);showSlide()}
+document.getElementById("openSlides").addEventListener("click",()=>{slideIdx=0;showSlide();deck.classList.add("show");document.getElementById("slideNext").focus()});
+document.getElementById("slidePrev").addEventListener("click",()=>changeSlide(-1));
+document.getElementById("slideNext").addEventListener("click",()=>changeSlide(1));
+document.getElementById("slideClose").addEventListener("click",()=>{deck.classList.remove("show");document.getElementById("openSlides").focus()});
+document.addEventListener("keydown",e=>{if(!deck.classList.contains("show"))return;if(e.key==="Escape")document.getElementById("slideClose").click();if(e.key==="ArrowRight")changeSlide(1);if(e.key==="ArrowLeft")changeSlide(-1)});
+</script>
+</body>
+</html>
