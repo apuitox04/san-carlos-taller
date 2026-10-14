@@ -1,0 +1,6 @@
+variable,valor,unidad,estado
+inversion_inicial,2000000,CRC,supuesto
+beneficio_anual,900000,CRC_por_anio,supuesto
+costo_operativo_anual,300000,CRC_por_anio,supuesto
+tasa_descuento,8,porciento_anual,supuesto
+horizonte,5,anios,supuesto

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123a56"><meta name="description" content="Workshop gratuito de la Unidad de Catastro: GDAL, plMapcalc, Jupyter y QGIS para estudiar los trece distritos de San Carlos.">
-<title>San Carlos · Laboratorio de análisis territorial</title>
+<meta name="theme-color" content="#123a56"><meta name="description" content="Workshop gratuito de la Unidad de Catastro: GDAL, plMapcalc, Jupyter y QGIS aplicados a los cuatro ejes de la UTN en los 13 distritos de San Carlos.">
+<title>San Carlos · Análisis territorial aplicado | Cuatro ejes UTN</title>
 <link rel="icon" href="../assets/favicon.svg">
 <style>
 :root{--a:#123a56;--b:#1d7182;--accent:#bb8749;--gray:#5e707d;--line:#dce5e9;--bg:#f4f8fa;--paper:#fff}
@@ -28,6 +28,21 @@ label{display:block;color:var(--a);font-size:13px;font-weight:750;margin:0 0 7px
 .track{height:18px;background:#e8f0f3;border-radius:4px;overflow:hidden}.fill{background:var(--b);height:100%;border-radius:4px}
 .barrow b{text-align:right;font-variant-numeric:tabular-nums}
 .report{border-left:4px solid var(--accent);padding:15px 18px;background:#f5f8fa;font-size:13px}.report strong{font-size:15px;color:var(--a)}
+
+.axisgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ax{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;border-top:4px solid var(--b);display:flex;flex-direction:column;gap:5px}
+.ax:nth-child(2){border-top-color:#bb8749}.ax:nth-child(3){border-top-color:#46836a}.ax:nth-child(4){border-top-color:#556e98}
+.axn{font-size:11px;font-weight:850;letter-spacing:.12em;color:var(--b)}
+.ax h3{font-size:21px;margin:5px 0 6px}.ax p{font-size:13px;color:var(--gray);margin:0 0 12px}
+.axout{display:grid;grid-template-columns:78px 1fr;gap:8px;font-size:12px;padding:12px;background:var(--bg);border-radius:7px;margin-top:auto}
+.axout strong{color:var(--a)}.status{font-size:11px;font-weight:700;color:#775521;margin-top:11px}.status.simulated{color:#7b4773}
+.sourcenote{font-size:12px;color:var(--gray);margin-top:19px}
+.fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fin-grid label{font-size:12px}
+.fin-grid input{display:block;width:100%;padding:10px 12px;margin-top:5px;border:1px solid #bdcfd9;border-radius:6px;font-size:15px;color:var(--a)}
+.finance-number small,.finance-grid small{display:block;color:var(--gray);font-size:12px}
+.finance-number strong{display:block;font-size:clamp(28px,4vw,42px);line-height:1.3;color:var(--a);font-variant-numeric:tabular-nums}
+.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.finance-grid strong{display:block;font-size:18px;color:var(--a)}
+@media(max-width:640px){.axisgrid,.fin-grid{grid-template-columns:1fr}}
 details{border:1px solid var(--line);border-radius:9px;padding:16px 19px;margin:10px 0;background:white}summary{cursor:pointer;font-size:15px;font-weight:800;color:var(--a)}
 details p,details li{font-size:13px;color:#4f6471}pre{font:12px/1.6 Consolas,monospace;overflow:auto;background:#123a56;color:#ecf6f8;padding:15px;border-radius:7px}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:12px}.links a{padding:15px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-weight:650;font-size:13px;color:var(--a)}
@@ -44,29 +59,42 @@ footer{padding:34px 0;background:#0b2c43;color:#d7e7ed;font-size:12px}footer a{c
 @media print{header,.deck,button{display:none!important}.hero{background:white;color:var(--a)}.hero p{color:#384f5d}.card,details{break-inside:avoid}}
 </style></head><body>
 <header class="top"><div class="wrap topinner"><a href="#inicio" class="identity"><img src="../assets/brand/escudo-municipal-oficial.png" alt="Escudo Municipalidad de San Carlos"><span>UNIDAD DE CATASTRO<small>Municipalidad de San Carlos</small></span></a>
-<nav aria-label="Secciones del workshop"><a href="#programa">Programa</a><a href="#practicas">Prácticas</a><a href="#territorio">Distritos</a><a href="#sede">Sede</a><a href="#materiales">Materiales</a></nav></div></header>
-<section class="hero" id="inicio"><div class="wrap hero-inner"><div><div class="kicker">WORKSHOP GRATUITO · SAN CARLOS</div>
-<h1>Laboratorio de análisis territorial con software libre</h1>
-<p>GDAL, plMapcalc, Jupyter y QGIS para estudiar patrones de concentración, diferencias entre fuentes cartográficas y resultados espaciales de los trece distritos.</p>
+<nav aria-label="Secciones del workshop"><a href="#ejes">Ejes UTN</a><a href="#programa">Programa</a><a href="#practicas">Prácticas</a><a href="#territorio">Distritos</a><a href="#sede">Sede</a><a href="#materiales">Materiales</a></nav></div></header>
+<section class="hero" id="inicio"><div class="wrap hero-inner"><div><div class="kicker">WORKSHOP GRATUITO · UNIDAD DE CATASTRO · SAN CARLOS</div>
+<h1>San Carlos: análisis territorial aplicado</h1>
+<p>Un laboratorio con GDAL, plMapcalc, Jupyter y QGIS sobre conservación, agroindustria, educación financiera y evaluación territorial de inversión.</p>
 <div class="act"><a class="btn" href="#practicas">Comenzar las prácticas</a><button class="btn alt" id="openDeck">Presentación del workshop</button></div>
 <p style="font-size:12px;margin-top:27px">Una jornada · instituciones y público general · Ecocampus UTN propuesto</p></div>
 <div class="hero-card"><span class="eyebrow">Cifras del ejercicio</span><strong>428.505</strong><p>Registros acumulados de cuatro catálogos. No equivalen a edificios únicos.</p>
 <hr><strong>53.606</strong><p>Celdas de 250 metros que representan el área cantonal en el ejercicio. La cuadrícula contiene recuentos de centroides, no superficie construida.</p></div></div></section>
-<div class="wrap stats"><div><strong>13</strong><span>distritos</span></div><div><strong>4</strong><span>proveedores comparados</span></div><div><strong>3</strong><span>herramientas analíticas centrales</span></div><div><strong>6,5 h</strong><span>trabajo efectivo</span></div></div>
+<div class="wrap stats"><div><strong>13</strong><span>distritos</span></div><div><strong>4</strong><span>proveedores comparados</span></div><div><strong>4</strong><span>ejes estratégicos UTN</span></div><div><strong>6,5 h</strong><span>trabajo efectivo</span></div></div>
 <main>
-<section class="block"><div class="wrap"><p class="eyebrow">Pregunta de trabajo</p><h2>¿Qué describe cada fuente sobre San Carlos?</h2>
-<p class="lead">La estadística cantonal depende de la geometría, el catálogo y la unidad de comparación. El laboratorio diferencia observación, procesamiento, modelo exploratorio y validación técnica. No se atribuyen construcciones nuevas a las diferencias entre proveedores.</p>
-<div class="cards"><article class="card"><span class="num">01 / PREPARAR</span><h3>Fuentes geográficas</h3><p>Códigos distritales, superficies, registros no asignados, procedencia y verificación IGN/SNIT.</p></article><article class="card"><span class="num">02 / ANALIZAR</span><h3>Cuadrícula cantonal</h3><p>GDAL prepara rásteres; plMapcalc calcula disparidad entre conteos de dos proveedores.</p></article><article class="card"><span class="num">03 / COMPARAR</span><h3>Patrones espaciales</h3><p>Jupyter ejecuta un agrupamiento KMeans. Las clases obtenidas no representan zonificación ni uso de suelo oficial.</p></article></div></div></section>
-<section class="block wash" id="programa"><div class="wrap columns"><div><p class="eyebrow">Jornada propuesta</p><h2>08:30 – 16:30</h2><p class="lead">Seis prácticas para instituciones y público general. Se entregan archivos preparados para evitar instalaciones y descargas de gran tamaño durante la sesión.</p>
-<div class="report"><strong>Producto final</strong><p>Proyecto QGIS, tabla de 13 distritos, ráster de disparidad, mapa e interpretación técnica de una página.</p></div>
-<p style="font-size:12px;color:var(--gray);margin-top:18px">Pausas: 10:00–10:15 y 14:40–14:55. Almuerzo: 12:30–13:30.</p></div>
-<div><div class="time"><b>08:30</b><div><strong>Problema territorial</strong><p>30 minutos</p></div></div>
-<div class="time"><b>09:00</b><div><strong>P01 · Geometrías y fuentes</strong><p>60 minutos · controles de linaje</p></div></div>
-<div class="time"><b>10:15</b><div><strong>P02 · GDAL</strong><p>65 minutos · VRT y COG</p></div></div>
-<div class="time"><b>11:20</b><div><strong>P03 · plMapcalc</strong><p>70 minutos · álgebra ráster</p></div></div>
-<div class="time"><b>13:30</b><div><strong>P04 · Jupyter y KMeans</strong><p>70 minutos · agrupamiento</p></div></div>
-<div class="time"><b>14:55</b><div><strong>P05 · Indicadores distritales</strong><p>50 minutos · lectura espacial</p></div></div>
-<div class="time"><b>15:45</b><div><strong>P06 · Mapa e informe</strong><p>40 minutos · control técnico</p></div></div></div></div></section>
+<section class="block" id="ejes"><div class="wrap">
+<p class="eyebrow">Acuerdo UTN 2-16-2021 · Sede Regional de San Carlos</p>
+<h2>Cuatro áreas de incidencia, un diagnóstico territorial</h2>
+<p class="lead">El Consejo Universitario aprobó en 2021 una estrategia regional en Reservas de la Biosfera, Educación Financiera, Innovación Agroindustrial y Atracción de Inversión Regional. El workshop vincula estas áreas con una base geoespacial común de los 13 distritos, sin presentar indicadores indirectos como diagnósticos definitivos.</p>
+<div class="axisgrid">
+<article class="ax"><span class="axn">EJE 01 · AMBIENTE</span><h3>Reservas de la Biosfera</h3><p>Examinar la relación entre el cantón, la Reserva de Biosfera Agua y Paz y las áreas silvestres protegidas. Distinguir zonificación MaB, ASP y límites administrativos.</p><div class="axout"><strong>Producto</strong><span>Matriz de coberturas, restricciones y vacíos de información.</span></div><span class="status">Requiere geometrías oficiales de UNESCO/SINAC</span></article>
+<article class="ax"><span class="axn">EJE 02 · ECONOMÍA</span><h3>Educación Financiera</h3><p>Evaluar un servicio hipotético de monitoreo geoespacial mediante inversión inicial, operación anual, beneficio esperado y tasa de descuento. Explorar sensibilidad.</p><div class="axout"><strong>Producto</strong><span>Flujo de caja, VAN, recuperación simple y supuestos.</span></div><span class="status simulated">Escenario didáctico; no es un retorno comprobado</span></article>
+<article class="ax"><span class="axn">EJE 03 · PRODUCCIÓN</span><h3>Innovación Agroindustrial</h3><p>Caracterizar el patrón de huellas registradas en los distritos y formular preguntas de localización logística y encadenamientos. Incorporar coberturas de cultivos solo si se obtienen fuentes oficiales.</p><div class="axout"><strong>Producto</strong><span>Indicadores espaciales y mapa de sectores para investigación.</span></div><span class="status">Huellas reales disponibles; producción no clasificada</span></article>
+<article class="ax"><span class="axn">EJE 04 · DESARROLLO</span><h3>Atracción de Inversión Regional</h3><p>Definir criterios de preselección territorial: conectividad vial, servicios, capacidad productiva, protección ambiental y calidad de datos. No generar rankings de aptitud sin esas capas.</p><div class="axout"><strong>Producto</strong><span>Ficha multicriterio y datos que faltan para decidir.</span></div><span class="status">Marco de evaluación; elegibilidad no calculada</span></article>
+</div>
+<p class="sourcenote">Base normativa: <a href="https://utn.ac.cr/sites/default/files/attachments/Gaceta%20Julio-55-2021.pdf" target="_blank" rel="noopener">Gaceta UTN, julio 2021, acuerdo 2-16-2021</a>. Referencias técnicas: <a href="https://www.comisionunesco.cr/agua-y-paz" target="_blank" rel="noopener">Comisión UNESCO</a> · <a href="https://procomer.com/procomer-presenta-perfil-de-region-huetar-norte-para-incentivar-oportunidades-de-inversion/" target="_blank" rel="noopener">PROCOMER</a>.</p>
+</div></section>
+<section class="block wash" id="programa"><div class="wrap columns"><div>
+<p class="eyebrow">Programa presencial · 390 minutos efectivos</p><h2>08:30–16:30</h2>
+<p class="lead">Seis prácticas encadenadas. Los cálculos pesados y las capas disponibles se preparan antes de la sesión; las fuentes aún no obtenidas se presentan como requisitos, no como resultados terminados.</p>
+<div class="report"><strong>Entrega del participante</strong><p>Proyecto QGIS del cantón, análisis distrital, ficha ambiental, escenario financiero y matriz preliminar para estudiar una iniciativa regional. Cada apartado indica fuente, método y grado de evidencia.</p></div>
+<p class="sourcenote">Pausas 09:45–10:00 y 15:20–15:35. Almuerzo 12:15–13:15. Los horarios son una propuesta; no hay fecha confirmada.</p>
+</div><div>
+<div class="time"><b>08:30–09:00</b><div><strong>Pregunta territorial y cuatro ejes UTN</strong><p>30 min · Criterios, indicadores y límites de uso.</p></div></div>
+<div class="time"><b>09:00–09:45</b><div><strong>P01 · Base geoespacial</strong><p>45 min · IGN/SNIT, fuentes, GDAL y QGIS.</p></div></div>
+<div class="time"><b>10:00–11:05</b><div><strong>P02 · Reserva de Biosfera Agua y Paz</strong><p>65 min · Capas de conservación, recortes y máscara válida.</p></div></div>
+<div class="time"><b>11:05–12:15</b><div><strong>P03 · Patrones agroindustriales</strong><p>70 min · plMapcalc, densidad y agrupamiento exploratorio.</p></div></div>
+<div class="time"><b>13:15–14:10</b><div><strong>P04 · Educación financiera</strong><p>55 min · Supuestos, flujos de caja, VAN y sensibilidad.</p></div></div>
+<div class="time"><b>14:10–15:20</b><div><strong>P05 · Evaluación para inversión regional</strong><p>70 min · Matriz multicriterio, exclusiones y datos faltantes.</p></div></div>
+<div class="time"><b>15:35–16:30</b><div><strong>P06 · Informe integrado</strong><p>55 min · Síntesis por eje, mapa y recomendaciones verificables.</p></div></div>
+</div></div></section>
 <section class="block" id="territorio"><div class="wrap"><p class="eyebrow">Explorador cantonal</p><h2>Intensidad por km² según el proveedor</h2>
 <p class="lead">Seleccione una fuente. Las barras representan huellas atribuidas a cada distrito divididas entre su superficie. Es una comparación transversal entre catálogos, no una serie temporal.</p>
 <div class="columns"><div class="card"><label for="fuente">Fuente</label><select id="fuente"><option value="google">Google Open Buildings</option><option value="microsoft">Microsoft Building Footprints</option><option value="ign">IGN 2017</option><option value="overture">Overture Maps</option></select><div id="bars" class="chart"></div><small class="note">Fuente: archivo Comparar_Huellas_San_Carlos del ejercicio. Datos resumidos por distrito; consulte las limitaciones de cronología.</small></div>
@@ -74,17 +102,32 @@ footer{padding:34px 0;background:#0b2c43;color:#d7e7ed;font-size:12px}footer a{c
 <div style="font-size:40px;font-weight:850;color:var(--a)" id="densityDistrict"></div><p>Registros por km²</p>
 <div class="report"><strong>Control de procedencia</strong><p>La delimitación procede del ZIP didáctico y no contiene metadatos suficientes para certificar la versión de DTA. Debe cotejarse con IGN/SNIT antes de publicar indicadores institucionales.</p></div>
 <p><button class="btn" id="downloadCsv" style="background:var(--a);color:white">Descargar estadísticas CSV</button></p></div></div></div></section>
-<section class="block wash" id="practicas"><div class="wrap"><p class="eyebrow">Seis ejercicios</p><h2>Laboratorio con respuestas</h2><p class="lead">Los datos ráster se derivaron de las cuatro capas proporcionadas. La solución Jupyter ya fue ejecutada; el ejecutable plMapcalc requiere prueba en el equipo del instructor.</p>
-<details open><summary>P01 · Cartografía y denominadores</summary><p>Abra el GeoPackage de los distritos. Compruebe 13 códigos, CRS EPSG:8908, área de cada distrito y el total de registros por proveedor. Quesada: 27.888 Google en 143,74 km²; Cutris: 11.654 en 849,38 km².</p></details>
-<details><summary>P02 · GDAL: información, VRT y COG</summary><p>Inspeccione las cuadrículas de 250 m y verifique su alineación.</p><pre>gdalinfo -stats datos/google_registros_250m.tif
-gdalbuildvrt -separate mi_trabajo/catalogos.vrt datos/google_registros_250m.tif datos/microsoft_registros_250m.tif
-gdal_translate -of COG datos/google_registros_250m.tif mi_trabajo/google_cog.tif -co COMPRESS=DEFLATE</pre><p>Resultado comprobable: 53.606 celdas de análisis dentro de la máscara.</p></details>
-<details><summary>P03 · plMapcalc: disparidad de dos fuentes</summary><p>Use el programa de plMapcalc preparado en el paquete local. La operación por celda es D = |G − M|/(G + M + 1). Compare con el GeoTIFF de referencia; no interprete D como exactitud o antigüedad de construcciones.</p></details>
-<details><summary>P04 · Jupyter: aprendizaje no supervisado</summary><p>Ejecute KMeans con recuentos de cuatro fuentes mediante log(1 + n), estandarización y tres grupos. Resultado de referencia: 6.693 celdas de baja intensidad, 4.848 intermedia y 2.377 alta.</p></details>
-<details><summary>P05 · Lectura distrital</summary><p>Compare resultados por área, registros sin asignación única y la disparidad Google–Microsoft. Diferencie ausencia de registro de ausencia física de edificaciones.</p></details>
-<details><summary>P06 · Nota y mapa técnico</summary><p>Incluya fuente, CRS, unidad territorial, resolución, numerador, denominador, parámetro, resultado y limitaciones. Evite presentar discrepancias entre fuentes como cambios confirmados.</p></details>
-<div class="quiz"><strong>Comprobación</strong><p>¿Es correcto afirmar que una huella Google ausente de Microsoft corresponde a una construcción nueva?</p>
-<button type="button" data-answer="bad">Sí, las fuentes son dos fechas</button><button type="button" data-answer="good">No, primero debo verificar imágenes y fechas</button><p id="quizResult" role="status"></p></div></div></section>
+<section class="block wash" id="practicas"><div class="wrap"><p class="eyebrow">Laboratorio · 6 prácticas</p><h2>Operaciones, evidencia y solución</h2>
+<p class="lead">El conjunto de huellas y la cuadrícula de 250 m ya permiten ejecutar la estadística distrital. La superposición ambiental, la clasificación agroproductiva y la aptitud de inversión requieren capas adicionales verificables. Las situaciones financieras son simuladas.</p>
+<details open><summary>P01 · Preparar la unidad territorial (45 min)</summary><p><strong>Herramientas:</strong> QGIS y GDAL. Inspeccionar GeoPackage, DTA del IGN publicada en el SNIT, EPSG:8908, NoData y fuentes; diferenciar registros, edificaciones únicas y superficie vectorial. <strong>Control resuelto:</strong> Quesada cuenta con 27.888 huellas Google en 143,7409 km² según el conjunto docente (194,02 registros/km²). La geometría usada requiere cotejo con la DTA oficial.</p><pre>gdalinfo -stats datos/google_registros_250m.tif</pre></details>
+<details><summary>P02 · Reservas de la Biosfera (65 min)</summary><p><strong>Herramientas:</strong> GDAL y QGIS. Consultar el polígono Agua y Paz de UNESCO y las áreas silvestres protegidas SINAC; verificar versión, geometría y sistema de referencia; cruzar únicamente sus sectores coincidentes con San Carlos. Diferenciar reservas de biosfera (zonas núcleo, amortiguamiento y transición) de ASP legalmente declaradas. <strong>Producto:</strong> mapa de contexto y tabla de superficies solo después de incorporar las capas. <strong>Estado:</strong> no se entregan aún áreas calculadas de intersección.</p></details>
+<details><summary>P03 · Innovación Agroindustrial (70 min)</summary><p><strong>Herramientas:</strong> plMapcalc, Jupyter y QGIS. Analizar las cuatro cuadrículas de huellas para detectar intensidad y discrepancia por celda. Fórmula D = |G−M|/(G+M+1); ejecutar KMeans de tres grupos sobre log(1+n). <strong>Control:</strong> 6.693, 4.848 y 2.377 celdas en las clases no vacías. No identificar cultivos, plantas procesadoras ni productividad solo por estas huellas. <strong>Dato futuro:</strong> cartografía agraria o censo validado.</p></details>
+<details><summary>P04 · Educación Financiera (55 min)</summary><p><strong>Herramientas:</strong> hoja de cálculo conceptual o el calculador integrado. Estimar la conveniencia de financiar un programa de monitoreo geoespacial con parámetros hipotéticos: inversión, gasto operativo, ahorro o beneficio anual, horizonte y descuento. <strong>Producto:</strong> VAN y recuperación simple con un escenario de sensibilidad de menor beneficio. Ninguna cifra representa el presupuesto o los ingresos de la Municipalidad ni la UTN.</p><a href="#finanzas">Abrir calculador</a></details>
+<details><summary>P05 · Atracción de Inversión Regional (70 min)</summary><p><strong>Herramientas:</strong> QGIS, análisis multicriterio y discusión guiada. Formular filtros excluyentes ambientales antes de puntuar acceso vial, capacidad de redes, disponibilidad de suelo, mano de obra y servicios. Utilizar el perfil Huetar Norte de PROCOMER como referencia regional. <strong>Producto:</strong> matriz de disponibilidad y criterios. Sin datos oficiales de servicios y accesos, no generar ranking territorial ni mapa de aptitud.</p></details>
+<details><summary>P06 · Informe territorial integrado (55 min)</summary><p><strong>Herramientas:</strong> QGIS y exportaciones GeoPackage/CSV/PDF. Elaborar una ficha por eje con observación, fuente, incertidumbre, posibilidad de uso y actividad de verificación. <strong>Control:</strong> el expediente debe separar resultados calculados, inferencias exploratorias y escenarios simulados.</p></details>
+<div class="quiz"><strong>Pregunta de evaluación</strong><p>Una cuadrícula presenta muchas huellas y está cerca de una vía principal. ¿Puede recomendarse automáticamente como ubicación agroindustrial?</p><button data-answer="bad">Sí: la densidad confirma viabilidad</button><button data-answer="good">No: faltan restricciones, servicios y evaluación económica</button><p id="quizResult" role="status"></p></div>
+</div></section><section class="block" id="finanzas"><div class="wrap"><p class="eyebrow">P04 · Educación Financiera</p><h2>Calculador de inversión en información geoespacial</h2>
+<p class="lead">Ejercicio de costos y beneficios de un posible servicio de monitoreo territorial. Introduzca supuestos; el cálculo no estima recaudación municipal, ingresos empresariales ni rentabilidad inmobiliaria.</p>
+<div class="columns">
+<div class="card financial-form">
+<div class="fin-grid">
+<label>Inversión inicial (₡)<input id="capex" type="number" min="0" step="100000" value="2000000"></label>
+<label>Beneficio anual esperado (₡)<input id="benefit" type="number" min="0" step="50000" value="900000"></label>
+<label>Operación anual (₡)<input id="opex" type="number" min="0" step="50000" value="300000"></label>
+<label>Tasa de descuento anual (%)<input id="rate" type="number" min="0" max="90" step="0.5" value="8"></label>
+<label>Horizonte (años)<input id="years" type="number" min="1" max="20" step="1" value="5"></label>
+</div>
+<p class="sourcenote">Valores iniciales ilustrativos, no presupuestados ni auditados. Beneficio solo debe introducirse como ahorro verificable o efecto monetizado con metodología documentada.</p></div>
+<div class="card">
+<div class="finance-number"><small>Valor actual neto (VAN)</small><strong id="npv">—</strong></div>
+<div class="finance-grid"><div><small>Flujo neto anual</small><strong id="netFlow">—</strong></div><div><small>Recuperación simple</small><strong id="payback">—</strong></div></div>
+<div id="financeExplain" class="report">Cambie los valores para comprobar la sensibilidad.</div><button type="button" class="btn" id="exportFin" style="background:var(--a);color:white;margin-top:12px">Descargar escenario (CSV)</button>
+</div></div></div></section>
 <section class="block" id="herramientas"><div class="wrap"><p class="eyebrow">MLSpAnFOSS 2026</p><h2>Herramientas y alcance real</h2>
 <div class="cards"><div class="card"><span class="num">WORKSHOP V</span><h3>GDAL</h3><p>Inspección de rásteres, mosaicos virtuales, exportación GeoTIFF/COG y álgebra espacial. Adaptación del material de Jacek Ślopek.</p></div>
 <div class="card"><span class="num">WORKSHOP IV</span><h3>plMapcalc</h3><p>Calculadora autónoma de Paweł Netzel: un programa por celda para comparar dos cuadrículas. Se requiere instalar plTools antes de la jornada.</p></div>
@@ -92,10 +135,19 @@ gdal_translate -of COG datos/google_registros_250m.tif mi_trabajo/google_cog.tif
 <p class="note" style="margin-top:18px">Flower y computación cuántica son workshops independientes de MLSpAnFOSS. Quedan como ampliación posterior, no como prácticas ejecutadas de este workshop. La adaptación municipal no implica aval de MLSpAnFOSS, IEEE ni OSGeo.</p></div></section>
 <section class="block wash" id="sede"><div class="wrap columns"><div><p class="eyebrow">Sede por confirmar</p><h2>Ecocampus UTN · La Abundancia</h2><p class="lead">La UTN confirma aulas y auditorio en su Ecocampus de Ciudad Quesada. La actividad sería gratuita e impartida por la Unidad de Catastro municipal. No existe reserva ni acuerdo de coorganización confirmado.</p><a href="https://www.utn.ac.cr/content/sede-regional-san-carlos">Información oficial de la UTN ↗</a></div>
 <div class="card"><h3>Condiciones de funcionamiento</h3><p>20 a 24 personas, equipo portátil con QGIS y consola GDAL, plTools preinstalado donde corresponda, cuaderno Jupyter preparado y archivos descargados antes de la sesión. Se requiere un ensayo previo de plMapcalc en Windows.</p></div></div></section>
-<section class="block" id="materiales"><div class="wrap"><p class="eyebrow">Documentación y recursos</p><h2>Preparación y datos</h2><p class="lead">La web pública comparte el método, el programa y datos estadísticos agregados. Los archivos originales IGN y Overture requieren revisión de sus términos de distribución antes de publicarlos como descarga abierta.</p>
-<div class="links"><a href="PRACTICAS.md">Guía del participante y parámetros ↗</a><a href="estadisticas_13_distritos.csv" download>Resultados cantonales CSV ↓</a>
-<a href="https://www.mlspanfoss.org/workshops">MLSpAnFOSS · materiales originales ↗</a><a href="https://gitlist.host417505.xce.pl/plTools">plTools · instalador e instrucciones ↗</a><a href="https://www.snitcr.go.cr/servicios_ogc_completo">IGN / SNIT · DTA oficial ↗</a><a href="https://github.com/apuitox04/san-carlos-taller">Código del taller ↗</a></div>
-<small class="note">La detección multitemporal real, la clasificación de coberturas naturales y los índices de agua/vegetación requieren insumos adicionales de teledetección fechados que no forman parte de los GeoPackage aportados.</small></div></section>
+<section class="block" id="materiales"><div class="wrap"><p class="eyebrow">Descargas y procedencia</p><h2>Materiales para preparar el workshop</h2><p class="lead">El portal publica indicadores y procedimientos, sin redistribuir automáticamente bases completas de terceros. Los insumos ambientales, agroproductivos y de infraestructura deberán prepararse y comprobarse antes de convocar.</p>
+<div class="links">
+<a href="PRACTICAS.md">Guía revisada para los cuatro ejes UTN ↗</a>
+<a href="ALINEAMIENTO_UTN.md">Matriz técnica y fuentes de los ejes ↗</a>
+<a href="estadisticas_13_distritos.csv" download>Estadísticas de huellas por distrito ↓</a>
+<a href="matriz_evaluacion_territorial.csv" download>Ficha de evaluación territorial ↓</a>
+<a href="https://utn.ac.cr/sites/default/files/attachments/Gaceta%20Julio-55-2021.pdf" target="_blank" rel="noopener">Acuerdo UTN 2-16-2021 ↗</a>
+<a href="https://www.comisionunesco.cr/agua-y-paz" target="_blank" rel="noopener">Reserva de Biosfera Agua y Paz ↗</a>
+<a href="https://www.sinac.go.cr/ES/asp/Paginas/default.aspx" target="_blank" rel="noopener">SINAC · Áreas silvestres protegidas ↗</a>
+<a href="https://procomer.com/procomer-presenta-perfil-de-region-huetar-norte-para-incentivar-oportunidades-de-inversion/" target="_blank" rel="noopener">PROCOMER · Perfil Huetar Norte ↗</a>
+<a href="https://www.mlspanfoss.org/workshops" target="_blank" rel="noopener">MLSpAnFOSS · Material original ↗</a>
+<a href="https://www.snitcr.go.cr/servicios_ogc_completo" target="_blank" rel="noopener">IGN/SNIT · División territorial ↗</a>
+</div><small class="note">La Municipalidad imparte el workshop y la UTN es únicamente una sede propuesta. La alineación temática con el acuerdo universitario no representa aval, patrocinio ni colaboración formal confirmada.</small></div></section>
 </main>
 <footer><div class="wrap footergrid"><div><b>UNIDAD DE CATASTRO · MUNICIPALIDAD DE SAN CARLOS</b><p>Workshop gratuito · instituciones y público general · propuesta de octubre 2026</p></div><div>Fuentes: MLSpAnFOSS · IGN/SNIT · proveedores de huellas<br>Resultados didácticos: no son catastro oficial ni verificación predial.</div></div></footer>
 <div class="deck" id="deck" role="dialog" aria-modal="true" aria-label="Presentación"><div class="slide"><div><p class="kicker">WORKSHOP · SAN CARLOS</p><h2 id="slideTitle"></h2><p id="slideText"></p></div></div><div class="deckbottom"><button id="slidePrev">← Atrás</button><span id="slideCount"></span><span><button id="slideNext">Siguiente →</button> <button id="closeDeck">Cerrar ×</button></span></div></div>
@@ -129,17 +181,55 @@ document.getElementById('downloadCsv').addEventListener('click',()=>{
  const a=document.createElement('a');a.href=u;a.download='San_Carlos_fuentes_distritos.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)
 });
 document.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>document.getElementById('quizResult').textContent=b.dataset.answer==='good'?'Correcto. La fecha de publicación no confirma cuándo fue construida cada edificación.':'Incorrecto. Los catálogos no constituyen dos observaciones equivalentes fechadas.'));
+
+const peso=(n)=>Number.isFinite(n)?new Intl.NumberFormat('es-CR',{style:'currency',currency:'CRC',maximumFractionDigits:0}).format(n):'—';
+const financialIds=['capex','benefit','opex','rate','years'];
+function financeCalc(){
+ const [I,B,C,r0,N0]=financialIds.map(id=>Number(document.getElementById(id).value));
+ const N=Math.trunc(N0),r=r0/100;
+ if(financialIds.some(id=>document.getElementById(id).value.trim()==='')||[I,B,C,r0,N0].some(x=>!Number.isFinite(x)||x<0)||r>=1||N<1||N>20){
+  document.getElementById('npv').textContent='Revisar parámetros';return null;
+ }
+ const net=B-C;
+ const flows=Array.from({length:N},(_,i)=>net/Math.pow(1+r,i+1));
+ const npv=-I+flows.reduce((a,b)=>a+b,0);
+ const payback=net>0?(I/net).toFixed(2)+' años':'No recupera con este flujo';
+ document.getElementById('npv').textContent=peso(npv);
+ document.getElementById('netFlow').textContent=peso(net);
+ document.getElementById('payback').textContent=payback;
+ const msg='Escenario didáctico: VAN '+(npv>=0?'no negativo':'negativo')+' a '+r0+' % durante '+N+' años, con flujo neto anual constante de '+peso(net)+'. El resultado depende íntegramente de supuestos, no constituye una estimación oficial.';
+ document.getElementById('financeExplain').textContent=msg;
+ return {I,B,C,r0,N,net,npv,flows};
+}
+financialIds.forEach(id=>document.getElementById(id).addEventListener('input',financeCalc));
+document.getElementById('exportFin').addEventListener('click',()=>{
+ const x=financeCalc();if(!x)return;
+ const data=['variable,valor,unidad,origen','inversion_inicial,'+x.I+',CRC,supuesto',
+ 'beneficio_anual,'+x.B+',CRC_anual,supuesto','costo_operativo_anual,'+x.C+',CRC_anual,supuesto',
+ 'tasa_descuento,'+x.r0+',porciento,supuesto','horizonte,'+x.N+',anios,supuesto',
+ 'flujo_neto_anual,'+x.net+',CRC_anual,calculado','VAN,'+x.npv.toFixed(2)+',CRC,calculado'].join('\n');
+ const url=URL.createObjectURL(new Blob(['\uFEFF'+data],{type:'text/csv;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='escenario_financiero_didactico.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+financeCalc();
+
 const slides=[
-['San Carlos: laboratorio territorial','Análisis territorial mediante GDAL, plMapcalc, Jupyter y QGIS.'],
-['Fuentes de huellas','IGN, Microsoft, Google y Overture; registros que pueden coincidir entre sí.'],
-['El denominador importa','Comparar 27.888 registros de Quesada con 11.654 de Cutris exige normalizar por km².'],
-['GDAL','Inspección, cuadrícula de 250 metros, VRT y GeoTIFF optimizado.'],
-['plMapcalc','Calcular la disparidad local de conteos entre proveedores.'],
-['Jupyter','Agrupamiento KMeans sobre variables de cuatro catálogos.'],
-['Límites del resultado','Un grupo estadístico no es una clase legal de uso del suelo.'],
-['Un catálogo no acredita temporalidad','Las fechas de publicación no demuestran nuevas construcciones.'],
-['El producto técnico','Mapa, cuadro de distritos, fórmula, método e incertidumbre.'],
-['Sede propuesta','Ecocampus UTN, La Abundancia. Actividad gratuita de la Unidad de Catastro.']
+['San Carlos: análisis territorial aplicado','Workshop gratuito de la Unidad de Catastro, con base en los cuatro ejes estratégicos de la UTN San Carlos.'],
+['Fundamento académico','Acuerdo 2-16-2021 del Consejo Universitario: Reservas de la Biosfera, Educación Financiera, Innovación Agroindustrial y Atracción de Inversión Regional.'],
+['Base territorial','13 distritos. Comparación de fuentes de huellas sobre cuadrícula de 250 m con controles de procedencia.'],
+['Método MLSpAnFOSS','GDAL prepara rásteres; plMapcalc calcula operaciones por celda; Jupyter ejecuta los procedimientos reproducibles.'],
+['Reservas de la Biosfera','La Reserva Agua y Paz trasciende San Carlos; distinguir su zonificación de las áreas silvestres protegidas legalmente declaradas.'],
+['Dato ambiental pendiente','Antes de calcular superficies: obtener geometrías oficiales UNESCO/SINAC, controlar versión y cruzar con DTA IGN.'],
+['Innovación Agroindustrial','El patrón de registros construidos sirve como contexto; no prueba qué es una planta agroindustrial o qué cultivo produce una zona.'],
+['Control de intensidad','Quesada: 27.888 huellas Google/143,7409 km². Comparar con otros distritos sin presentar edificaciones únicas.'],
+['plMapcalc','Diferencia relativa D=|G−M|/(G+M+1), calculada sobre cuadrículas alineadas.'],
+['Jupyter y KMeans','Las clases agrupan patrones cartográficos, no categorías legales de uso del suelo.'],
+['Educación Financiera','VAN de un servicio de monitoreo con supuestos hipotéticos: inversión, costos, beneficios, horizonte y tasa de descuento.'],
+['Análisis de sensibilidad','Un proyecto con VAN positivo bajo un escenario puede dejar de serlo si el beneficio esperado se reduce.'],
+['Atracción de Inversión Regional','Antes de seleccionar sitios, examinar exclusiones ambientales, vías, redes, servicios, mercado de trabajo y condiciones del suelo.'],
+['Información insuficiente','Una alta concentración de huellas no permite certificar aptitud de inversión ni valor económico.'],
+['Informe integrado','Cuatro fichas: fuente, operación, resultado, limitación y siguiente verificación.'],
+['Sede propuesta','Ecocampus UTN en La Abundancia. No existe reserva ni coorganización confirmada.']
 ];let pos=0;const deck=document.getElementById('deck');
 function renderSlide(){document.getElementById('slideTitle').textContent=slides[pos][0];document.getElementById('slideText').textContent=slides[pos][1];document.getElementById('slideCount').textContent=(pos+1)+' / '+slides.length}
 function move(d){pos=Math.min(slides.length-1,Math.max(0,pos+d));renderSlide()}

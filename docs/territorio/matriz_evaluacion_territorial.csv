@@ -1,0 +1,5 @@
+codigo,distrito,eje,fuente,fecha_dato,escala_resolucion,indicador,unidad,estado_evidencia,limitacion,verificacion_responsable,observaciones
+21001,QUESADA,Reservas de la Biosfera,UNESCO-SINAC,,,,,requiere_geometria,Sin interseccion validada,,
+21001,QUESADA,Educacion Financiera,Escenario ilustrativo,2026,,,,simulado,No representa gasto municipal,,
+21001,QUESADA,Innovacion Agroindustrial,Huella Google,2026,,194.02,registros/km2,calculado,No identifica actividad economica,,
+21001,QUESADA,Atraccion de Inversion Regional,PROCOMER 2024,2024,,,,marco_de_criterios,Faltan datos de acceso y servicios,,
