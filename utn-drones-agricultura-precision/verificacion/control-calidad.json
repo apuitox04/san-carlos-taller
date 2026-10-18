@@ -1,0 +1,84 @@
+{
+  "fecha": "2026-10-18",
+  "comprobaciones": [
+    {
+      "archivo": "afiche/exportaciones/Afiche_A4.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "afiche/exportaciones/Afiche_historia.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "afiche/exportaciones/Afiche_redes.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "ejercicios/pix4dfields/Guia_indices.pdf",
+      "paginas": 5
+    },
+    {
+      "archivo": "ejercicios/pix4dfields/Guia_malezas.pdf",
+      "paginas": 5
+    },
+    {
+      "archivo": "ejercicios/pix4dmatic-pro/Guia_PIX4Dmatic.pdf",
+      "paginas": 5
+    },
+    {
+      "archivo": "presentacion/pdf/UTN_Drones_Agricultura.pdf",
+      "paginas": 21
+    },
+    {
+      "archivo": "propuesta-curso/pdf/Propuesta_curso_40h.pdf",
+      "paginas": 7
+    },
+    {
+      "archivo": "taller/evaluacion/Ficha_decision.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "taller/guion-instructor/Guion_instructor.pdf",
+      "paginas": 7
+    },
+    {
+      "archivo": "taller/programa/Programa_120_minutos.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "verificacion/Informe_verificacion.pdf",
+      "paginas": 1
+    },
+    {
+      "archivo": "afiche/exportaciones/Afiche_A4.png",
+      "pixeles": [
+        2480,
+        3508
+      ]
+    },
+    {
+      "archivo": "afiche/exportaciones/Afiche_redes.png",
+      "pixeles": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "archivo": "afiche/exportaciones/Afiche_historia.png",
+      "pixeles": [
+        1080,
+        1920
+      ]
+    },
+    {
+      "notas_presentador": 21,
+      "horario_minutos": 120,
+      "curso_horas": 40,
+      "evaluacion_porcentaje": 100,
+      "presupuesto_base_CRC": 2560800
+    }
+  ],
+  "enlaces_relativos": "todos existentes",
+  "estado_operativo_pix4d": "PENDIENTE: no ejecutado",
+  "revision_visual": "Identidad AGROINT: 21 diapositivas, 32 páginas DOCX y tres afiches revisados. Sin traslapes observados. Fira Sans incorporada en el PDF de presentación. Logotipos originales sin deformación."
+}

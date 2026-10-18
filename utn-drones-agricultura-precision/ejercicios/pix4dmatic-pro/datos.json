@@ -1,0 +1,18 @@
+{
+  "matic100": {
+    "url": "https://data.pix4d.com/misc/example_datasets/Pix4Dmatic_example_100_images.zip",
+    "crs": "EPSG:32632",
+    "alturas": "WGS84 elipsoidales",
+    "estado": "No descargado ni procesado"
+  },
+  "field_trial": {
+    "url": "https://drive.google.com/file/d/1nyZhoSGoS7R0M_6q8sUcPblGiVXDZKU4/view?usp=drive_link",
+    "fuente": "M01 p.319",
+    "estado": "Acceso y apertura pendientes"
+  },
+  "targeted_operations": {
+    "url": "https://drive.google.com/file/d/1uYEGeubg3l1e9mPq6w9Juk-AjHBj-s8s/view?usp=drive_link",
+    "fuente": "M01 p.301",
+    "estado": "Acceso y apertura pendientes"
+  }
+}

@@ -1,0 +1,366 @@
+[
+  [
+    1,
+    0,
+    2,
+    "Drones y agricultura\nde precisión",
+    [
+      "Demostración de PIX4Dmatic Pro y PIX4Dfields",
+      "Universidad Técnica Nacional",
+      "Administración Agroindustrial"
+    ],
+    "portada",
+    "fotografias/campo-rgb.png",
+    [
+      "R01",
+      "R07"
+    ]
+  ],
+  [
+    2,
+    2,
+    5,
+    "Objetivo del taller",
+    [
+      "Elegir un producto para una decisión agrícola.",
+      "Seguir tres casos documentados.",
+      "Distinguir indicios y recomendaciones agronómicas."
+    ],
+    "oscuro",
+    null,
+    [
+      "R01"
+    ]
+  ],
+  [
+    3,
+    5,
+    15,
+    "Aplicaciones en la agroindustria",
+    [
+      "Producción: localizar diferencias dentro del lote.",
+      "Inventarios: revisar áreas e infraestructura.",
+      "Insumos: delimitar zonas para inspección."
+    ],
+    "foto",
+    "fotografias/campo-rgb.png",
+    [
+      "R19",
+      "R20",
+      "R21"
+    ]
+  ],
+  [
+    4,
+    15,
+    19,
+    "RGB y multiespectral",
+    [
+      "RGB registra el aspecto visible y permite reconstruir geometría.",
+      "Red, Red Edge y NIR permiten calcular índices.",
+      "El sensor depende del producto requerido."
+    ],
+    "bandas",
+    null,
+    [
+      "R14",
+      "R09"
+    ]
+  ],
+  [
+    5,
+    19,
+    23,
+    "DJI Mavic 3 Multispectral",
+    [
+      "RGB de 20 MP.",
+      "Cuatro cámaras multiespectrales de 5 MP.",
+      "Bandas G, R, RE y NIR. Posicionamiento RTK."
+    ],
+    "foto",
+    "fotografias/mavic3m.jpg",
+    [
+      "R14",
+      "R22"
+    ]
+  ],
+  [
+    6,
+    23,
+    30,
+    "Planificación y control de captura",
+    [
+      "Definir resolución, cobertura y solapes.",
+      "Mantener iluminación comparable y revisar desenfoque.",
+      "Separar RGB y multiespectral. Comprobar metadatos.",
+      "Revisar permisos, área y control de campo."
+    ],
+    "lista",
+    null,
+    [
+      "R13",
+      "M01",
+      "M02"
+    ]
+  ],
+  [
+    7,
+    30,
+    33,
+    "Flujo fotogramétrico",
+    [
+      "Fotografías",
+      "Calibración",
+      "Nube y modelos",
+      "Control y salida"
+    ],
+    "flujo",
+    null,
+    [
+      "M02",
+      "R05"
+    ]
+  ],
+  [
+    8,
+    33,
+    41,
+    "Fotografías y calibración",
+    [
+      "Ejemplo oficial de 100 imágenes en Suiza.",
+      "Revisar cámaras, GCP y coordenadas.",
+      "El informe acompaña los resultados."
+    ],
+    "foto",
+    "capturas/matic100.jpg",
+    [
+      "R07",
+      "M02"
+    ]
+  ],
+  [
+    9,
+    41,
+    49,
+    "Nube de puntos y modelo 3D",
+    [
+      "La nube representa superficies reconstruidas.",
+      "La malla conecta superficies para visualización.",
+      "La calidad depende de captura y control."
+    ],
+    "nube",
+    null,
+    [
+      "R05",
+      "M02"
+    ]
+  ],
+  [
+    10,
+    49,
+    56,
+    "Ortomosaico y DSM",
+    [
+      "Ortomosaico: textura y posición en planta.",
+      "DSM: elevación de suelo, vegetación y objetos.",
+      "La altura de cultivo requiere una referencia de terreno."
+    ],
+    "comparacion",
+    null,
+    [
+      "R05",
+      "M02"
+    ]
+  ],
+  [
+    11,
+    56,
+    60,
+    "Intercambio de archivos",
+    [
+      "GeoTIFF RGB: mapa de contexto.",
+      "GeoTIFF DSM: elevación de superficie.",
+      "LAS o LAZ: geometría 3D para SIG y CAD.",
+      "NDVI y NDRE necesitan las bandas espectrales."
+    ],
+    "lista",
+    null,
+    [
+      "R05",
+      "R06"
+    ]
+  ],
+  [
+    12,
+    60,
+    63,
+    "PIX4Dfields",
+    [
+      "Procesamiento y análisis orientados al campo.",
+      "Límites, índices y estadísticas por parcela.",
+      "Operaciones según la compatibilidad del terminal."
+    ],
+    "foto",
+    "capturas/fields-msp.png",
+    [
+      "R06",
+      "R10",
+      "R16"
+    ]
+  ],
+  [
+    13,
+    63,
+    69,
+    "NDVI y NDRE",
+    [
+      "NDVI = (NIR − Red) / (NIR + Red)",
+      "NDRE = (NIR − Red Edge) / (NIR + Red Edge)",
+      "Índices adimensionales. Comparar condiciones equivalentes."
+    ],
+    "indices",
+    null,
+    [
+      "R09",
+      "M01"
+    ]
+  ],
+  [
+    14,
+    69,
+    78,
+    "Ensayo de trigo",
+    [
+      "Field trial del cuaderno oficial.",
+      "Alemania. Parrot Sequoia. Vuelo a 50 m.",
+      "Comparar índices y estadísticas por parcela."
+    ],
+    "parcelas",
+    null,
+    [
+      "M01"
+    ]
+  ],
+  [
+    15,
+    78,
+    90,
+    "Interpretación y verificación",
+    [
+      "Un valor bajo puede tener varias causas.",
+      "Revisar suelo visible, sombras y fase del cultivo.",
+      "Confirmar el indicio mediante observaciones de campo.",
+      "Registrar fecha, parcela y condiciones."
+    ],
+    "lista",
+    null,
+    [
+      "M01",
+      "R13"
+    ]
+  ],
+  [
+    16,
+    90,
+    93,
+    "Malezas en pasturas",
+    [
+      "Targeted Operations del cuaderno oficial.",
+      "Pastura australiana con zarzamora. XAG M500 RGB.",
+      "La clasificación busca áreas visualmente similares."
+    ],
+    "lista",
+    null,
+    [
+      "M01"
+    ]
+  ],
+  [
+    17,
+    93,
+    101,
+    "Magic Tool",
+    [
+      "Definir límite y obstáculos.",
+      "Marcar Wanted y Not wanted.",
+      "Revisar falsos positivos y omisiones.",
+      "Corregir antes de crear la operación."
+    ],
+    "magic",
+    null,
+    [
+      "R11",
+      "M01"
+    ]
+  ],
+  [
+    18,
+    101,
+    105,
+    "Mapa de operación",
+    [
+      "Separar actuación y exclusión.",
+      "Revisar tamaño de celda y bordes.",
+      "Comprobar licencia, formato y terminal.",
+      "Esta demostración no prescribe agroquímicos."
+    ],
+    "lista",
+    null,
+    [
+      "R06",
+      "R16",
+      "R17"
+    ]
+  ],
+  [
+    19,
+    105,
+    115,
+    "Decisiones de administración",
+    [
+      "Definir el problema y el costo de comprobarlo.",
+      "Priorizar inspecciones con evidencia trazable.",
+      "Comparar costo del servicio y beneficio medido.",
+      "Asignar responsable y revisar la decisión."
+    ],
+    "lista",
+    null,
+    [
+      "R01",
+      "R19"
+    ]
+  ],
+  [
+    20,
+    115,
+    118,
+    "Propuesta de curso formal",
+    [
+      "Drones y tecnologías geoespaciales aplicadas a la agroindustria",
+      "40 horas propuestas.",
+      "Prácticas, interpretación y proyecto aplicado.",
+      "Programa sujeto a validación de la UTN."
+    ],
+    "curso",
+    null,
+    [
+      "R01"
+    ]
+  ],
+  [
+    21,
+    118,
+    120,
+    "Cierre y preguntas",
+    [
+      "¿Qué decisión de su actividad necesita un mapa?",
+      "Defina el producto, su comprobación y el responsable.",
+      "Programa, guías y referencias en el sitio."
+    ],
+    "oscuro",
+    null,
+    [
+      "R01"
+    ]
+  ]
+]

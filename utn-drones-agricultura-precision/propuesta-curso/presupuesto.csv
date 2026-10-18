@@ -1,0 +1,11 @@
+rubro,cantidad,CRC_unitario,CRC_total
+Docencia,40,25000,1000000
+Preparacion,16,20000,320000
+Asistencia,24,12000,288000
+Equipo_y_operador,2,150000,300000
+Laboratorio,40,5000,200000
+Materiales,20,5000,100000
+Transporte,2,60000,120000
+Subtotal,,,2328000
+Contingencia_10_por_ciento,,,232800
+Base_sin_costos_pendientes,,,2560800
