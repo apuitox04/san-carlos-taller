@@ -4,15 +4,17 @@ import sharp from 'sharp';
 import {Presentation,PresentationFile} from '@oai/artifact-tool';
 import {finalizePresentation} from '/root/.codex/skills/builtins/presentations/container_tools/artifact_tool_utils.mjs';
 const ROOT=path.resolve(import.meta.dirname,'..'), WORK=path.dirname(ROOT),QA=path.join(WORK,'qa');
+await fs.mkdir(QA,{recursive:true});
 const navy='#264C6E',teal='#00918C',aqua='#DAB055',pale='#F5F5F5',ink='#263B48';
+const sources=JSON.parse(await fs.readFile(path.join(ROOT,'investigacion/referencias.json'),'utf8'));
 const slides=JSON.parse(await fs.readFile(path.join(ROOT,'presentacion/fuentes/contenido.json'),'utf8'));
 const imgs={};
 async function image(s,file,x,y,w,h,fit='contain'){
  if(!imgs[file])imgs[file]=await sharp(path.join(ROOT,'assets',file)).resize({width:1600,height:1300,fit:'inside',withoutEnlargement:true}).jpeg({quality:88}).toBuffer();
  let b=imgs[file];s.images.add({blob:b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),contentType:'image/jpeg',alt:file,fit,position:{left:x,top:y,width:w,height:h}});
 }
-function box(s,x,y,w,h,fill){return s.shapes.add({geometry:'rect',position:{left:x,top:y,width:w,height:h},fill,line:{fill:'none',width:0}})}
-function txt(s,text,x,y,w,h,size=28,color=ink,bold=false){let z=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});z.text=text;z.text.style={fontSize:size,typeface:'Fira Sans',color:color===teal&&size<24?navy:color,bold,verticalAlignment:'top',alignment:'left',wrap:'square',autoFit:'none',insets:0};return z;}
+function box(s,x,y,w,h,fill){return s.shapes.add({geometry:'rect',position:{left:x,top:y,width:w,height:h},fill,line:{style:'solid',fill:'none',width:0}})}
+function txt(s,text,x,y,w,h,size=28,color=ink,bold=false){let z=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{style:'solid',fill:'none',width:0}});z.text=text;z.text.style={fontSize:size,typeface:'Fira Sans',color:color===teal&&size<24?navy:color,bold,verticalAlignment:'top',alignment:'left',wrap:'square',autoFit:'none',insets:0};return z;}
 async function logo(s,x,y,w,white=false){const b=await fs.readFile(path.join(ROOT,'assets/marca',white?'logo_color_02_blanco.png':'logo_color_02.png'));s.images.add({blob:b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),contentType:'image/png',alt:'Logotipo original de AGROINT',fit:'contain',position:{left:x,top:y,width:w,height:w*692/2000}});}
 function footer(s,n,refs,dark=false){txt(s,`UTN · Administración Agroindustrial  |  ${refs.join(' · ')}`,56,676,1080,23,14,dark?'#D1E0E6':'#506B78');txt(s,String(n).padStart(2,'0'),1170,673,55,28,18,dark?aqua:teal,true);}
 function lines(s,items,x,y,w,size=28,gap=104,color=ink){items.forEach((t,i)=>{txt(s,String(i+1).padStart(2,'0'),x,y+i*gap,46,40,17,teal,true);txt(s,t,x+64,y+i*gap,w-64,gap-12,size,color);});}
@@ -20,7 +22,7 @@ async function finish(p,name,dir,w,h,count){
  const stamp=Date.now()+'-'+name, temp=path.join(WORK,'.build',stamp);await fs.mkdir(temp,{recursive:true});await fs.mkdir(QA,{recursive:true});
  let candidate=path.join(temp,'candidate.pptx'),final=path.join(temp,name+'.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
  const tools='/root/.codex/skills/builtins/presentations/container_tools';
- await finalizePresentation({workspaceDir:WORK,candidatePath:candidate,finalPath:final,receiptPath:path.join(QA,stamp+'.json'),integrityValidatorPath:tools+'/inspect_presentation_package_integrity.py',layoutValidatorPath:tools+'/inspect_presentation_layout_geometry.py',pythonExecutable:process.env.CODEX_PRIMARY_RUNTIME_PYTHON,fontPolicy:{basis:'user_request',families:['Fira Sans']},verifyArtifactToolImport:true,explicitTotalSlideCount:count,layoutArgs:['--expected-slide-size-emu',`${Math.round(w*9525)},${Math.round(h*9525)}`,'--validate-bullet-geometry','--validate-heading-fit']});
+ await finalizePresentation({workspaceDir:WORK,candidatePath:candidate,finalPath:final,receiptPath:path.join(QA,stamp+'.json'),integrityValidatorPath:tools+'/inspect_presentation_package_integrity.py',layoutValidatorPath:tools+'/inspect_presentation_layout_geometry.py',pythonExecutable:process.env.CODEX_PRIMARY_RUNTIME_PYTHON,fontPolicy:{basis:'design',families:['Fira Sans']},verifyArtifactToolImport:true,explicitTotalSlideCount:count,layoutArgs:['--expected-slide-size-emu',`${Math.round(w*9525)},${Math.round(h*9525)}`,'--validate-bullet-geometry','--validate-heading-fit']});
  await fs.copyFile(final,path.join(ROOT,dir,name+'.pptx'));
  console.log('Validado',name);
 }
@@ -36,7 +38,7 @@ for(const [n,start,end,title,items,kind,img,refs] of slides){
    txt(s,`${start}–${end} MIN  /  ${n<7?'CAPTURA':n<12?'FOTOGRAMETRÍA':n<16?'ÍNDICES':n<19?'MALEZAS':'GESTIÓN'}`,56,36,880,32,16,dark?aqua:navy,true);
    txt(s,title,56,90,880,100,46,dark?'#FFFFFF':navy,true);
    if(kind==='foto'){
-     lines(s,items,56,232,540,27,118);await image(s,img,650,205,574,380);txt(s,img.includes('mavic')?'Foto ZLEA · CC BY-SA 4.0':'Vista oficial · Courtesy of Pix4D / pix4d.com',650,604,574,48,14,teal);
+     lines(s,items,56,232,540,27,118);await image(s,img,650,205,574,380);txt(s,img.includes('mavic')?'Foto ZLEA · CC BY-SA 4.0':img.includes('matic-inicio')?'Captura oficial R23 · interfaz 1.73.0\nNo acredita ejecución local':'Vista oficial · Courtesy of Pix4D / pix4d.com',650,604,574,48,14,teal);
    }else if(kind==='oscuro'){
      items.forEach((t,i)=>{txt(s,t,72,233+i*115,1110,95,33,'#FFFFFF');});
      if(n===21)txt(s,'agroint.co.cr',72,607,1000,42,28,aqua,true);
@@ -47,6 +49,14 @@ for(const [n,start,end,title,items,kind,img,refs] of slides){
      const labels=['RGB','G','R','RE','NIR'];labels.forEach((t,i)=>{box(s,56+i*238,225,214,105,[navy,'#387A58','#A94742','#9C536C','#554F85'][i]);txt(s,t,78+i*238,257,180,53,34,'#FFFFFF',true);});lines(s,items,56,390,1150,27,80);
    }else if(kind==='nube'){
      await image(s,'capturas/matic100.jpg',56,213,650,370);lines(s,items,762,225,460,25,124);txt(s,'Vista oficial de nube y cámaras · Courtesy of Pix4D / pix4d.com',56,607,1120,35,15,teal);
+   }else if(kind==='evidencia'){
+     await image(s,img,56,207,740,400);lines(s,items,845,225,378,25,122);
+     txt(s,'Captura oficial de R10 · Otro conjunto, distinto de Field trial.',56,616,1168,35,18,navy);
+   }else if(kind==='captura-magic'){
+     await image(s,'capturas/magic-etiquetas.png',56,210,240,390);
+     await image(s,'capturas/magic-limpieza.png',330,210,240,390);
+     lines(s,items,650,215,570,25,98);
+     txt(s,'Capturas oficiales R11 · Herramientas de etiquetado y corrección.',56,616,1168,34,18,navy);
    }else if(kind==='indices'){
      box(s,56,220,1168,230,pale);txt(s,items[0],88,250,1100,67,37,navy,true);txt(s,items[1],88,348,1100,67,37,navy,true);txt(s,items[2],56,500,1150,85,28,ink);txt(s,'Enmascarar denominador cero y NoData. RGB no aporta NIR ni Red Edge.',56,604,1168,37,20,teal);
    }else if(kind==='parcelas'){
@@ -61,7 +71,7 @@ for(const [n,start,end,title,items,kind,img,refs] of slides){
      box(s,56,220,285,370,navy);txt(s,'40',86,250,230,130,96,aqua,true);txt(s,'HORAS\nPROPUESTAS',86,406,230,90,27,'#FFFFFF',true);lines(s,[items[0],items[2],items[3]],410,230,810,28,125);
    }else lines(s,items,56,223,1140,30,items.length===4?99:122);
  }
- footer(s,n,refs,dark);s.speakerNotes.text=`Tiempo ${start}–${end} min. Idea: ${title.replaceAll('\n',' ')}. ${items.join(' ')}\nFuentes: ${refs.join(', ')}; URLs en REFERENCIAS.md. Seguir Guion_instructor y guías D/E1/E2. Vistas Pix4D oficiales; esquemas son conceptuales. Los proyectos nativos y exportaciones requieren ejecución y ensayo previo. No atribuir los esquemas a resultados reales.`;
+ footer(s,n,refs,dark);s.speakerNotes.text=`Tiempo ${start}–${end} min. Idea: ${title.replaceAll('\n',' ')}. ${items.join(' ')}\nFuentes: ${refs.map(id=>id+': '+(sources[id]||'REFERENCIAS.md')).join('\n')}. Consulta: 2026-10-18. Seguir Guion_instructor y guías D/E1/E2. Vistas Pix4D oficiales; esquemas son conceptuales. Captura de inicio R23 identifica interfaz 1.73.0; no es una captura de Pro 2.10.3 instalada. La vista R10 no pertenece al caso Field trial. Los proyectos nativos y exportaciones requieren ejecución y ensayo previo. No atribuir los esquemas a resultados reales.`;
  await fs.writeFile(path.join(QA,`slide-${String(n).padStart(2,'0')}.png`),new Uint8Array(await(await p.export({slide:s,format:'png',scale:1})).arrayBuffer()));
 }
 await finish(p,'UTN_Drones_Agricultura','presentacion/pptx',1280,720,21);

@@ -127,14 +127,15 @@
     41,
     "Fotografías y calibración",
     [
-      "Ejemplo oficial de 100 imágenes en Suiza.",
+      "Ejemplo de trabajo: 100 imágenes de Suiza.",
       "Revisar cámaras, GCP y coordenadas.",
       "El informe acompaña los resultados."
     ],
     "foto",
-    "capturas/matic100.jpg",
+    "capturas/matic-inicio.png",
     [
       "R07",
+      "R23",
       "M02"
     ]
   ],
@@ -229,16 +230,17 @@
     14,
     69,
     78,
-    "Ensayo de trigo",
+    "Índices y estadísticas por parcela",
     [
-      "Field trial del cuaderno oficial.",
-      "Alemania. Parrot Sequoia. Vuelo a 50 m.",
-      "Comparar índices y estadísticas por parcela."
+      "Guía E1: Field trial, trigo de Alemania.",
+      "Comparar NDVI y NDRE sobre las mismas parcelas.",
+      "La vista de apoyo muestra otro ejemplo oficial."
     ],
-    "parcelas",
-    null,
+    "evidencia",
+    "capturas/fields-estadisticas.png",
     [
-      "M01"
+      "M01",
+      "R10"
     ]
   ],
   [
@@ -286,7 +288,7 @@
       "Revisar falsos positivos y omisiones.",
       "Corregir antes de crear la operación."
     ],
-    "magic",
+    "captura-magic",
     null,
     [
       "R11",

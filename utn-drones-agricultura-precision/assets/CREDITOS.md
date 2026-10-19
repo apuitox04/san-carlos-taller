@@ -14,3 +14,21 @@ Fuente de las tres imágenes Pix4D: https://support.pix4d.com/hc/en-us/articles/
 ## Identidad AGROINT
 
 Logotipos originales aportados por el usuario y utilizados a solicitud suya. Fuente, paleta y condiciones en marca/APLICACION.md. Fira Sans conserva la licencia OFL en fuentes/OFL.txt.
+
+
+## Capturas públicas de controles
+Extractos limitados con finalidad docente y crítica, sin redistribuir manuales completos ni proyectos originales. Pix4D conserva sus derechos. No se concede una licencia sobre estas capturas ni se afirma autorización institucional. Fuente y consulta 18 octubre 2026:
+
+| Archivo | Página pública de origen | Alcance |
+|---|---|---|
+| matic-inicio.png | https://support.pix4d.com/hc/en-us/articles/11188127036957 | Pantalla de importación 1.73.0, no Pro instalado |
+| matic-calibracion.png | https://support.pix4d.com/hc/en-us/articles/11188127036957 | Panel publicado como calibration_2.4.0 |
+| fields-estadisticas.png | https://support.pix4d.com/hc/en-us/articles/4409231699345 | NDRE y parcelas de otro ejemplo oficial |
+| magic-etiquetas.png | https://support.pix4d.com/hc/en-us/articles/7886486253213 | Etiquetas Wanted y Not wanted |
+| magic-limpieza.png | https://support.pix4d.com/hc/en-us/articles/7886486253213 | Controles de corrección |
+
+Courtesy of Pix4D / https://www.pix4d.com/. No son capturas de una ejecución local del taller. No se usan como evidencia de exactitud ni de rendimiento del software.
+
+## Identidad AGROINT
+
+Logotipos originales aportados por el usuario y utilizados a solicitud suya. Fuente, paleta y condiciones en marca/APLICACION.md. Fira Sans conserva la licencia OFL en fuentes/OFL.txt.
