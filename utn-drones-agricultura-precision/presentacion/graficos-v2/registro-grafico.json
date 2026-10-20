@@ -1,0 +1,291 @@
+[
+  {
+    "slide": 1,
+    "title": "",
+    "assets": [
+      "fotografias/campo-rgb.png",
+      "marca/logo_color_02_blanco.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://www.utn.ac.cr/content/administracion-agroindustrial",
+      "https://support.pix4d.com/hc/en-us/articles/360000235126"
+    ]
+  },
+  {
+    "slide": 2,
+    "title": "El mapa responde a una decisión",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Secuencia de decisión: problema, producto, comprobación, decisión."
+    ],
+    "sources": [
+      "https://www.utn.ac.cr/content/administracion-agroindustrial"
+    ]
+  },
+  {
+    "slide": 3,
+    "title": "Información para organizar la finca",
+    "assets": [
+      "marca/logo_color_02.png",
+      "fotografias/campo-rgb.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://mag.go.cr/extension-agropecuaria/",
+      "https://mag.go.cr/120-productores-costarricenses-desarrollan-agricultura-de-precision-en-cultivos-de-cafe-cebolla-y-pina/",
+      "https://www.mag.go.cr/rev_agr/v45n01_067.pdf"
+    ]
+  },
+  {
+    "slide": 4,
+    "title": "RGB y multiespectral",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Eje espectral de 400 a 900 nm. Centros de bandas M3M 560, 650, 730, 860 nm."
+    ],
+    "sources": [
+      "https://ag.dji.com/mavic-3-m/specs",
+      "https://support.pix4d.com/hc/en-us/articles/360000891623"
+    ]
+  },
+  {
+    "slide": 5,
+    "title": "DJI Mavic 3 Multispectral",
+    "assets": [
+      "marca/logo_color_02.png",
+      "fotografias/mavic3m.jpg"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://ag.dji.com/mavic-3-m/specs",
+      "https://commons.wikimedia.org/wiki/File:DJI_Mavic_3M_Multispectral_FA373WYPN9_(4-9-2024)_(cropped).jpg"
+    ]
+  },
+  {
+    "slide": 6,
+    "title": "Planificación de la captura",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Plano de vuelo con fotografías superpuestas y puntos de control."
+    ],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/36000014121991",
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 7,
+    "title": "Procesamiento fotogramétrico",
+    "assets": [
+      "marca/logo_color_02_blanco.png"
+    ],
+    "conceptual": [
+      "Flujo de procesamiento con control transversal de calidad."
+    ],
+    "sources": [
+      "https://training.pix4d.com/enrollments",
+      "https://support.pix4d.com/hc/en-us/articles/360044950312"
+    ]
+  },
+  {
+    "slide": 8,
+    "title": "Calibración y control del proyecto",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/graficos-v2/matic-19.png",
+      "capturas/graficos-v2/matic-29.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360000235126",
+      "https://support.pix4d.com/hc/en-us/articles/11188127036957",
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 9,
+    "title": "Nube de puntos y modelo 3D",
+    "assets": [
+      "marca/logo_color_02_blanco.png",
+      "capturas/matic100.jpg"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360044950312",
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 10,
+    "title": "Ortomosaico y DSM",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/graficos-v2/report-47.png",
+      "capturas/graficos-v2/report-46.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360044950312",
+      "https://training.pix4d.com/enrollments",
+      "https://support.pix4d.com/hc/en-us/articles/360040686852"
+    ]
+  },
+  {
+    "slide": 11,
+    "title": "Interoperabilidad",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Rutas de exportación por producto, formato y destino."
+    ],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360044950312",
+      "https://support.pix4d.com/hc/en-us/articles/360000897346"
+    ]
+  },
+  {
+    "slide": 12,
+    "title": "PIX4Dfields: análisis del lote",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/fields-estadisticas.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360000897346",
+      "https://support.pix4d.com/hc/en-us/articles/4409231699345",
+      "https://support.pix4d.com/hc/en-us/articles/360038644731"
+    ]
+  },
+  {
+    "slide": 13,
+    "title": "NDVI y NDRE",
+    "assets": [
+      "marca/logo_color_02_blanco.png"
+    ],
+    "conceptual": [
+      "Comparación de fórmulas y bandas usadas por NDVI y NDRE."
+    ],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360000891623",
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 14,
+    "title": "Estadísticas por parcela",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/graficos-v2/stats-07.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://training.pix4d.com/enrollments",
+      "https://support.pix4d.com/hc/en-us/articles/4409231699345"
+    ]
+  },
+  {
+    "slide": 15,
+    "title": "Interpretación y validación",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/graficos-v2/wheat-12.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://training.pix4d.com/enrollments",
+      "https://support.pix4d.com/hc/en-us/articles/36000014121991",
+      "https://support.pix4d.com/hc/en-us/articles/16997255586589"
+    ]
+  },
+  {
+    "slide": 16,
+    "title": "Malezas en pasturas",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Secuencia de selección de zarzamora a partir del caso oficial Targeted Operations."
+    ],
+    "sources": [
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 17,
+    "title": "Magic Tool",
+    "assets": [
+      "marca/logo_color_02.png",
+      "capturas/graficos-v2/magic-07.png",
+      "capturas/graficos-v2/magic-08.png"
+    ],
+    "conceptual": [],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/7886486253213",
+      "https://training.pix4d.com/enrollments"
+    ]
+  },
+  {
+    "slide": 18,
+    "title": "Mapa de operación agrícola",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Cuadrícula de actuación y exclusión, sin valores agronómicos."
+    ],
+    "sources": [
+      "https://support.pix4d.com/hc/en-us/articles/360000897346",
+      "https://support.pix4d.com/hc/en-us/articles/360038644731",
+      "https://support.pix4d.com/hc/en-us/articles/360019956578"
+    ]
+  },
+  {
+    "slide": 19,
+    "title": "Evaluación del servicio",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Evaluación del servicio desde necesidad hasta seguimiento de resultado."
+    ],
+    "sources": [
+      "https://www.utn.ac.cr/content/administracion-agroindustrial",
+      "https://mag.go.cr/extension-agropecuaria/"
+    ]
+  },
+  {
+    "slide": 20,
+    "title": "Propuesta de curso formal",
+    "assets": [
+      "marca/logo_color_02.png"
+    ],
+    "conceptual": [
+      "Diagrama proporcional de duración por módulo: 6, 6, 10, 12 y 6 horas. Total 40 h."
+    ],
+    "sources": [
+      "https://www.utn.ac.cr/content/administracion-agroindustrial"
+    ]
+  },
+  {
+    "slide": 21,
+    "title": "Aplicación agroindustrial",
+    "assets": [
+      "marca/logo_color_02_blanco.png"
+    ],
+    "conceptual": [
+      "Síntesis de aplicación: problema, producto, validación e indicador."
+    ],
+    "sources": [
+      "https://www.utn.ac.cr/content/administracion-agroindustrial"
+    ]
+  }
+]

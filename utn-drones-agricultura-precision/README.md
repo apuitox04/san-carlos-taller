@@ -1,3 +1,13 @@
+## Presentación gráfica v2
+
+Versión del 20 de octubre de 2026.
+
+- [PowerPoint editable](presentacion/pptx/UTN_Drones_Agricultura_Grafica_v2.pptx)
+- [PDF de distribución](presentacion/pdf/UTN_Drones_Agricultura_Grafica_v2.pdf)
+- [Paquete de gráficos](presentacion/Graficos_Presentacion_UTN_v2.zip)
+- [Vista previa](presentacion/graficos-v2/Vista_previa_grafica_v2.jpg)
+- [Fuentes y actualización](presentacion/graficos-v2/README.md)
+
 # Taller UTN · Drones y agricultura de precisión
 
 Materiales para Administración Agroindustrial. Taller demostrativo de 120 minutos. Proyecto independiente dentro del repositorio existente de talleres; no modifica los anteriores.

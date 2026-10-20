@@ -32,3 +32,19 @@ Courtesy of Pix4D / https://www.pix4d.com/. No son capturas de una ejecución lo
 ## Identidad AGROINT
 
 Logotipos originales aportados por el usuario y utilizados a solicitud suya. Fuente, paleta y condiciones en marca/APLICACION.md. Fira Sans conserva la licencia OFL en fuentes/OFL.txt.
+
+
+## Recursos de presentación gráfica v2
+
+Consulta: 20 de octubre de 2026. Los ocho extractos nuevos proceden de documentación pública oficial de Pix4D. Página y URL directa se registran en `capturas/graficos-v2/procedencia.json`.
+
+Crédito: **Courtesy of PIX4D / https://www.pix4d.com/**. Uso docente limitado para explicar productos y controles. Pix4D conserva sus derechos. La distribución del paquete no concede licencia sobre estos recursos. No se incluyen datos originales ni cuadernos completos.
+
+- `matic-19.png`: importación de GCP, guía rápida.
+- `matic-29.png`: panel de calibración identificado como 2.4.0 por la fuente.
+- `report-46.png`, `report-47.png`: DSM y ortomosaico del informe de calidad, contexto urbano.
+- `stats-07.png`: tabla de estadísticas del ejemplo público, distinto de Field trial.
+- `wheat-12.png`: comparación RGB/NDVI del caso público My first vegetation index map.
+- `magic-07.png`, `magic-08.png`: etiquetado y limpieza de selección.
+
+Los diagramas conceptuales de la versión v2 son originales y editables en el PowerPoint. No se utilizaron imágenes generadas. La fotografía del Mavic 3M conserva el crédito a ZLEA y la licencia CC BY-SA 4.0 citada arriba. Los logotipos AGROINT son originales aportados por el usuario.

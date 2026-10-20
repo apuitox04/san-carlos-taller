@@ -1,3 +1,12 @@
+## 2026-10-20 — Presentación gráfica v2
+
+- Rediseño de las 21 diapositivas con diagramas originales editables.
+- Ampliación de mapas, capturas y leyendas.
+- Distinción visible entre ejemplos documentales y esquemas conceptuales.
+- Nuevos PPTX, PDF de distribución, 21 PNG y paquete de gráficos.
+- Fuente, créditos, inventario por diapositiva e instrucciones de actualización.
+- Se conserva la versión anterior. No se ejecutaron proyectos nativos de Pix4D.
+
 # Cambios
 
 ## 2026-10-18

@@ -234,3 +234,20 @@ URL: https://drive.google.com/file/d/1uYEGeubg3l1e9mPq6w9Juk-AjHBj-s8s/view
 
 Consulta: 2026-10-18. Afirmaciones respaldadas: Devuelve Digital scouting.zip, 10158378111 bytes. El nombre difiere del caso solicitado. No se validó el contenido como Targeted Operations.
 
+
+
+## Presentación gráfica v2 — consulta 20 de octubre de 2026
+
+| Institución | URL | Afirmaciones o recursos respaldados |
+|---|---|---|
+| DJI | https://ag.dji.com/mavic-3-m/specs | Cámara RGB de 20 MP, cuatro cámaras multiespectrales de 5 MP y centros de banda G 560, R 650, RE 730 y NIR 860 nm. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/11188127036957 | Captura de importación de GCP y panel de calibración publicado como calibration_2.4.0. Capturas documentales, no instalación local de Pro. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/360040686852 | Vistas de ortomosaico y DSM del informe de calidad. Conservan leyendas de origen. Contexto urbano. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/4409231699345 | Vista NDRE con parcelas y tabla de estadísticas. Ejemplo público distinto de Field trial. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/16997255586589 | Comparación RGB/NDVI del ejemplo público de trigo. Distinto del ensayo del workbook. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/7886486253213 | Controles Wanted / Not wanted y Cleanup de Magic Tool. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/360044950312 | GeoTIFF para DSM y ortomosaico, LAZ para nube de puntos. |
+| Pix4D | https://support.pix4d.com/hc/en-us/articles/360000891623 | Fórmulas y bandas requeridas por NDVI y NDRE. |
+| Pix4D Training | https://training.pix4d.com/enrollments | PIX4Dfields Essentials Course Workbook, copyright 2024, suministrado por el instructor. Se comprobaron Field trial (trigo, Alemania, Parrot Sequoia) y Targeted Operations (zarzamora, pastura australiana, XAG M500 RGB). No se redistribuye el manual ni se publican imágenes extraídas de él. |
+
+Los recursos nuevos conservan URL directa y página de contexto en `assets/capturas/graficos-v2/procedencia.json`. La asignación a cada diapositiva consta en `presentacion/graficos-v2/registro-grafico.json`. Los diagramas de vuelo, decisión e intervención son originales y conceptuales. No incorporan resultados de procesamiento.
